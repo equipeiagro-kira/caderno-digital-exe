@@ -71,7 +71,9 @@ function renderMetrics() {
 }
 
 function renderWarnings() {
-  $("#warnings-list").innerHTML = (data.resumo.avisos || [])
+  const list = $("#warnings-list");
+  if (!list) return;
+  list.innerHTML = (data.resumo.avisos || [])
     .map((warning) => `<li>${warning}</li>`)
     .join("");
 }

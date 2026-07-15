@@ -1,4 +1,4 @@
-const CACHE_NAME = "exa-caderno-v8";
+const CACHE_NAME = "exa-caderno-v9";
 
 const APP_SHELL = [
   "./",
@@ -8,6 +8,7 @@ const APP_SHELL = [
   "./src/data.js",
   "./src/app.js",
   "./public/assets/excelencia-logo.jpg",
+  "./public/assets/rubisck-symbol.png",
   "./public/assets/icon-192.png",
   "./public/assets/icon-512.png"
 ];
