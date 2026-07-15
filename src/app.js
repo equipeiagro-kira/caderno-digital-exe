@@ -140,10 +140,10 @@ function treatmentRows(trial) {
 
       return `
         <tr>
-          <td>${item.numero}</td>
-          <td><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
-          <td>${specs || "-"}</td>
-          <td><div class="manejo-list">${manejos}</div></td>
+          <td data-label="No.">${item.numero}</td>
+          <td data-label="Cultivar"><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
+          <td data-label="Dados">${specs || "-"}</td>
+          <td data-label="Manejo"><div class="manejo-list">${manejos}</div></td>
         </tr>
       `;
     })
