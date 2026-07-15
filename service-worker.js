@@ -1,4 +1,4 @@
-const CACHE_NAME = "exa-caderno-v12";
+const CACHE_NAME = "exa-caderno-v13";
 
 const APP_SHELL = [
   "./",

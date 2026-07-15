@@ -52,10 +52,7 @@ function searchableTreatment(item) {
     item.pmg,
     item.populacao,
     item.motora,
-    item.movida,
-    item.adubacao?.join(" "),
-    item.jatoDirigido?.join(" "),
-    item.manejos?.map((manejo) => `${manejo.etapa} ${manejo.produto} ${manejo.dose}`).join(" ")
+    item.movida
   ].join(" "));
 }
 
@@ -122,13 +119,7 @@ function renderTrialList() {
 function filteredTreatments(trial) {
   if (!state.query) return trial.tratamentos;
   const query = normalize(state.query);
-  return trial.tratamentos.filter((item) =>
-    searchableTreatment({
-      ...item,
-      adubacao: trial.adubacao,
-      jatoDirigido: trial.jatoDirigido
-    }).includes(query)
-  );
+  return trial.tratamentos.filter((item) => searchableTreatment(item).includes(query));
 }
 
 function managementGroup(title, items) {
@@ -150,6 +141,25 @@ function stageKey(label) {
   return "";
 }
 
+function trialManagementItems(trial) {
+  const seen = new Set();
+
+  return trial.tratamentos
+    .flatMap((treatment) => treatment.manejos || [])
+    .filter((manejo) => {
+      const key = [manejo.etapa, manejo.produto, manejo.dose].map(normalize).join("|");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
+function formatDose(value) {
+  const numericValue = Number(value);
+  if (!Number.isFinite(numericValue)) return value || "-";
+  return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 3 }).format(numericValue);
+}
+
 function stageGroup(title, items) {
   const rows = items.length
     ? items
@@ -157,7 +167,7 @@ function stageGroup(title, items) {
           (manejo) => `
             <div class="manejo-product">
               <b>${manejo.produto || "-"}</b>
-              <span>${manejo.dose || "-"}</span>
+              <span>Dose/ha: ${formatDose(manejo.dose)}</span>
             </div>
           `
         )
@@ -171,7 +181,7 @@ function stageGroup(title, items) {
   `;
 }
 
-function treatmentManagement(item, trial) {
+function treatmentManagement(trial) {
   const stageGroups = {
     pos: [],
     fung1: [],
@@ -180,7 +190,7 @@ function treatmentManagement(item, trial) {
   };
   const extras = new Map();
 
-  (item.manejos || []).forEach((manejo) => {
+  trialManagementItems(trial).forEach((manejo) => {
     const key = stageKey(manejo.etapa);
     if (key) {
       stageGroups[key].push(manejo);
@@ -201,8 +211,8 @@ function treatmentManagement(item, trial) {
   ].join("");
 }
 
-function countManagementItems(item, trial) {
-  return (item.manejos?.length || 0) + (trial.adubacao?.length || 0) + (trial.jatoDirigido?.length || 0);
+function countManagementItems(trial) {
+  return trialManagementItems(trial).length + (trial.adubacao?.length || 0) + (trial.jatoDirigido?.length || 0);
 }
 
 function findTreatment(trialId, treatmentId) {
@@ -213,6 +223,8 @@ function findTreatment(trialId, treatmentId) {
 }
 
 function treatmentRows(treatments, trial) {
+  const totalManagementItems = countManagementItems(trial);
+
   return treatments
     .map((item) => {
       const specs = [
@@ -225,7 +237,6 @@ function treatmentRows(treatments, trial) {
         .filter(Boolean)
         .join(" · ");
 
-      const totalManagementItems = countManagementItems(item, trial);
       const actionLabel = totalManagementItems
         ? `${totalManagementItems} itens de manejo`
         : "Sem manejo informado";
@@ -239,7 +250,7 @@ function treatmentRows(treatments, trial) {
             <div class="manejo-action">
               <span>${actionLabel}</span>
               <button class="secondary-button" type="button" data-treatment-detail="${item.id}" data-trial-detail="${trial.id}">
-                Ver produtos
+                Ver manejo completo
               </button>
             </div>
           </td>
@@ -282,8 +293,9 @@ function showTreatmentDetail(trial, item) {
         <span class="chip">${item.empresa || "Empresa não informada"}</span>
         ${specs.map((spec) => `<span class="chip">${spec}</span>`).join("")}
       </div>
+      <p class="management-scope">Receita completa usada neste experimento para a cultivar selecionada.</p>
       <div class="manejo-detail-list">
-        ${treatmentManagement(item, trial)}
+        ${treatmentManagement(trial)}
       </div>
     </div>
   `;
@@ -295,9 +307,7 @@ function renderTrialDetail() {
   if (!trial) return;
 
   const treatments = filteredTreatments(trial);
-  const productCount = new Set(
-    treatments.flatMap((item) => item.manejos || []).map((manejo) => manejo.produto).filter(Boolean)
-  ).size;
+  const productCount = new Set(trialManagementItems(trial).map((manejo) => manejo.produto).filter(Boolean)).size;
   const resultChip = state.query
     ? `<span class="chip green">${treatments.length} encontrados</span>`
     : `<span class="chip green">${trial.totalTratamentos} tratamentos</span>`;
