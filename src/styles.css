@@ -762,6 +762,30 @@ td span {
   gap: 4px;
 }
 
+.manejo-product {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.manejo-product b {
+  color: var(--fg);
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+
+.manejo-product span,
+.manejo-empty {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.manejo-empty {
+  font-style: italic;
+}
+
 @media (max-width: 719px) {
   .access-card {
     justify-self: stretch;

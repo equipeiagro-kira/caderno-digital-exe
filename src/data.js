@@ -929,7 +929,7 @@ window.EXA_DATA = {
               "dose": "0.1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "1ª APLICAÇÃO (20/05)",
               "produto": "COMPAT COPPER",
               "dose": "0.05"
             }
@@ -964,7 +964,7 @@ window.EXA_DATA = {
               "dose": "0.5"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "1ª APLICAÇÃO (20/05)",
               "produto": "ZAAP QI",
               "dose": "1"
             }
@@ -999,7 +999,7 @@ window.EXA_DATA = {
               "dose": "0.5"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "1ª APLICAÇÃO (20/05)",
               "produto": "ACETAMIPRID 200",
               "dose": "0.25"
             }
@@ -1032,11 +1032,6 @@ window.EXA_DATA = {
               "etapa": "1ª APLICAÇÃO (20/05)",
               "produto": "CARAVAN",
               "dose": "0.4"
-            },
-            {
-              "etapa": "PREMIO",
-              "produto": "4ª APLICAÇÃO (18/06)",
-              "dose": "DOSE/HA"
             }
           ],
           "raw": [
@@ -1069,7 +1064,7 @@ window.EXA_DATA = {
               "dose": "0.1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "BIOARTNERS ADJ",
               "dose": "0.1"
             }
@@ -1104,7 +1099,7 @@ window.EXA_DATA = {
               "dose": "0.75"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "SULF. MAGNÉSIO",
               "dose": "2"
             }
@@ -1139,7 +1134,7 @@ window.EXA_DATA = {
               "dose": "0.1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "MULTIKEL COBRE",
               "dose": "0.08"
             }
@@ -1174,7 +1169,7 @@ window.EXA_DATA = {
               "dose": "0.25"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "MOLIBDÊNIO LYNX",
               "dose": "0.1"
             }
@@ -1209,7 +1204,7 @@ window.EXA_DATA = {
               "dose": "1.25"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "POTÁSSIO LYNX",
               "dose": "1"
             }
@@ -1239,12 +1234,7 @@ window.EXA_DATA = {
           "linhaExcel": 15,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "2ª APLICAÇÃO (25/05)",
-              "dose": "DOSE/HA"
-            },
-            {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "MOVER",
               "dose": "1"
             }
@@ -1274,12 +1264,12 @@ window.EXA_DATA = {
           "linhaExcel": 16,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "BIOPARTNERS ADJ",
               "dose": "0.1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "MITRION",
               "dose": "0.45"
             }
@@ -1309,12 +1299,12 @@ window.EXA_DATA = {
           "linhaExcel": 17,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "ZINCO LYNX",
               "dose": "0.5"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "ULTRA SAFE",
               "dose": "1"
             }
@@ -1344,12 +1334,12 @@ window.EXA_DATA = {
           "linhaExcel": 18,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "BORO LYNX",
               "dose": "0.3"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "METOMIL",
               "dose": "1"
             }
@@ -1379,12 +1369,12 @@ window.EXA_DATA = {
           "linhaExcel": 19,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "ZAAP QI",
               "dose": "1.5"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "4ª APLICAÇÃO (18/06)",
               "produto": "HOLD",
               "dose": "0.5"
             }
@@ -1414,14 +1404,9 @@ window.EXA_DATA = {
           "linhaExcel": 20,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "VESSARYA",
               "dose": "0.6"
-            },
-            {
-              "etapa": "PREMIO",
-              "produto": "5ª APLICAÇÃO (03/07)",
-              "dose": "DOSE/HA"
             }
           ],
           "raw": [
@@ -1449,12 +1434,12 @@ window.EXA_DATA = {
           "linhaExcel": 21,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "DIFENO",
               "dose": "0.2"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "BIOARTNERS ADJ",
               "dose": "0.1"
             }
@@ -1484,12 +1469,12 @@ window.EXA_DATA = {
           "linhaExcel": 22,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "TAKUMI",
               "dose": "0.2"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "TRIVOR",
               "dose": "0.25"
             }
@@ -1519,12 +1504,12 @@ window.EXA_DATA = {
           "linhaExcel": 23,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "SULF. MAGNÉSIO",
               "dose": "1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "SPERTO",
               "dose": "0.25"
             }
@@ -1554,12 +1539,12 @@ window.EXA_DATA = {
           "linhaExcel": 24,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "STARTER MN",
               "dose": "1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "CLORFENAPIR",
               "dose": "0.8"
             }
@@ -1589,12 +1574,12 @@ window.EXA_DATA = {
           "linhaExcel": 25,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "2ª APLICAÇÃO (25/05)",
               "produto": "MULTIKEL COBRE",
               "dose": "0.05"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "SULF. MAGNÉSIO",
               "dose": "2"
             }
@@ -1624,12 +1609,7 @@ window.EXA_DATA = {
           "linhaExcel": 26,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "3ª APLICAÇÃO (06/06)",
-              "dose": "DOSE/HA"
-            },
-            {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "MOVER",
               "dose": "1"
             }
@@ -1659,12 +1639,12 @@ window.EXA_DATA = {
           "linhaExcel": 27,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "3ª APLICAÇÃO (06/06)",
               "produto": "BIOPARTNERS ADJ",
               "dose": "0.1"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "MULTIKEL COBRE",
               "dose": "0.6"
             }
@@ -1694,12 +1674,12 @@ window.EXA_DATA = {
           "linhaExcel": 28,
           "manejos": [
             {
-              "etapa": "1ª APLICAÇÃO (20/05)",
+              "etapa": "3ª APLICAÇÃO (06/06)",
               "produto": "FOX XPRO",
               "dose": "0.33"
             },
             {
-              "etapa": "PREMIO",
+              "etapa": "5ª APLICAÇÃO (03/07)",
               "produto": "MOLIBDÊNIO LYNX",
               "dose": "0.1"
             }
@@ -3348,6 +3328,16 @@ window.EXA_DATA = {
               "etapa": "2ª FUNGICIDA (17/07)",
               "produto": "BIOBREV",
               "dose": "0.5"
+            },
+            {
+              "etapa": "PÓS-EMERGENTE (17/06)",
+              "produto": "ZAAP QI",
+              "dose": "2"
+            },
+            {
+              "etapa": "2ª FUNGICIDA (17/07)",
+              "produto": "AMPLIGO",
+              "dose": "0.1"
             }
           ],
           "raw": [

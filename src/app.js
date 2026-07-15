@@ -141,6 +141,66 @@ function managementGroup(title, items) {
   `;
 }
 
+function stageKey(label) {
+  const value = normalize(label);
+  if (value.includes("pos-emergente") || value.includes("pos emergente")) return "pos";
+  if (value.includes("1") && value.includes("fungicida")) return "fung1";
+  if (value.includes("2") && value.includes("fungicida")) return "fung2";
+  if (value.includes("3") && value.includes("fungicida")) return "fung3";
+  return "";
+}
+
+function stageGroup(title, items) {
+  const rows = items.length
+    ? items
+        .map(
+          (manejo) => `
+            <div class="manejo-product">
+              <b>${manejo.produto || "-"}</b>
+              <span>${manejo.dose || "-"}</span>
+            </div>
+          `
+        )
+        .join("")
+    : `<span class="manejo-empty">Sem informação</span>`;
+  return `
+    <div class="manejo-group manejo-stage">
+      <span class="manejo-group-title">${title}</span>
+      <div>${rows}</div>
+    </div>
+  `;
+}
+
+function treatmentManagement(item, trial) {
+  const stageGroups = {
+    pos: [],
+    fung1: [],
+    fung2: [],
+    fung3: []
+  };
+  const extras = new Map();
+
+  (item.manejos || []).forEach((manejo) => {
+    const key = stageKey(manejo.etapa);
+    if (key) {
+      stageGroups[key].push(manejo);
+      return;
+    }
+    const title = manejo.etapa || "Aplicação";
+    extras.set(title, [...(extras.get(title) || []), manejo]);
+  });
+
+  return [
+    stageGroup("Pós-emergência", stageGroups.pos),
+    stageGroup("1ª fungicida", stageGroups.fung1),
+    stageGroup("2ª fungicida", stageGroups.fung2),
+    stageGroup("3ª fungicida", stageGroups.fung3),
+    ...[...extras.entries()].map(([title, items]) => stageGroup(title, items)),
+    managementGroup("Adubação", trial.adubacao || []),
+    managementGroup("Jato dirigido", trial.jatoDirigido || [])
+  ].join("");
+}
+
 function treatmentRows(treatments, trial) {
   return treatments
     .map((item) => {
@@ -154,30 +214,14 @@ function treatmentRows(treatments, trial) {
         .filter(Boolean)
         .join(" · ");
 
-      const manejos = item.manejos?.length
-        ? item.manejos
-            .map(
-              (manejo) => `
-                <div class="manejo-item">
-                  <span>${manejo.etapa || "Aplicacao"}</span>
-                  <b>${manejo.produto || "-"}</b>
-                  <span>${manejo.dose || "-"}</span>
-                </div>
-              `
-            )
-            .join("")
-        : `<span class="chip">Sem manejo informado</span>`;
-      const supportManagement = [
-        managementGroup("Adubação", trial.adubacao || []),
-        managementGroup("Jato dirigido", trial.jatoDirigido || [])
-      ].join("");
+      const manejos = treatmentManagement(item, trial);
 
       return `
         <tr>
           <td data-label="No.">${item.numero}</td>
           <td data-label="Cultivar"><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
           <td data-label="Dados">${specs || "-"}</td>
-          <td data-label="Manejo"><div class="manejo-list">${manejos}${supportManagement}</div></td>
+          <td data-label="Manejo"><div class="manejo-list">${manejos}</div></td>
         </tr>
       `;
     })
