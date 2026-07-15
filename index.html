@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07111d" />
+    <meta
+      name="description"
+      content="Caderno Digital da Excelencia Consultoria para consulta offline de testes de cultivares."
+    />
+    <title>EXA | Caderno Digital</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
+    <link rel="icon" href="./public/assets/icon-192.png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <section id="access-screen" class="access-screen" aria-label="Acesso ao caderno">
+        <div class="theme-actions" aria-label="Controles">
+          <button class="icon-button" type="button" data-theme-toggle title="Alternar tema">◐</button>
+          <button class="icon-button" type="button" data-install title="Instalar PWA">↯</button>
+        </div>
+
+        <div class="brand-lockup">
+          <img src="./public/assets/excelencia-logo.jpg" alt="Excelencia Consultoria" class="brand-logo" />
+          <div class="brand-word">E X A</div>
+          <div class="brand-subtitle">EXCELENCIA AGRO</div>
+        </div>
+
+        <form class="access-card" id="access-form">
+          <h1>Acessar caderno</h1>
+          <p>Use seu nome para salvar preferencia local neste dispositivo.</p>
+          <label>
+            <span>USUARIO</span>
+            <input id="user-name" name="userName" autocomplete="name" placeholder="tecnico@empresa.com" />
+          </label>
+          <button class="primary-button" type="submit">ENTRAR NA PLATAFORMA</button>
+        </form>
+
+        <footer class="access-footer">
+          <span>CONSULTORIA TECNICA</span>
+          <strong>V1.0</strong>
+        </footer>
+      </section>
+
+      <main id="dashboard" class="dashboard" hidden>
+        <header class="topbar">
+          <div class="topbar-brand">
+            <img src="./public/assets/excelencia-logo.jpg" alt="" />
+            <div>
+              <p>Caderno Digital</p>
+              <h1>Excelencia Agro</h1>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <span id="offline-status" class="status-pill">Online</span>
+            <button class="ghost-button" type="button" data-theme-toggle>◐ Tema</button>
+            <button class="ghost-button" type="button" data-install>↯ Instalar</button>
+          </div>
+        </header>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">SAFRA 2026</p>
+            <h2>Ensaios de cultivares e manejo em campo</h2>
+            <p>
+              Consulta offline dos dados de soja e milho extraidos das planilhas da Excelencia.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Resumo dos dados">
+            <article>
+              <span>Ensaios</span>
+              <strong id="metric-ensaios">0</strong>
+            </article>
+            <article>
+              <span>Tratamentos</span>
+              <strong id="metric-tratamentos">0</strong>
+            </article>
+            <article>
+              <span>Cultivares</span>
+              <strong id="metric-cultivares">0</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="control-band" aria-label="Filtros do caderno">
+          <div class="search-field">
+            <span>⌕</span>
+            <input id="search-input" type="search" placeholder="Buscar produtor, cultivar, empresa ou produto" />
+          </div>
+          <div class="segmented" role="group" aria-label="Filtro de cultura">
+            <button class="active" type="button" data-crop="TODAS">Todas</button>
+            <button type="button" data-crop="SOJA">Soja</button>
+            <button type="button" data-crop="MILHO">Milho</button>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <aside class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">ENSAIOS</p>
+                <h3>Areas cadastradas</h3>
+              </div>
+              <span id="result-count">0</span>
+            </div>
+            <div id="trial-list" class="trial-list"></div>
+          </aside>
+
+          <section class="panel detail-panel">
+            <div id="trial-detail" class="trial-detail"></div>
+          </section>
+        </section>
+
+        <section class="panel warnings-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">VALIDACAO</p>
+              <h3>Avisos de origem dos dados</h3>
+            </div>
+          </div>
+          <ul id="warnings-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      if (new URLSearchParams(location.search).get("view") === "dashboard") {
+        document.getElementById("access-screen").hidden = true;
+        document.getElementById("dashboard").hidden = false;
+        try {
+          localStorage.setItem("exa_accessed", "true");
+        } catch {}
+      }
+    </script>
+    <script src="./src/data.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
