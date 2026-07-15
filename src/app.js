@@ -40,23 +40,27 @@ function formatNumber(value) {
 }
 
 function searchableTrial(trial) {
-  const treatmentText = trial.tratamentos
-    .map((item) => [
-      item.cultivar,
-      item.empresa,
-      item.populacao,
-      item.manejos?.map((manejo) => `${manejo.etapa} ${manejo.produto} ${manejo.dose}`).join(" ")
-    ].join(" "))
-    .join(" ");
+  return normalize(`${trial.nome} ${trial.cultura} ${trial.produtor} ${trial.plantio}`);
+}
 
-  return normalize(`${trial.nome} ${trial.cultura} ${trial.produtor} ${trial.plantio} ${treatmentText}`);
+function searchableTreatment(item) {
+  return normalize([
+    item.numero,
+    item.cultivar,
+    item.empresa,
+    item.maturacao,
+    item.pmg,
+    item.populacao,
+    item.motora,
+    item.movida,
+    item.manejos?.map((manejo) => `${manejo.etapa} ${manejo.produto} ${manejo.dose}`).join(" ")
+  ].join(" "));
 }
 
 function filteredTrials() {
   return data.ensaios.filter((trial) => {
     const cropMatch = state.selectedCrop === "TODAS" || trial.cultura === state.selectedCrop;
-    const queryMatch = !state.query || searchableTrial(trial).includes(normalize(state.query));
-    return cropMatch && queryMatch;
+    return cropMatch;
   });
 }
 
@@ -111,8 +115,14 @@ function renderTrialList() {
   });
 }
 
-function treatmentRows(trial) {
-  return trial.tratamentos
+function filteredTreatments(trial) {
+  if (!state.query) return trial.tratamentos;
+  const query = normalize(state.query);
+  return trial.tratamentos.filter((item) => searchableTreatment(item).includes(query));
+}
+
+function treatmentRows(treatments) {
+  return treatments
     .map((item) => {
       const specs = [
         item.maturacao ? `Mat. ${item.maturacao}` : "",
@@ -185,6 +195,50 @@ function renderTrialDetail() {
   `;
 }
 
+function renderTrialDetail() {
+  const trial = data.ensaios.find((item) => item.id === state.selectedTrialId) || filteredTrials()[0];
+  if (!trial) return;
+
+  const treatments = filteredTreatments(trial);
+  const productCount = new Set(
+    treatments.flatMap((item) => item.manejos || []).map((manejo) => manejo.produto).filter(Boolean)
+  ).size;
+  const resultChip = state.query
+    ? `<span class="chip green">${treatments.length} encontrados</span>`
+    : `<span class="chip green">${trial.totalTratamentos} tratamentos</span>`;
+  const emptyRows = `
+    <tr class="empty-row">
+      <td data-label="Busca" colspan="4">Nenhuma variedade ou manejo encontrado em ${trial.nome} para "${state.query}".</td>
+    </tr>
+  `;
+
+  $("#trial-detail").innerHTML = `
+    <div class="detail-header">
+      <p class="eyebrow">${trial.cultura}</p>
+      <h2>${trial.nome}</h2>
+      <p>${trial.produtor} - Plantio ${trial.plantio}</p>
+      <div class="chip-row">
+        ${resultChip}
+        <span class="chip">${productCount} produtos</span>
+        <span class="chip">Fonte: ${trial.fonte.arquivo}</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Cultivar</th>
+            <th>Dados agronomicos</th>
+            <th>Manejo fitossanitario</th>
+          </tr>
+        </thead>
+        <tbody>${treatments.length ? treatmentRows(treatments) : emptyRows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
 function showDashboard() {
   $("#access-screen").hidden = true;
   $("#dashboard").hidden = false;
@@ -201,12 +255,20 @@ function updateConnectivity() {
 }
 
 function setTheme(theme) {
+  document.documentElement.classList.toggle("theme-light", theme === "light");
   document.documentElement.classList.toggle("theme-neon", theme === "neon");
+  $$("[data-theme-toggle]").forEach((button) => {
+    button.textContent = button.classList.contains("icon-button")
+      ? "T"
+      : theme === "light"
+        ? "Tema escuro"
+        : "Tema claro";
+  });
   safeSet("exa_theme", theme);
 }
 
 function toggleTheme() {
-  const next = document.documentElement.classList.contains("theme-neon") ? "light" : "neon";
+  const next = document.documentElement.classList.contains("theme-light") ? "dark" : "light";
   setTheme(next);
 }
 
@@ -217,6 +279,43 @@ function registerServiceWorker() {
   });
 }
 
+function normalizeUiLabels() {
+  const search = $("#search-input");
+  if (search) search.placeholder = "Buscar variedade neste produtor";
+  $$("[data-install]").forEach((button) => {
+    button.textContent = button.classList.contains("icon-button") ? "PWA" : "Instalar";
+  });
+}
+
+function showInstallHelp() {
+  let sheet = $("#install-help");
+  if (!sheet) {
+    sheet = document.createElement("div");
+    sheet.id = "install-help";
+    sheet.className = "install-help";
+    sheet.innerHTML = `
+      <div class="install-card" role="dialog" aria-modal="true" aria-labelledby="install-title">
+        <button class="install-close" type="button" data-install-close>Fechar</button>
+        <p class="eyebrow">PWA OFFLINE</p>
+        <h2 id="install-title">Instalar o Caderno Digital</h2>
+        <p>Se o navegador nao abrir a instalacao automaticamente, use o menu do proprio navegador.</p>
+        <ol>
+          <li><strong>Android/Chrome:</strong> toque nos tres pontos e escolha "Instalar app" ou "Adicionar a tela inicial".</li>
+          <li><strong>iPhone/Safari:</strong> toque em compartilhar e escolha "Adicionar a Tela de Inicio".</li>
+          <li><strong>Computador:</strong> procure o icone de instalacao na barra de endereco.</li>
+        </ol>
+      </div>
+    `;
+    document.body.appendChild(sheet);
+    sheet.addEventListener("click", (event) => {
+      if (event.target === sheet || event.target.closest("[data-install-close]")) {
+        sheet.classList.remove("show");
+      }
+    });
+  }
+  sheet.classList.add("show");
+}
+
 function bindEvents() {
   $("#access-form").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -225,7 +324,6 @@ function bindEvents() {
 
   $("#search-input").addEventListener("input", (event) => {
     state.query = event.target.value;
-    renderTrialList();
     renderTrialDetail();
   });
 
@@ -241,7 +339,10 @@ function bindEvents() {
   $$("[data-theme-toggle]").forEach((button) => button.addEventListener("click", toggleTheme));
   $$("[data-install]").forEach((button) => {
     button.addEventListener("click", async () => {
-      if (!state.deferredPrompt) return;
+      if (!state.deferredPrompt) {
+        showInstallHelp();
+        return;
+      }
       state.deferredPrompt.prompt();
       await state.deferredPrompt.userChoice;
       state.deferredPrompt = null;
@@ -258,7 +359,8 @@ function bindEvents() {
 
 function init() {
   const params = new URLSearchParams(window.location.search);
-  const savedTheme = safeGet("exa_theme") || "neon";
+  const savedTheme = safeGet("exa_theme") || "dark";
+  normalizeUiLabels();
   setTheme(savedTheme);
   $("#user-name").value = safeGet("exa_user") || "";
   bindEvents();
