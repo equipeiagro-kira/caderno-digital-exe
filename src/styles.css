@@ -738,6 +738,30 @@ td span {
   overflow-wrap: anywhere;
 }
 
+.manejo-group {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid rgba(8, 220, 121, 0.22);
+  border-radius: 12px;
+  color: var(--muted);
+  background: rgba(8, 220, 121, 0.055);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
+.manejo-group-title {
+  color: var(--green);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.manejo-group div {
+  display: grid;
+  gap: 4px;
+}
+
 @media (max-width: 719px) {
   .access-card {
     justify-self: stretch;
@@ -922,7 +946,7 @@ td span {
 
   table {
     display: table;
-    min-width: 760px;
+    min-width: 900px;
   }
 
   thead {

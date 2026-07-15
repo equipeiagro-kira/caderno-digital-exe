@@ -53,6 +53,8 @@ function searchableTreatment(item) {
     item.populacao,
     item.motora,
     item.movida,
+    item.adubacao?.join(" "),
+    item.jatoDirigido?.join(" "),
     item.manejos?.map((manejo) => `${manejo.etapa} ${manejo.produto} ${manejo.dose}`).join(" ")
   ].join(" "));
 }
@@ -120,10 +122,26 @@ function renderTrialList() {
 function filteredTreatments(trial) {
   if (!state.query) return trial.tratamentos;
   const query = normalize(state.query);
-  return trial.tratamentos.filter((item) => searchableTreatment(item).includes(query));
+  return trial.tratamentos.filter((item) =>
+    searchableTreatment({
+      ...item,
+      adubacao: trial.adubacao,
+      jatoDirigido: trial.jatoDirigido
+    }).includes(query)
+  );
 }
 
-function treatmentRows(treatments) {
+function managementGroup(title, items) {
+  if (!items?.length) return "";
+  return `
+    <div class="manejo-group">
+      <span class="manejo-group-title">${title}</span>
+      <div>${items.map((item) => `<span>${item}</span>`).join("")}</div>
+    </div>
+  `;
+}
+
+function treatmentRows(treatments, trial) {
   return treatments
     .map((item) => {
       const specs = [
@@ -149,52 +167,21 @@ function treatmentRows(treatments) {
             )
             .join("")
         : `<span class="chip">Sem manejo informado</span>`;
+      const supportManagement = [
+        managementGroup("Adubação", trial.adubacao || []),
+        managementGroup("Jato dirigido", trial.jatoDirigido || [])
+      ].join("");
 
       return `
         <tr>
           <td data-label="No.">${item.numero}</td>
           <td data-label="Cultivar"><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
           <td data-label="Dados">${specs || "-"}</td>
-          <td data-label="Manejo"><div class="manejo-list">${manejos}</div></td>
+          <td data-label="Manejo"><div class="manejo-list">${manejos}${supportManagement}</div></td>
         </tr>
       `;
     })
     .join("");
-}
-
-function renderTrialDetail() {
-  const trial = data.ensaios.find((item) => item.id === state.selectedTrialId) || filteredTrials()[0];
-  if (!trial) return;
-
-  const productCount = new Set(
-    trial.tratamentos.flatMap((item) => item.manejos || []).map((manejo) => manejo.produto).filter(Boolean)
-  ).size;
-
-  $("#trial-detail").innerHTML = `
-    <div class="detail-header">
-      <p class="eyebrow">${trial.cultura}</p>
-      <h2>${trial.nome}</h2>
-      <p>${trial.produtor} • Plantio ${trial.plantio}</p>
-      <div class="chip-row">
-        <span class="chip green">${trial.totalTratamentos} tratamentos</span>
-        <span class="chip">${productCount} produtos</span>
-        <span class="chip">Fonte: ${trial.fonte.arquivo}</span>
-      </div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Nº</th>
-            <th>Cultivar</th>
-            <th>Dados agronomicos</th>
-            <th>Manejo fitossanitario</th>
-          </tr>
-        </thead>
-        <tbody>${treatmentRows(trial)}</tbody>
-      </table>
-    </div>
-  `;
 }
 
 function renderTrialDetail() {
@@ -208,6 +195,9 @@ function renderTrialDetail() {
   const resultChip = state.query
     ? `<span class="chip green">${treatments.length} encontrados</span>`
     : `<span class="chip green">${trial.totalTratamentos} tratamentos</span>`;
+  const supportChip = trial.adubacao?.length || trial.jatoDirigido?.length
+    ? `<span class="chip">Adubação + jato dirigido</span>`
+    : "";
   const emptyRows = `
     <tr class="empty-row">
       <td data-label="Busca" colspan="4">Nenhuma variedade ou manejo encontrado em ${trial.nome} para "${state.query}".</td>
@@ -222,6 +212,7 @@ function renderTrialDetail() {
       <div class="chip-row">
         ${resultChip}
         <span class="chip">${productCount} produtos</span>
+        ${supportChip}
         <span class="chip">Fonte: ${trial.fonte.arquivo}</span>
       </div>
     </div>
@@ -232,10 +223,10 @@ function renderTrialDetail() {
             <th>No.</th>
             <th>Cultivar</th>
             <th>Dados agronomicos</th>
-            <th>Manejo fitossanitario</th>
+            <th>Manejo completo</th>
           </tr>
         </thead>
-        <tbody>${treatments.length ? treatmentRows(treatments) : emptyRows}</tbody>
+        <tbody>${treatments.length ? treatmentRows(treatments, trial) : emptyRows}</tbody>
       </table>
     </div>
   `;

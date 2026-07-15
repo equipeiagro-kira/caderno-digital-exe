@@ -876,7 +876,21 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "SOJA AGOSTINHO"
-      }
+      },
+      "adubacao": [
+        "4 T Calcário.",
+        "400 Kg SS pré-plantio.",
+        "180 Kg 06-40-00 a lanço.",
+        "100 Kg KCl Pré-plantio.",
+        "150 Kg KCl Parcelado em cobertura."
+      ],
+      "jatoDirigido": [
+        "Rizokop 18 doses/ha.",
+        "Azokop 1 dose/ha.",
+        "Tricodermil 100 ml/ha.",
+        "Veraneio 100 g/ha.",
+        "Stingray 200 ml/ha."
+      ]
     },
     {
       "id": "soja-r-cunha",
@@ -1778,7 +1792,19 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "SOJA R CUNHA"
-      }
+      },
+      "adubacao": [
+        "250 Kg SSP a lanço em pré-plantio.",
+        "120 Kg 09-32-12 na linha.",
+        "220 Kg KCl parcelado."
+      ],
+      "jatoDirigido": [
+        "BioPartners Brady 50 doses/ha.",
+        "BioPartners Azos 2 doses/ha.",
+        "BioPartners Fósforo 1 dose/ha.",
+        "Tricodermil 100 g/ha.",
+        "BioPartners Trio 1 dose/ha."
+      ]
     },
     {
       "id": "soja-vendruscolo",
@@ -3092,7 +3118,20 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "SOJA VENDRÚSCOLO"
-      }
+      },
+      "adubacao": [
+        "3 T Calcário.",
+        "350 Kg SSP pré-plantio.",
+        "220 Kg KCl.",
+        "20 Kg MIB algodão."
+      ],
+      "jatoDirigido": [
+        "Rizokop 10 doses/ha.",
+        "Azokop 1 dose/ha.",
+        "Tricodermil 100 ml/ha.",
+        "Veraneio 100 g/ha.",
+        "Stingray 200 ml/ha."
+      ]
     },
     {
       "id": "soja-dors",
@@ -3549,7 +3588,19 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "SOJA DORS"
-      }
+      },
+      "adubacao": [
+        "350 Kg 00-30-02 na linha.",
+        "270 Kg KCl parcelado."
+      ],
+      "jatoDirigido": [
+        "Bradyrhizobium japonicum  6 doses/ha.",
+        "Bradyrhizobium elkanii  6 doses/ha.",
+        "Azotrop 150 ml/ha.",
+        "Trichotrop 20 g/ha.",
+        "Biomagno 200 ml/ha.",
+        "Bioasis 100 ml/ha."
+      ]
     },
     {
       "id": "soja-jung",
@@ -4903,7 +4954,20 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "SOJA JUNG"
-      }
+      },
+      "adubacao": [
+        "380 Kg SSP pré-plantio.",
+        "135 Kg KCl pré-plantio.",
+        "80 Kg KCl Pós-plantio."
+      ],
+      "jatoDirigido": [
+        "Rizokop 20 doses/ha.",
+        "Azokop 1 dose/ha.",
+        "Tricodermil 80 ml/ha.",
+        "Stingray 300 ml/ha.",
+        "NemOut 500 g/ha.",
+        "Verango Prime 300 ml/ha."
+      ]
     },
     {
       "id": "milho-jung",
@@ -5751,7 +5815,19 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "MILHO JUNG"
-      }
+      },
+      "adubacao": [
+        "600 Kg SSP na linha.",
+        "300 Kg Sulfato de amônio parcelado.",
+        "250 Kg KCl parcelado.",
+        "200 Kg Ureia parcelado."
+      ],
+      "jatoDirigido": [
+        "Azokop 2 doses/ha.",
+        "Tricodermil 100 ml/ha.",
+        "Nem Out 500 ml/ha.",
+        "Stingray 300 ml/ha."
+      ]
     },
     {
       "id": "milho-pazinato",
@@ -6693,7 +6769,19 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "MILHO PAZINATO"
-      }
+      },
+      "adubacao": [
+        "250 Kg 12-40-00 + 10 S em pré-plantio.",
+        "200 Kg Sulfato de amônio em v2-v3.",
+        "220 Kg KCl parcelado.",
+        "230 Kg Ureia parcelado."
+      ],
+      "jatoDirigido": [
+        "Azokop 2 doses/ha",
+        "Tricodermil 100 ml/ha",
+        "Veraneio 100 ml/ha",
+        "Stingray 300 ml/ha"
+      ]
     },
     {
       "id": "milho-ivo",
@@ -7352,7 +7440,20 @@ window.EXA_DATA = {
       "fonte": {
         "arquivo": "Teste de Cultivares 2026.xlsx",
         "aba": "MILHO IVO"
-      }
+      },
+      "adubacao": [
+        "250 Kg Superfosfato Simples a lanço.",
+        "240 Kg 04-28-08 na linha.",
+        "100 Kg KCl pré-plantio + 100 kg em pós.",
+        "180 Kg Ureia Vera em V1.",
+        "120 Kg + 80 Kg Ureia."
+      ],
+      "jatoDirigido": [
+        "Azokop 2 doses/ha.",
+        "Tricodermil 150 ml/ha.",
+        "Veraneio 100 ml/ha.",
+        "Stingray 300 ml/ha."
+      ]
     }
   ],
   "cultivares": [
