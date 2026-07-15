@@ -201,6 +201,17 @@ function treatmentManagement(item, trial) {
   ].join("");
 }
 
+function countManagementItems(item, trial) {
+  return (item.manejos?.length || 0) + (trial.adubacao?.length || 0) + (trial.jatoDirigido?.length || 0);
+}
+
+function findTreatment(trialId, treatmentId) {
+  const trial = data.ensaios.find((item) => item.id === trialId);
+  if (!trial) return {};
+  const treatment = trial.tratamentos.find((item) => item.id === treatmentId);
+  return { trial, treatment };
+}
+
 function treatmentRows(treatments, trial) {
   return treatments
     .map((item) => {
@@ -214,18 +225,69 @@ function treatmentRows(treatments, trial) {
         .filter(Boolean)
         .join(" · ");
 
-      const manejos = treatmentManagement(item, trial);
+      const totalManagementItems = countManagementItems(item, trial);
+      const actionLabel = totalManagementItems
+        ? `${totalManagementItems} itens de manejo`
+        : "Sem manejo informado";
 
       return `
         <tr>
           <td data-label="No.">${item.numero}</td>
           <td data-label="Cultivar"><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
           <td data-label="Dados">${specs || "-"}</td>
-          <td data-label="Manejo"><div class="manejo-list">${manejos}</div></td>
+          <td data-label="Manejo">
+            <div class="manejo-action">
+              <span>${actionLabel}</span>
+              <button class="secondary-button" type="button" data-treatment-detail="${item.id}" data-trial-detail="${trial.id}">
+                Ver produtos
+              </button>
+            </div>
+          </td>
         </tr>
       `;
     })
     .join("");
+}
+
+function showTreatmentDetail(trial, item) {
+  let modal = $("#treatment-modal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "treatment-modal";
+    modal.className = "treatment-modal";
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal || event.target.closest("[data-treatment-close]")) {
+        modal.classList.remove("show");
+      }
+    });
+  }
+
+  const specs = [
+    item.maturacao ? `Maturação ${item.maturacao}` : "",
+    item.pmg ? `PMG/PMS ${item.pmg}` : "",
+    item.populacao ? `População ${formatNumber(item.populacao)}` : "",
+    item.motora ? `Motora ${item.motora}` : "",
+    item.movida ? `Movida ${item.movida}` : ""
+  ].filter(Boolean);
+
+  modal.innerHTML = `
+    <div class="treatment-card" role="dialog" aria-modal="true" aria-label="Produtos da variedade">
+      <button class="install-close" type="button" data-treatment-close>Fechar</button>
+      <p class="eyebrow">${trial.nome}</p>
+      <h2>${item.cultivar || "-"}</h2>
+      <p>${trial.produtor} - Plantio ${trial.plantio}</p>
+      <div class="chip-row">
+        <span class="chip green">Tratamento ${item.numero}</span>
+        <span class="chip">${item.empresa || "Empresa não informada"}</span>
+        ${specs.map((spec) => `<span class="chip">${spec}</span>`).join("")}
+      </div>
+      <div class="manejo-detail-list">
+        ${treatmentManagement(item, trial)}
+      </div>
+    </div>
+  `;
+  modal.classList.add("show");
 }
 
 function renderTrialDetail() {
@@ -274,6 +336,13 @@ function renderTrialDetail() {
       </table>
     </div>
   `;
+
+  $$("[data-treatment-detail]", $("#trial-detail")).forEach((button) => {
+    button.addEventListener("click", () => {
+      const { trial: selectedTrial, treatment } = findTreatment(button.dataset.trialDetail, button.dataset.treatmentDetail);
+      if (selectedTrial && treatment) showTreatmentDetail(selectedTrial, treatment);
+    });
+  });
 }
 
 function showDashboard() {

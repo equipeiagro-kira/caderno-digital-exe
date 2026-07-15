@@ -296,6 +296,23 @@ input:focus {
   letter-spacing: 0;
 }
 
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  border: 1px solid rgba(8, 220, 121, 0.42);
+  border-radius: 10px;
+  padding: 0 12px;
+  color: #06131c;
+  background: var(--green);
+  box-shadow: 0 12px 24px rgba(8, 220, 121, 0.16);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
 .access-footer {
   display: flex;
   gap: 14px;
@@ -726,6 +743,19 @@ td span {
   min-width: 0;
 }
 
+.manejo-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.manejo-action > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .manejo-item {
   display: grid;
   gap: 4px;
@@ -786,10 +816,67 @@ td span {
   font-style: italic;
 }
 
+.treatment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 14px;
+  background: rgba(2, 5, 13, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+.treatment-modal.show {
+  display: flex;
+}
+
+.treatment-card {
+  position: relative;
+  width: min(100%, 760px);
+  max-height: min(86vh, 760px);
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)),
+    var(--glass);
+  box-shadow: var(--shadow);
+}
+
+.treatment-card h2 {
+  margin: 6px 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0;
+}
+
+.treatment-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.manejo-detail-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 @media (max-width: 719px) {
   .access-card {
     justify-self: stretch;
     max-width: none;
+  }
+
+  .manejo-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .secondary-button {
+    width: 100%;
   }
 }
 
