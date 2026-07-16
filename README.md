@@ -1,6 +1,6 @@
 # EXA Caderno Digital
 
-PWA estatico para consulta offline dos ensaios de cultivares e protocolos de pesquisa da Excelencia Consultoria.
+PWA estatico para consulta offline dos ensaios de cultivares, protocolos de pesquisa e compactacao do solo da Excelencia Consultoria.
 
 ## Como rodar localmente
 
@@ -23,7 +23,9 @@ O projeto nao precisa de build. Pode ser publicado em GitHub Pages, Netlify ou V
 - `src/app.js`: logica de busca, filtros, tela de detalhe e instalacao PWA.
 - `src/data.js`: dados extraidos das planilhas em variavel local.
 - `src/protocols-data.js`: protocolos, tratamentos, croquis e registros de campo em variavel local.
+- `src/compaction-data.js`: perfis de resistencia, camadas, pontos GPS e alertas de qualidade.
 - `scripts/build-protocol-data.py`: gerador reproduzivel dos dados de pesquisa a partir do XLSX e DOCX recebidos.
+- `scripts/build-compaction-data.py`: gerador reproduzivel da compactacao a partir dos PDFs Falker.
 - `service-worker.js`: cache offline dos arquivos do app.
 - `manifest.webmanifest`: metadados de instalacao PWA.
 - `public/assets/`: logo e icones.

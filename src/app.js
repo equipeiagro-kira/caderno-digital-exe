@@ -1,5 +1,6 @@
 const data = window.EXA_DATA || { resumo: {}, ensaios: [], cultivares: [] };
 const protocolData = window.EXA_PROTOCOL_DATA || { meta: {}, croquiGeral: [], protocolos: [] };
+const compactionData = window.EXA_COMPACTION_DATA || { meta: {}, areas: [] };
 
 const state = {
   selectedCrop: "TODAS",
@@ -10,6 +11,10 @@ const state = {
   protocolQuery: "",
   selectedProtocolId: protocolData.protocolos[0]?.id || null,
   protocolTab: "tratamentos",
+  selectedCompactionCrop: "TODAS",
+  compactionQuery: "",
+  selectedCompactionAreaId: compactionData.areas[0]?.id || null,
+  compactionTab: "resumo",
   deferredPrompt: null
 };
 
@@ -390,9 +395,9 @@ function renderResearchMetrics() {
 }
 
 function renderWorkspace() {
-  const research = state.workspace === "pesquisa";
-  $("#cultivar-module").hidden = research;
-  $("#research-module").hidden = !research;
+  $("#cultivar-module").hidden = state.workspace !== "cultivares";
+  $("#research-module").hidden = state.workspace !== "pesquisa";
+  $("#compaction-module").hidden = state.workspace !== "compactacao";
   $$("[data-workspace]").forEach((button) => {
     button.classList.toggle("active", button.dataset.workspace === state.workspace);
   });
@@ -682,6 +687,357 @@ function renderProtocolDetail() {
   `;
 }
 
+function formatKpa(value, maximumFractionDigits = 0) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "-";
+  return new Intl.NumberFormat("pt-BR", { maximumFractionDigits }).format(number);
+}
+
+function compactionTone(value) {
+  if (value <= 1000) return "low";
+  if (value <= 1500) return "moderate";
+  if (value <= 2000) return "attention";
+  if (value <= 3500) return "high";
+  return "critical";
+}
+
+function searchableCompactionArea(area) {
+  return normalize(`${area.nome} ${area.produtor} ${area.cultura}`);
+}
+
+function filteredCompactionAreas() {
+  const query = normalize(state.compactionQuery);
+  return compactionData.areas.filter((area) => {
+    const cropMatch = state.selectedCompactionCrop === "TODAS" || area.cultura === state.selectedCompactionCrop;
+    const queryMatch = !query || searchableCompactionArea(area).includes(query);
+    return cropMatch && queryMatch;
+  });
+}
+
+function renderCompactionMetrics() {
+  $("#metric-compaction-areas").textContent = formatNumber(compactionData.meta.totalAreas || 0);
+  $("#metric-compaction-points").textContent = formatNumber(compactionData.meta.totalMedicoes || 0);
+  $("#metric-compaction-complete").textContent = formatNumber(compactionData.meta.medicoesCompletas || 0);
+}
+
+function renderCompactionAreaList() {
+  const areas = filteredCompactionAreas();
+  $("#compaction-result-count").textContent = areas.length;
+
+  if (areas.length && !areas.some((area) => area.id === state.selectedCompactionAreaId)) {
+    state.selectedCompactionAreaId = areas[0].id;
+  }
+
+  $("#compaction-area-list").innerHTML = areas.length
+    ? areas.map((area) => `
+        <button class="trial-card compaction-area-card${area.id === state.selectedCompactionAreaId ? " active" : ""}" type="button" data-compaction-area="${escapeHtml(area.id)}">
+          <strong>${escapeHtml(area.nome)}</strong>
+          <p>${escapeHtml(area.produtor)}</p>
+          <div class="trial-card-meta">
+            <span class="chip green">${area.cultura}</span>
+            <span class="chip">${area.resumo.totalMedicoes} medicoes</span>
+            <span class="chip">Media ${formatKpa(area.resumo.mediaGeralKpa)} kPa</span>
+          </div>
+        </button>
+      `).join("")
+    : `<p class="empty-state">Nenhuma area encontrada para esse filtro.</p>`;
+
+  if (!areas.length) {
+    $("#compaction-detail").innerHTML = `<p class="empty-state">Ajuste a busca para visualizar a compactacao.</p>`;
+  }
+}
+
+function layerBars(values) {
+  const labels = ["01-10 cm", "11-20 cm", "21-30 cm", "31-40 cm", "41-50 cm", "51-60 cm"];
+  const scale = Math.max(4000, Math.ceil(Math.max(...values) / 500) * 500);
+  return `
+    <div class="compaction-layers">
+      ${values.map((value, index) => `
+        <div class="layer-row">
+          <span>${labels[index]}</span>
+          <div class="layer-track"><i class="tone-${compactionTone(value)}" style="width:${Math.max(3, (value / scale) * 100)}%"></i></div>
+          <strong>${formatKpa(value)} kPa</strong>
+        </div>
+      `).join("")}
+    </div>
+    <div class="compaction-scale" aria-label="Faixas de resistencia">
+      <span class="tone-low">Ate 1.000</span>
+      <span class="tone-moderate">1.001-1.500</span>
+      <span class="tone-attention">1.501-2.000</span>
+      <span class="tone-high">2.001-3.500</span>
+      <span class="tone-critical">Acima de 3.500</span>
+    </div>
+  `;
+}
+
+function profileChartSvg(profile, ariaLabel, showRange = true) {
+  const width = 720;
+  const height = 390;
+  const left = 66;
+  const right = 22;
+  const top = 24;
+  const bottom = 42;
+  const plotWidth = width - left - right;
+  const plotHeight = height - top - bottom;
+  const maximum = Math.max(4000, Math.ceil(Math.max(...profile.max) / 1000) * 1000);
+  const x = (value) => left + (value / maximum) * plotWidth;
+  const y = (index) => top + (index / 59) * plotHeight;
+  const path = (values) => values.map((value, index) => `${index ? "L" : "M"}${x(value).toFixed(1)},${y(index).toFixed(1)}`).join(" ");
+  const range = [
+    ...profile.max.map((value, index) => `${x(value).toFixed(1)},${y(index).toFixed(1)}`),
+    ...profile.min.map((value, index) => `${x(value).toFixed(1)},${y(index).toFixed(1)}`).reverse()
+  ].join(" ");
+  const xTicks = [...new Set([0, 1000, 1500, 2000, 3500, maximum].filter((value) => value <= maximum))].sort((a, b) => a - b);
+  const yTicks = [1, 10, 20, 30, 40, 50, 60];
+
+  return `
+    <svg class="profile-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(ariaLabel)}">
+      <rect x="${left}" y="${top}" width="${plotWidth}" height="${plotHeight}" class="chart-plot" />
+      ${xTicks.map((tick) => `
+        <line x1="${x(tick)}" y1="${top}" x2="${x(tick)}" y2="${height - bottom}" class="chart-grid chart-threshold-${compactionTone(tick)}" />
+        <text x="${x(tick)}" y="${height - 14}" text-anchor="middle">${formatKpa(tick)}</text>
+      `).join("")}
+      ${yTicks.map((depth) => `
+        <line x1="${left}" y1="${y(depth - 1)}" x2="${width - right}" y2="${y(depth - 1)}" class="chart-grid horizontal" />
+        <text x="${left - 10}" y="${y(depth - 1) + 4}" text-anchor="end">${depth} cm</text>
+      `).join("")}
+      ${showRange ? `<polygon points="${range}" class="profile-range" />` : ""}
+      ${showRange ? `<path d="${path(profile.min)}" class="profile-line minimum" />` : ""}
+      ${showRange ? `<path d="${path(profile.max)}" class="profile-line maximum" />` : ""}
+      <path d="${path(profile.mean)}" class="profile-line average" />
+      <text x="${left}" y="14" class="chart-axis-title">Resistencia a penetracao (kPa)</text>
+    </svg>
+  `;
+}
+
+function campaignSummary(area) {
+  return `
+    <div class="campaign-list">
+      ${area.campanhas.map((campaign, index) => `
+        <article class="campaign-row">
+          <span class="campaign-index">${String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <strong>${escapeHtml(campaign.nome)}</strong>
+            <p>${escapeHtml(campaign.data)} - ${campaign.medicoesCompletas} de ${campaign.totalMedicoes} perfis completos</p>
+            <small>${escapeHtml(campaign.arquivoOrigem)}</small>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function compactionSummaryView(area) {
+  const summary = area.resumo;
+  return `
+    <div class="compaction-kpi-grid">
+      <article><span>Media 0-60 cm</span><strong>${formatKpa(summary.mediaGeralKpa)} <small>kPa</small></strong></article>
+      <article><span>Pico medio</span><strong>${formatKpa(summary.picoMedio.kpa, 1)} <small>kPa</small></strong><p>${summary.picoMedio.profundidadeCm} cm</p></article>
+      <article><span>Maior valor</span><strong>${formatKpa(summary.maiorValorObservadoKpa)} <small>kPa</small></strong></article>
+      <article><span>Qualidade</span><strong>${summary.medicoesCompletas}/${summary.totalMedicoes}</strong><p>perfis completos</p></article>
+    </div>
+    <section class="compaction-section">
+      <div class="subsection-heading">
+        <div><p class="eyebrow">CAMADAS</p><h3>Resistencia media por intervalo</h3></div>
+        <span>Medias calculadas com perfis completos</span>
+      </div>
+      ${layerBars(summary.camadasKpa)}
+    </section>
+    <section class="compaction-section">
+      <div class="subsection-heading">
+        <div><p class="eyebrow">CAMPANHAS</p><h3>Origem das medicoes</h3></div>
+      </div>
+      ${campaignSummary(area)}
+    </section>
+  `;
+}
+
+function compactionProfileView(area) {
+  const summary = area.resumo;
+  return `
+    <section class="compaction-section">
+      <div class="subsection-heading">
+        <div><p class="eyebrow">PERFIL CONSOLIDADO</p><h3>Resistencia por profundidade</h3></div>
+        <span>${summary.medicoesCompletas} perfis completos</span>
+      </div>
+      <div class="profile-chart-shell">
+        ${profileChartSvg({ mean: summary.perfilMedioKpa, min: summary.perfilMinimoKpa, max: summary.perfilMaximoKpa }, `Perfil consolidado de ${area.nome}`)}
+      </div>
+      <div class="profile-legend">
+        <span class="average">Media</span>
+        <span class="minimum">Minimo</span>
+        <span class="maximum">Maximo</span>
+        <span class="range">Faixa observada</span>
+      </div>
+      <p class="method-note">${escapeHtml(compactionData.meta.criterioResumo)} Equipamento ${escapeHtml(compactionData.meta.equipamento)}, cone ${compactionData.meta.cone}, resolucao de ${compactionData.meta.resolucaoCm} cm.</p>
+    </section>
+  `;
+}
+
+function gpsMap(area) {
+  const points = area.pontos.filter((point) => point.coordenadas);
+  if (!points.length) return `<div class="research-empty"><strong>Sem coordenadas GPS</strong><p>Nenhuma medicao desta area possui localizacao valida.</p></div>`;
+  const width = 720;
+  const height = 320;
+  const margin = 38;
+  const latitudes = points.map((point) => point.coordenadas.latitude);
+  const longitudes = points.map((point) => point.coordenadas.longitude);
+  const minLat = Math.min(...latitudes);
+  const maxLat = Math.max(...latitudes);
+  const minLon = Math.min(...longitudes);
+  const maxLon = Math.max(...longitudes);
+  const latRange = maxLat - minLat || 0.0001;
+  const lonRange = maxLon - minLon || 0.0001;
+  const x = (longitude) => margin + ((longitude - minLon) / lonRange) * (width - margin * 2);
+  const y = (latitude) => margin + ((maxLat - latitude) / latRange) * (height - margin * 2);
+  const campaigns = [...new Set(points.map((point) => point.campanhaId))];
+
+  return `
+    <div class="gps-map-shell">
+      <svg class="gps-map" viewBox="0 0 ${width} ${height}" role="img" aria-label="Distribuicao relativa dos pontos GPS de ${escapeHtml(area.nome)}">
+        <rect x="1" y="1" width="${width - 2}" height="${height - 2}" class="gps-map-bg" />
+        ${[1, 2, 3, 4].map((step) => `<line x1="${margin}" y1="${(height / 5) * step}" x2="${width - margin}" y2="${(height / 5) * step}" class="map-grid" />`).join("")}
+        ${[1, 2, 3, 4].map((step) => `<line x1="${(width / 5) * step}" y1="${margin}" x2="${(width / 5) * step}" y2="${height - margin}" class="map-grid" />`).join("")}
+        ${points.map((point) => {
+          const campaignIndex = campaigns.indexOf(point.campanhaId);
+          return `
+            <g class="gps-point campaign-${campaignIndex}${point.completa ? "" : " incomplete"}" transform="translate(${x(point.coordenadas.longitude).toFixed(1)} ${y(point.coordenadas.latitude).toFixed(1)})">
+              <circle r="12" />
+              <text y="4" text-anchor="middle">${point.numeroOrigem}</text>
+            </g>
+          `;
+        }).join("")}
+      </svg>
+    </div>
+    <div class="map-campaign-legend">
+      ${campaigns.map((campaignId, index) => {
+        const point = points.find((item) => item.campanhaId === campaignId);
+        return `<span class="campaign-${index}">${escapeHtml(point.campanha)} - ${escapeHtml(point.dataCampanha)}</span>`;
+      }).join("")}
+      ${points.some((point) => !point.completa) ? `<span class="incomplete">Circulo vazado: medicao incompleta</span>` : ""}
+    </div>
+  `;
+}
+
+function pointStatus(point) {
+  const statuses = [point.completa ? `<span class="chip green">Completa</span>` : `<span class="chip warning">Incompleta</span>`];
+  if (point.excessosVelocidade) statuses.push(`<span class="chip warning">Velocidade: ${point.excessosVelocidade}</span>`);
+  if (!point.metadadosValidos) statuses.push(`<span class="chip warning">Metadados a revisar</span>`);
+  return statuses.join("");
+}
+
+function compactionPointsView(area) {
+  return `
+    <section class="compaction-section">
+      <div class="subsection-heading">
+        <div><p class="eyebrow">GEOREFERENCIAMENTO</p><h3>Distribuicao dos pontos</h3></div>
+        <span>${area.resumo.pontosGps} de ${area.resumo.totalMedicoes} com GPS</span>
+      </div>
+      ${gpsMap(area)}
+    </section>
+    <section class="compaction-section">
+      <div class="subsection-heading">
+        <div><p class="eyebrow">MEDICOES</p><h3>Perfis individuais</h3></div>
+      </div>
+      <div class="compaction-point-grid">
+        ${area.pontos.map((point) => `
+          <article class="compaction-point-card${point.completa ? "" : " incomplete"}">
+            <header>
+              <div><span>MEDICAO</span><strong>${point.numeroOrigem}</strong></div>
+              <small>${escapeHtml(point.dataMedicao || "Data invalida")}</small>
+            </header>
+            <div class="point-status-row">${pointStatus(point)}</div>
+            <dl>
+              <div><dt>Maximo</dt><dd>${formatKpa(point.maximo.kpa)} kPa</dd></div>
+              <div><dt>Profundidade</dt><dd>${point.maximo.profundidadeCm} cm</dd></div>
+              <div><dt>Media 0-60</dt><dd>${formatKpa(point.mediaGeralKpa)} kPa</dd></div>
+            </dl>
+            <p>${point.coordenadas ? `${point.coordenadas.latitude.toFixed(6)}, ${point.coordenadas.longitude.toFixed(6)}` : "Sem coordenadas validas"}</p>
+            <button class="secondary-button" type="button" data-compaction-point="${escapeHtml(point.id)}">Ver perfil</button>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderCompactionDetail() {
+  const area = compactionData.areas.find((item) => item.id === state.selectedCompactionAreaId) || filteredCompactionAreas()[0];
+  if (!area) return;
+  const warnings = area.avisos.length
+    ? `<div class="protocol-notices">${area.avisos.map((warning) => `<p>${escapeHtml(warning)}</p>`).join("")}</div>`
+    : "";
+  const views = {
+    resumo: compactionSummaryView(area),
+    perfil: compactionProfileView(area),
+    pontos: compactionPointsView(area)
+  };
+
+  $("#compaction-detail").innerHTML = `
+    <div class="detail-header compaction-detail-header">
+      <p class="eyebrow">${escapeHtml(area.cultura)} - COMPACTACAO</p>
+      <h2>${escapeHtml(area.nome)}</h2>
+      <p>${escapeHtml(area.produtor)}</p>
+      <div class="chip-row">
+        <span class="chip green">${area.resumo.totalMedicoes} medicoes</span>
+        <span class="chip">${area.resumo.medicoesCompletas} completas</span>
+        <span class="chip">${area.resumo.pontosGps} pontos GPS</span>
+        ${area.resumo.alertasVelocidade ? `<span class="chip warning">${area.resumo.alertasVelocidade} alertas de velocidade</span>` : ""}
+      </div>
+      <button class="secondary-button open-trial-button" type="button" data-open-compaction-trial="${escapeHtml(area.trialId)}">Abrir cultivares</button>
+    </div>
+    ${warnings}
+    <nav class="protocol-tabs compaction-tabs" aria-label="Dados de compactacao">
+      <button class="${state.compactionTab === "resumo" ? "active" : ""}" type="button" data-compaction-tab="resumo">Resumo</button>
+      <button class="${state.compactionTab === "perfil" ? "active" : ""}" type="button" data-compaction-tab="perfil">Perfil</button>
+      <button class="${state.compactionTab === "pontos" ? "active" : ""}" type="button" data-compaction-tab="pontos">Pontos</button>
+    </nav>
+    <div class="compaction-view">${views[state.compactionTab]}</div>
+  `;
+}
+
+function showCompactionPoint(area, point) {
+  let modal = $("#compaction-point-modal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "compaction-point-modal";
+    modal.className = "treatment-modal compaction-point-modal";
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal || event.target.closest("[data-compaction-point-close]")) {
+        modal.classList.remove("show");
+      }
+    });
+  }
+  const individual = { mean: point.perfilKpa, min: point.perfilKpa, max: point.perfilKpa };
+  const warnings = [
+    !point.completa ? "Medicao incompleta: mantida para consulta, mas excluida das medias consolidadas." : "",
+    point.excessosVelocidade ? `Ocorreram ${point.excessosVelocidade} alertas de velocidade excessiva.` : "",
+    !point.metadadosValidos ? "GPS, data ou hora de origem precisam de revisao." : ""
+  ].filter(Boolean);
+
+  modal.innerHTML = `
+    <div class="treatment-card compaction-point-dialog" role="dialog" aria-modal="true" aria-label="Perfil da medicao">
+      <button class="install-close" type="button" data-compaction-point-close>Fechar</button>
+      <p class="eyebrow">${escapeHtml(area.nome)} - MEDICAO ${point.numeroOrigem}</p>
+      <h2>${formatKpa(point.maximo.kpa)} kPa a ${point.maximo.profundidadeCm} cm</h2>
+      <p>${escapeHtml(point.dataMedicao || point.dataCampanha)} ${escapeHtml(point.horaMedicao || "")} - ${escapeHtml(point.campanha)}</p>
+      <div class="chip-row">${pointStatus(point)}</div>
+      ${warnings.length ? `<div class="protocol-notices">${warnings.map((warning) => `<p>${escapeHtml(warning)}</p>`).join("")}</div>` : ""}
+      <div class="profile-chart-shell point-profile-chart">
+        ${profileChartSvg(individual, `Perfil da medicao ${point.numeroOrigem} em ${area.nome}`, false)}
+      </div>
+      ${layerBars(point.camadas.map((layer) => layer.mediaKpa))}
+      <div class="point-source">
+        <strong>Origem</strong>
+        <span>${escapeHtml(point.arquivoOrigem)} - pagina ${point.paginaOrigem}</span>
+        <span>${point.coordenadas ? `${point.coordenadas.latitude.toFixed(6)}, ${point.coordenadas.longitude.toFixed(6)}` : "Sem GPS valido"}</span>
+      </div>
+    </div>
+  `;
+  modal.classList.add("show");
+}
+
 function showDashboard() {
   $("#access-screen").hidden = true;
   $("#dashboard").hidden = false;
@@ -826,6 +1182,57 @@ function bindEvents() {
     renderProtocolDetail();
   });
 
+  $("#compaction-search").addEventListener("input", (event) => {
+    state.compactionQuery = event.target.value;
+    renderCompactionAreaList();
+    renderCompactionDetail();
+  });
+
+  $(".compaction-crop-tabs").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-compaction-crop]");
+    if (!button) return;
+    state.selectedCompactionCrop = button.dataset.compactionCrop;
+    $$("button[data-compaction-crop]").forEach((item) => item.classList.toggle("active", item === button));
+    renderCompactionAreaList();
+    renderCompactionDetail();
+  });
+
+  $("#compaction-area-list").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-compaction-area]");
+    if (!button) return;
+    state.selectedCompactionAreaId = button.dataset.compactionArea;
+    state.compactionTab = "resumo";
+    renderCompactionAreaList();
+    renderCompactionDetail();
+  });
+
+  $("#compaction-detail").addEventListener("click", (event) => {
+    const tabButton = event.target.closest("button[data-compaction-tab]");
+    if (tabButton) {
+      state.compactionTab = tabButton.dataset.compactionTab;
+      renderCompactionDetail();
+      return;
+    }
+
+    const pointButton = event.target.closest("button[data-compaction-point]");
+    if (pointButton) {
+      const area = compactionData.areas.find((item) => item.id === state.selectedCompactionAreaId);
+      const point = area?.pontos.find((item) => item.id === pointButton.dataset.compactionPoint);
+      if (area && point) showCompactionPoint(area, point);
+      return;
+    }
+
+    const trialButton = event.target.closest("button[data-open-compaction-trial]");
+    if (trialButton) {
+      state.selectedTrialId = trialButton.dataset.openCompactionTrial;
+      state.workspace = "cultivares";
+      renderTrialList();
+      renderTrialDetail();
+      renderWorkspace();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
   $$("[data-theme-toggle]").forEach((button) => button.addEventListener("click", toggleTheme));
   $$("[data-install]").forEach((button) => {
     button.addEventListener("click", async () => {
@@ -851,6 +1258,7 @@ function init() {
   const params = new URLSearchParams(window.location.search);
   const savedTheme = safeGet("exa_theme") || "dark";
   if (params.get("module") === "pesquisa") state.workspace = "pesquisa";
+  if (params.get("module") === "compactacao") state.workspace = "compactacao";
   normalizeUiLabels();
   setTheme(savedTheme);
   $("#user-name").value = safeGet("exa_user") || "";
@@ -863,6 +1271,9 @@ function init() {
   renderGeneralMap();
   renderProtocolList();
   renderProtocolDetail();
+  renderCompactionMetrics();
+  renderCompactionAreaList();
+  renderCompactionDetail();
   renderWorkspace();
   renderResearchView();
   updateConnectivity();

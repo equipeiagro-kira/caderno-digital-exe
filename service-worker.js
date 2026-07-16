@@ -1,13 +1,14 @@
-const CACHE_NAME = "exa-caderno-v16";
+const CACHE_NAME = "exa-caderno-v17";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./src/styles.css?v=16",
-  "./src/data.js?v=16",
-  "./src/protocols-data.js?v=16",
-  "./src/app.js?v=16",
+  "./src/styles.css?v=17",
+  "./src/data.js?v=17",
+  "./src/protocols-data.js?v=17",
+  "./src/compaction-data.js?v=17",
+  "./src/app.js?v=17",
   "./public/assets/excelencia-logo.jpg",
   "./public/assets/rubisck-symbol.png",
   "./public/assets/icon-192.png",

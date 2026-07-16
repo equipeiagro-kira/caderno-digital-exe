@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#07111d" />
     <meta
       name="description"
-      content="Caderno Digital da Excelencia Consultoria para consulta offline de cultivares e protocolos de pesquisa."
+      content="Caderno Digital da Excelencia Consultoria para consulta offline de cultivares, protocolos e compactacao do solo."
     />
     <title>EXA | Caderno Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./src/styles.css?v=16" />
+    <link rel="stylesheet" href="./src/styles.css?v=17" />
   </head>
   <body>
     <div id="app" class="app-shell">
@@ -69,6 +69,7 @@
         <nav class="workspace-tabs" aria-label="Modulos do caderno">
           <button class="active" type="button" data-workspace="cultivares">Cultivares</button>
           <button type="button" data-workspace="pesquisa">Pesquisa</button>
+          <button type="button" data-workspace="compactacao">Compactacao</button>
         </nav>
 
         <section id="cultivar-module" class="workspace-module">
@@ -189,6 +190,59 @@
           </section>
         </section>
 
+        <section id="compaction-module" class="workspace-module" hidden>
+          <section class="hero-panel compaction-hero">
+            <div>
+              <p class="eyebrow">DIAGNOSTICO FISICO</p>
+              <h2>Compactacao do solo por profundidade</h2>
+              <p>Perfis de resistencia a penetracao, pontos GPS e controle de qualidade das medicoes de campo.</p>
+            </div>
+            <div class="hero-metrics" aria-label="Resumo da compactacao">
+              <article>
+                <span>Areas</span>
+                <strong id="metric-compaction-areas">0</strong>
+              </article>
+              <article>
+                <span>Medicoes</span>
+                <strong id="metric-compaction-points">0</strong>
+              </article>
+              <article>
+                <span>Perfis completos</span>
+                <strong id="metric-compaction-complete">0</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="control-band compaction-control" aria-label="Filtros da compactacao">
+            <div class="search-field">
+              <span aria-hidden="true">&#8981;</span>
+              <input id="compaction-search" type="search" placeholder="Buscar produtor ou area" />
+            </div>
+            <div class="segmented compaction-crop-tabs" role="group" aria-label="Filtro de cultura da compactacao">
+              <button class="active" type="button" data-compaction-crop="TODAS">Todas</button>
+              <button type="button" data-compaction-crop="SOJA">Soja</button>
+              <button type="button" data-compaction-crop="MILHO">Milho</button>
+            </div>
+          </section>
+
+          <section class="content-grid compaction-content">
+            <aside class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">AREAS AVALIADAS</p>
+                  <h3>Produtores e culturas</h3>
+                </div>
+                <span id="compaction-result-count">0</span>
+              </div>
+              <div id="compaction-area-list" class="trial-list compaction-area-list"></div>
+            </aside>
+
+            <section class="panel detail-panel compaction-detail-panel">
+              <div id="compaction-detail" class="trial-detail compaction-detail"></div>
+            </section>
+          </section>
+        </section>
+
         <footer class="rubisck-credit dashboard-credit" aria-label="Creditos RUBISCK">
           <img src="./public/assets/rubisck-symbol.png" alt="RUBISCK" />
           <span>Desenvolvido pela RUBISCK. Todos os direitos reservados.</span>
@@ -205,8 +259,9 @@
         } catch {}
       }
     </script>
-    <script src="./src/data.js?v=16"></script>
-    <script src="./src/protocols-data.js?v=16"></script>
-    <script src="./src/app.js?v=16"></script>
+    <script src="./src/data.js?v=17"></script>
+    <script src="./src/protocols-data.js?v=17"></script>
+    <script src="./src/compaction-data.js?v=17"></script>
+    <script src="./src/app.js?v=17"></script>
   </body>
 </html>
