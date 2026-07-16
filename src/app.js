@@ -15,6 +15,7 @@ const state = {
   compactionQuery: "",
   selectedCompactionAreaId: compactionData.areas[0]?.id || null,
   compactionTab: "resumo",
+  compactionMapLayer: "vegetacao",
   deferredPrompt: null
 };
 
@@ -930,10 +931,17 @@ function gpsMap(area) {
   const campaigns = [...new Set(points.map((point) => point.campanhaId))];
 
   return `
+    <div class="compaction-map-toolbar">
+      <span>Visualiza&ccedil;&atilde;o</span>
+      <div class="map-layer-segmented" role="group" aria-label="Camada do mapa">
+        <button class="${state.compactionMapLayer === "vegetacao" ? "active" : ""}" type="button" data-compaction-map-layer="vegetacao" aria-pressed="${state.compactionMapLayer === "vegetacao"}">Vegeta&ccedil;&atilde;o</button>
+        <button class="${state.compactionMapLayer === "ruas" ? "active" : ""}" type="button" data-compaction-map-layer="ruas" aria-pressed="${state.compactionMapLayer === "ruas"}">Ruas</button>
+      </div>
+    </div>
     <div class="compaction-map-stack">
       <div id="compaction-map-frame" class="compaction-map-frame">
         <div id="compaction-gps-map" class="compaction-leaflet-map" role="region" aria-label="Mapa interativo dos pontos GPS de ${escapeHtml(area.nome)}"></div>
-        <div id="compaction-map-loading" class="compaction-map-loading">Carregando mapa geografico...</div>
+        <div id="compaction-map-loading" class="compaction-map-loading">Carregando camada de ${state.compactionMapLayer === "vegetacao" ? "vegetacao" : "ruas"}...</div>
       </div>
       <div id="compaction-map-fallback" class="gps-map-fallback" hidden>
         <div class="map-fallback-notice">
@@ -950,7 +958,7 @@ function gpsMap(area) {
       }).join("")}
       ${points.some((point) => !point.completa) ? `<span class="incomplete">Circulo vazado: medicao incompleta</span>` : ""}
     </div>
-    <p class="method-note">Mapa interativo com OpenStreetMap. Toque em um ponto para ver os dados da medicao.</p>
+    <p class="method-note">${state.compactionMapLayer === "vegetacao" ? "Imagem de satelite Esri para leitura visual da vegetacao." : "Mapa de ruas OpenStreetMap."} Toque em um ponto para ver os dados da medicao.</p>
   `;
 }
 
@@ -983,9 +991,20 @@ function initCompactionMap(area) {
   let successfulTiles = 0;
   let failedTiles = 0;
   const loading = $("#compaction-map-loading");
-  const tileLayer = window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
-    maxZoom: 19
+  const layerConfig = state.compactionMapLayer === "ruas"
+    ? {
+        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 19
+      }
+    : {
+        url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community',
+        maxZoom: 19
+      };
+  const tileLayer = window.L.tileLayer(layerConfig.url, {
+    attribution: layerConfig.attribution,
+    maxZoom: layerConfig.maxZoom
   });
 
   tileLayer.on("tileload", () => {
@@ -1340,6 +1359,13 @@ function bindEvents() {
     const tabButton = event.target.closest("button[data-compaction-tab]");
     if (tabButton) {
       state.compactionTab = tabButton.dataset.compactionTab;
+      renderCompactionDetail();
+      return;
+    }
+
+    const mapLayerButton = event.target.closest("button[data-compaction-map-layer]");
+    if (mapLayerButton) {
+      state.compactionMapLayer = mapLayerButton.dataset.compactionMapLayer;
       renderCompactionDetail();
       return;
     }

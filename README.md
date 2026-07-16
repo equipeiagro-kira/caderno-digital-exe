@@ -31,7 +31,7 @@ O projeto nao precisa de build. Pode ser publicado em GitHub Pages, Netlify ou V
 - `manifest.webmanifest`: metadados de instalacao PWA.
 - `public/assets/`: logo e icones.
 
-O mapa geografico usa Leaflet com tiles do OpenStreetMap enquanto houver internet. No modo offline, o app preserva os dados e exibe a distribuicao relativa dos pontos sem baixar mapas antecipadamente.
+O mapa geografico usa Leaflet, imagem de satelite Esri no modo Vegetacao e OpenStreetMap no modo Ruas. No modo offline, o app preserva os dados e exibe a distribuicao relativa dos pontos sem baixar mapas antecipadamente.
 
 ## Fonte dos dados
 
