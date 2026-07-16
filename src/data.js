@@ -1,12 +1,12 @@
-// Dados extraidos das planilhas Excelencia. Nao editar manualmente sem atualizar a fonte.
+// Dados extraidos da planilha consolidada da Excelencia.
 window.EXA_DATA = {
   "resumo": {
-    "geradoEm": "2026-07-14T19:27:10",
-    "fontePrincipal": "Teste de Cultivares 2026.xlsx",
+    "geradoEm": "2026-07-16T13:13:49.031Z",
+    "fontePrincipal": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
     "totalEnsaios": 8,
     "totalTratamentos": 210,
-    "totalCultivaresUnicas": 79,
-    "totalProdutosManejo": 102,
+    "totalCultivaresUnicas": 75,
+    "totalProdutosManejo": 107,
     "culturas": [
       "MILHO",
       "SOJA"
@@ -21,10 +21,9 @@ window.EXA_DATA = {
       "Ricardo Cunha"
     ],
     "avisos": [
-      "Foram recebidos 5 arquivos Excel; a planilha Teste de Cultivares 2026.xlsx consolida 8 ensaios.",
-      "SOJA JUNG e MILHO IVO aparecem tamb?m em arquivos individuais com registros equivalentes.",
-      "MILHO JUNG possui diverg?ncia entre consolidado e arquivo individual: NK 509 / AZIMUT aparece como 0.7 no consolidado e 0.77 no individual.",
-      "SOJA AGOSTINHO possui diferen?a de cabe?alho: o consolidado preserva a data 1? FUNGICIDA (24/06)."
+      "A planilha atualizada consolida os oito ensaios de soja e milho exibidos no caderno.",
+      "Os produtos de cada etapa pertencem ao ensaio e são apresentados integralmente em todas as cultivares daquele produtor.",
+      "SOJA JUNG apresenta 1ª, 2ª, 3ª, 4ª e 6ª aplicações na fonte; não há cabeçalho de 5ª aplicação."
     ]
   },
   "ensaios": [
@@ -57,32 +56,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 400000,
           "id": "soja-agostinho-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "WG",
-              "dose": "2"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "VIOVAM",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "1",
-            "RAPTOR",
-            "BRASMAX",
-            "7.1",
-            "172",
-            "400000",
-            "",
-            "WG",
-            "2",
-            "VIOVAM",
-            "0.7"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -92,32 +66,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 300000,
           "id": "soja-agostinho-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "VESSARYA",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "2",
-            "NS 7676",
-            "NIDERA",
-            "7.6",
-            "180",
-            "300000",
-            "",
-            "VESSARYA",
-            "0.4",
-            "TIOFANATO 500",
-            "1"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -127,32 +76,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 300000,
           "id": "soja-agostinho-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "CARAVAN",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "LANNATE",
-              "dose": "1.2"
-            }
-          ],
-          "raw": [
-            "3",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "300000",
-            "",
-            "CARAVAN",
-            "0.3",
-            "LANNATE",
-            "1.2"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -162,32 +86,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 300000,
           "id": "soja-agostinho-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "TALSTAR 400",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "LUFENURON",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "4",
-            "ST 80Ka72",
-            "STINE",
-            "8.0",
-            "150",
-            "300000",
-            "",
-            "TALSTAR 400",
-            "0.08",
-            "LUFENURON",
-            "0.25"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -197,32 +96,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 300000,
           "id": "soja-agostinho-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "PREMIO",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "ACETAMIPRID 725",
-              "dose": "0.06"
-            }
-          ],
-          "raw": [
-            "5",
-            "OLIMPO",
-            "BASMAX",
-            "8.0",
-            "171",
-            "300000",
-            "",
-            "PREMIO",
-            "0.08",
-            "ACETAMIPRID 725",
-            "0.06"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -232,32 +106,7 @@ window.EXA_DATA = {
           "pmg": 188,
           "populacao": 300000,
           "id": "soja-agostinho-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "PIRIPROXIFEN 200",
-              "dose": "0.12"
-            }
-          ],
-          "raw": [
-            "6",
-            "HERA",
-            "BRASMAX",
-            "8.0",
-            "188",
-            "300000",
-            "",
-            "CO-MO-NI LYNX",
-            "0.08",
-            "PIRIPROXIFEN 200",
-            "0.12"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -267,32 +116,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 300000,
           "id": "soja-agostinho-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "MULTKEL MN",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "MULTKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "7",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "300000",
-            "",
-            "MULTKEL MN",
-            "0.5",
-            "MULTKEL COBRE",
-            "0.08"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -302,32 +126,7 @@ window.EXA_DATA = {
           "pmg": 155,
           "populacao": 300000,
           "id": "soja-agostinho-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "SULF. MG",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "8",
-            "AVRA 2576",
-            "AVRA",
-            "7.6",
-            "155",
-            "300000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "SULF. MG",
-            "1.5"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -337,32 +136,7 @@ window.EXA_DATA = {
           "pmg": 163,
           "populacao": 300000,
           "id": "soja-agostinho-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "SULF. MG",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "9",
-            "MÍTICA",
-            "BRASMAX",
-            "7.7",
-            "163",
-            "300000",
-            "",
-            "SULF. MG",
-            "1.5",
-            "CO-MO-NI LYNX",
-            "0.08"
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -372,32 +146,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 280000,
           "id": "soja-agostinho-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (10/06)",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "POTENZA K",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "10",
-            "ST 78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "280000",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "POTENZA K",
-            "1.5"
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -407,27 +156,7 @@ window.EXA_DATA = {
           "pmg": 166,
           "populacao": 280000,
           "id": "soja-agostinho-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "2ª FUNGICIDA (08/07)",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "11",
-            "AVRA 2478",
-            "AVRA",
-            "7.8",
-            "166",
-            "280000",
-            "",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -437,21 +166,7 @@ window.EXA_DATA = {
           "pmg": 184,
           "populacao": 280000,
           "id": "soja-agostinho-12",
-          "linhaExcel": 17,
-          "manejos": [],
-          "raw": [
-            "12",
-            "C 2795",
-            "CORDIUS",
-            "7.9",
-            "184",
-            "280000",
-            "",
-            "1ª FUNGICIDA (24/06)",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -461,32 +176,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 280000,
           "id": "soja-agostinho-13",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "FOX SUPRA",
-              "dose": "0.35"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "CYPRESS",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "13",
-            "EVOLUI",
-            "LATITUDE",
-            "7.9",
-            "180",
-            "280000",
-            "",
-            "FOX SUPRA",
-            "0.35",
-            "CYPRESS",
-            "0.25"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -496,32 +186,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 280000,
           "id": "soja-agostinho-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "14",
-            "SERTANEJA",
-            "LATITUDE",
-            "7.9",
-            "170",
-            "280000",
-            "",
-            "TIOFANATO 500",
-            "1",
-            "TIOFANATO 500",
-            "1"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -531,32 +196,7 @@ window.EXA_DATA = {
           "pmg": 190,
           "populacao": 280000,
           "id": "soja-agostinho-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "ACETAMIPRID 725",
-              "dose": "0.06"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "ACETAMIPRID 725",
-              "dose": "0.06"
-            }
-          ],
-          "raw": [
-            "15",
-            "BÔNUS",
-            "BASMAX",
-            "7.9",
-            "190",
-            "280000",
-            "",
-            "ACETAMIPRID 725",
-            "0.06",
-            "ACETAMIPRID 725",
-            "0.06"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -566,32 +206,7 @@ window.EXA_DATA = {
           "pmg": 178,
           "populacao": 280000,
           "id": "soja-agostinho-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "PIRIPROXIFEN 200",
-              "dose": "0.12"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "PIRIPROXIFEN 200",
-              "dose": "0.12"
-            }
-          ],
-          "raw": [
-            "16",
-            "NEO 802",
-            "NEOGEN",
-            "8.0",
-            "178",
-            "280000",
-            "",
-            "PIRIPROXIFEN 200",
-            "0.12",
-            "PIRIPROXIFEN 200",
-            "0.12"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -601,32 +216,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 280000,
           "id": "soja-agostinho-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "PREMIO",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "LUFENURON",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "17",
-            "NEO 810",
-            "NEOGEN",
-            "8.1",
-            "162",
-            "280000",
-            "",
-            "PREMIO",
-            "0.1",
-            "LUFENURON",
-            "0.25"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -636,32 +226,7 @@ window.EXA_DATA = {
           "pmg": 201,
           "populacao": 280000,
           "id": "soja-agostinho-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF. MG",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "18",
-            "80i85",
-            "DONMARIO",
-            "8.0",
-            "201",
-            "280000",
-            "",
-            "CO-MO-NI LYNX",
-            "0.08",
-            "SULF. MG",
-            "1.5"
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -671,32 +236,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 280000,
           "id": "soja-agostinho-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "SULF. MG",
-              "dose": "2"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "19",
-            "NS 8080",
-            "NIDERA",
-            "8.0",
-            "185",
-            "280000",
-            "",
-            "SULF. MG",
-            "2",
-            "SUGAR",
-            "1"
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -706,32 +246,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 260000,
           "id": "soja-agostinho-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.06"
-            }
-          ],
-          "raw": [
-            "20",
-            "ST 84Ka92",
-            "STINE",
-            "8.4",
-            "150",
-            "260000",
-            "",
-            "BORO 10 PLUS",
-            "0.4",
-            "MULTIKEL COBRE",
-            "0.06"
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -741,140 +256,224 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 260000,
           "id": "soja-agostinho-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (24/06)",
-              "produto": "MULTKEL COBRE",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "MULT MOL",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "21",
-            "ÍMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "260000",
-            "",
-            "MULTKEL COBRE",
-            "0.08",
-            "MULT MOL",
-            "0.1"
-          ]
+          "linhaExcel": 26
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 27,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "WG",
+          "dose": 2
         },
         {
-          "linhaExcel": 28,
-          "titulo": "4 T Calcário.",
-          "valores": [
-            "4 T Calcário.",
-            "",
-            "",
-            "Rizokop 18 doses/ha.",
-            "",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "VESSARYA",
+          "dose": 0.4
         },
         {
-          "linhaExcel": 29,
-          "titulo": "400 Kg SS pré-plantio.",
-          "valores": [
-            "400 Kg SS pré-plantio.",
-            "",
-            "",
-            "Azokop 1 dose/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "CARAVAN",
+          "dose": 0.3
         },
         {
-          "linhaExcel": 30,
-          "titulo": "180 Kg 06-40-00 a lanço.",
-          "valores": [
-            "180 Kg 06-40-00 a lanço.",
-            "",
-            "",
-            "Tricodermil 100 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "TALSTAR 400",
+          "dose": 0.08
         },
         {
-          "linhaExcel": 31,
-          "titulo": "100 Kg KCl Pré-plantio.",
-          "valores": [
-            "100 Kg KCl Pré-plantio.",
-            "",
-            "",
-            "Veraneio 100 g/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "PREMIO",
+          "dose": 0.08
         },
         {
-          "linhaExcel": 32,
-          "titulo": "150 Kg KCl Parcelado em cobertura.",
-          "valores": [
-            "150 Kg KCl Parcelado em cobertura.",
-            "",
-            "",
-            "Stingray 200 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.08
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "MULTKEL MN",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "SULF. MG",
+          "dose": 1.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (10/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "FOX SUPRA",
+          "dose": 0.35
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "ACETAMIPRID 725",
+          "dose": 0.06
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "PIRIPROXIFEN 200",
+          "dose": 0.12
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "PREMIO",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "SULF. MG",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "MULTKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (24/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "VIOVAM",
+          "dose": 0.7
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "LANNATE",
+          "dose": 1.2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "LUFENURON",
+          "dose": 0.25
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "ACETAMIPRID 725",
+          "dose": 0.06
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "PIRIPROXIFEN 200",
+          "dose": 0.12
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "MULTKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "SULF. MG",
+          "dose": 1.5
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "POTENZA K",
+          "dose": 1.5
+        },
+        {
+          "etapa": "2ª FUNGICIDA (08/07)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "CYPRESS",
+          "dose": 0.25
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "ACETAMIPRID 725",
+          "dose": 0.06
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "PIRIPROXIFEN 200",
+          "dose": 0.12
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "LUFENURON",
+          "dose": 0.25
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "SULF. MG",
+          "dose": 1.5
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "SUGAR",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.06
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "MULT MOL",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "SOJA AGOSTINHO"
       },
       "adubacao": [
@@ -894,7 +493,7 @@ window.EXA_DATA = {
     },
     {
       "id": "soja-r-cunha",
-      "nome": "SOJA R CUNHA",
+      "nome": "SOJA RICARDO CUNHA",
       "titulo": "TESTE DE VARIEDADES",
       "cultura": "SOJA",
       "produtor": "Ricardo Cunha",
@@ -909,8 +508,8 @@ window.EXA_DATA = {
         "POPULAÇÃO",
         "1ª APLICAÇÃO (20/05)",
         "DOSE/HA",
-        "PREMIO",
-        "0.1"
+        "4ª APLICAÇÃO (18/06)",
+        "DOSE/HA"
       ],
       "tratamentos": [
         {
@@ -921,32 +520,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 275555,
           "id": "soja-r-cunha-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "BIOPARTNER ADJ",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "COMPAT COPPER",
-              "dose": "0.05"
-            }
-          ],
-          "raw": [
-            "1",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "275555",
-            "",
-            "BIOPARTNER ADJ",
-            "0.1",
-            "COMPAT COPPER",
-            "0.05"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -956,32 +530,7 @@ window.EXA_DATA = {
           "pmg": 155,
           "populacao": 301111,
           "id": "soja-r-cunha-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "STIMULATE",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "ZAAP QI",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "2",
-            "AVRA 2576",
-            "AVRA",
-            "7.6",
-            "155",
-            "301111",
-            "",
-            "STIMULATE",
-            "0.5",
-            "ZAAP QI",
-            "1"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -991,32 +540,7 @@ window.EXA_DATA = {
           "pmg": 163,
           "populacao": 268888,
           "id": "soja-r-cunha-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "RELEAF",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "ACETAMIPRID 200",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "3",
-            "MÍTICA",
-            "BRASMAX",
-            "7.7",
-            "163",
-            "268888",
-            "",
-            "RELEAF",
-            "0.5",
-            "ACETAMIPRID 200",
-            "0.25"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -1026,27 +550,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 245555,
           "id": "soja-r-cunha-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "CARAVAN",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "4",
-            "NS 7676",
-            "NIDERA",
-            "7.7",
-            "180",
-            "245555",
-            "",
-            "CARAVAN",
-            "0.4",
-            "4ª APLICAÇÃO (18/06)",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -1056,32 +560,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 282222,
           "id": "soja-r-cunha-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "COMONI",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "BIOARTNERS ADJ",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "5",
-            "OLIMPO",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "282222",
-            "",
-            "COMONI",
-            "0.1",
-            "BIOARTNERS ADJ",
-            "0.1"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -1091,32 +570,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 251111,
           "id": "soja-r-cunha-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "EXTRATO ALGAS",
-              "dose": "0.75"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "6",
-            "OLIMPO",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "251111",
-            "",
-            "EXTRATO ALGAS",
-            "0.75",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -1126,32 +580,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 205555,
           "id": "soja-r-cunha-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "TALSTAR",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "7",
-            "OLIMPO",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "205555",
-            "",
-            "TALSTAR",
-            "0.1",
-            "MULTIKEL COBRE",
-            "0.08"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -1161,32 +590,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 286666,
           "id": "soja-r-cunha-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "ACETAMIPRID 200",
-              "dose": "0.25"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "MOLIBDÊNIO LYNX",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "8",
-            "ST 78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "286666",
-            "",
-            "ACETAMIPRID 200",
-            "0.25",
-            "MOLIBDÊNIO LYNX",
-            "0.1"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -1196,32 +600,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 246666,
           "id": "soja-r-cunha-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "1ª APLICAÇÃO (20/05)",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "1.25"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "POTÁSSIO LYNX",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "9",
-            "ST 78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "246666",
-            "",
-            "SULF. MAGNÉSIO",
-            "1.25",
-            "POTÁSSIO LYNX",
-            "1"
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -1231,27 +610,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 227777,
           "id": "soja-r-cunha-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "MOVER",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "10",
-            "ST 78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "227777",
-            "",
-            "2ª APLICAÇÃO (25/05)",
-            "DOSE/HA",
-            "MOVER",
-            "1"
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -1261,32 +620,7 @@ window.EXA_DATA = {
           "pmg": 166,
           "populacao": 226666,
           "id": "soja-r-cunha-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "MITRION",
-              "dose": "0.45"
-            }
-          ],
-          "raw": [
-            "11",
-            "AVRA 2478",
-            "AVRA",
-            "7.8",
-            "166",
-            "226666",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.1",
-            "MITRION",
-            "0.45"
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -1296,32 +630,7 @@ window.EXA_DATA = {
           "pmg": 184,
           "populacao": 224444,
           "id": "soja-r-cunha-12",
-          "linhaExcel": 17,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "ZINCO LYNX",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "ULTRA SAFE",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "12",
-            "C 2795",
-            "CORDIUS",
-            "7.9",
-            "184",
-            "224444",
-            "",
-            "ZINCO LYNX",
-            "0.5",
-            "ULTRA SAFE",
-            "1"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -1331,32 +640,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 251111,
           "id": "soja-r-cunha-13",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "BORO LYNX",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "METOMIL",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "13",
-            "EVOLUI",
-            "LATITUDE",
-            "7.9",
-            "180",
-            "251111",
-            "",
-            "BORO LYNX",
-            "0.3",
-            "METOMIL",
-            "1"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -1366,32 +650,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 228888,
           "id": "soja-r-cunha-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "ZAAP QI",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "4ª APLICAÇÃO (18/06)",
-              "produto": "HOLD",
-              "dose": "0.5"
-            }
-          ],
-          "raw": [
-            "14",
-            "SERTANEJA",
-            "LATITUDE",
-            "7.9",
-            "170",
-            "228888",
-            "",
-            "ZAAP QI",
-            "1.5",
-            "HOLD",
-            "0.5"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -1401,27 +660,7 @@ window.EXA_DATA = {
           "pmg": 190,
           "populacao": 231111,
           "id": "soja-r-cunha-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "VESSARYA",
-              "dose": "0.6"
-            }
-          ],
-          "raw": [
-            "15",
-            "BÔNUS",
-            "BASMAX",
-            "7.9",
-            "190",
-            "231111",
-            "",
-            "VESSARYA",
-            "0.6",
-            "5ª APLICAÇÃO (03/07)",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -1431,32 +670,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 243333,
           "id": "soja-r-cunha-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "DIFENO",
-              "dose": "0.2"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "BIOARTNERS ADJ",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "16",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "243333",
-            "",
-            "DIFENO",
-            "0.2",
-            "BIOARTNERS ADJ",
-            "0.1"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -1466,32 +680,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 219999,
           "id": "soja-r-cunha-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "TAKUMI",
-              "dose": "0.2"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "TRIVOR",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "17",
-            "OLIMPO",
-            "BASMAX",
-            "8.0",
-            "171",
-            "219999",
-            "",
-            "TAKUMI",
-            "0.2",
-            "TRIVOR",
-            "0.25"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -1501,32 +690,7 @@ window.EXA_DATA = {
           "pmg": 188,
           "populacao": 185555,
           "id": "soja-r-cunha-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "1"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "SPERTO",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "18",
-            "HERA",
-            "BRASMAX",
-            "8.0",
-            "188",
-            "185555",
-            "",
-            "SULF. MAGNÉSIO",
-            "1",
-            "SPERTO",
-            "0.25"
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -1536,32 +700,7 @@ window.EXA_DATA = {
           "pmg": 201,
           "populacao": 223333,
           "id": "soja-r-cunha-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "STARTER MN",
-              "dose": "1"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "CLORFENAPIR",
-              "dose": "0.8"
-            }
-          ],
-          "raw": [
-            "19",
-            "80i85",
-            "DONMARIO",
-            "8.0",
-            "201",
-            "223333",
-            "",
-            "STARTER MN",
-            "1",
-            "CLORFENAPIR",
-            "0.8"
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -1571,32 +710,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 225555,
           "id": "soja-r-cunha-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "2ª APLICAÇÃO (25/05)",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.05"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "20",
-            "NS 8080",
-            "NIDERA",
-            "8.0",
-            "185",
-            "225555",
-            "",
-            "MULTIKEL COBRE",
-            "0.05",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -1606,27 +720,7 @@ window.EXA_DATA = {
           "pmg": 178,
           "populacao": 208888,
           "id": "soja-r-cunha-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "MOVER",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "21",
-            "NEO 802",
-            "NEOGEN",
-            "8.0",
-            "178",
-            "208888",
-            "",
-            "3ª APLICAÇÃO (06/06)",
-            "DOSE/HA",
-            "MOVER",
-            "1"
-          ]
+          "linhaExcel": 26
         },
         {
           "numero": 22,
@@ -1636,32 +730,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 214444,
           "id": "soja-r-cunha-22",
-          "linhaExcel": 27,
-          "manejos": [
-            {
-              "etapa": "3ª APLICAÇÃO (06/06)",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.6"
-            }
-          ],
-          "raw": [
-            "22",
-            "NEO 810",
-            "NEOGEN",
-            "8.1",
-            "162",
-            "214444",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.1",
-            "MULTIKEL COBRE",
-            "0.6"
-          ]
+          "linhaExcel": 27
         },
         {
           "numero": 23,
@@ -1671,107 +740,265 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 206666,
           "id": "soja-r-cunha-23",
-          "linhaExcel": 28,
-          "manejos": [
-            {
-              "etapa": "3ª APLICAÇÃO (06/06)",
-              "produto": "FOX XPRO",
-              "dose": "0.33"
-            },
-            {
-              "etapa": "5ª APLICAÇÃO (03/07)",
-              "produto": "MOLIBDÊNIO LYNX",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "23",
-            "ÍMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "206666",
-            "",
-            "FOX XPRO",
-            "0.33",
-            "MOLIBDÊNIO LYNX",
-            "0.1"
-          ]
+          "linhaExcel": 28
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 29,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "TIOFANATO",
-            "1",
-            "POTÁSSIO LYNX",
-            "0.5"
-          ]
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "BIOPARTNER ADJ",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 30,
-          "titulo": "250 Kg SSP a lanço em pré-plantio.",
-          "valores": [
-            "250 Kg SSP a lanço em pré-plantio.",
-            "",
-            "",
-            "BioPartners Brady 50 doses/ha.",
-            "",
-            "",
-            "",
-            "BORO LYNX",
-            "0.3",
-            "CYPRESS",
-            "0.25"
-          ]
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "STIMULATE",
+          "dose": 0.5
         },
         {
-          "linhaExcel": 31,
-          "titulo": "120 Kg 09-32-12 na linha.",
-          "valores": [
-            "120 Kg 09-32-12 na linha.",
-            "",
-            "",
-            "BioPartners Azos 2 doses/ha.",
-            "",
-            "",
-            "",
-            "STARTER MN",
-            "1",
-            "TIOFANATO",
-            "0.8"
-          ]
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "RELEAF",
+          "dose": 0.5
         },
         {
-          "linhaExcel": 32,
-          "titulo": "220 Kg KCl parcelado.",
-          "valores": [
-            "220 Kg KCl parcelado.",
-            "",
-            "",
-            "BioPartners Fósforo 1 dose/ha.",
-            "",
-            "",
-            "",
-            "ULTRA SAFE",
-            "0.5",
-            "",
-            ""
-          ]
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "CARAVAN",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "COMONI",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "EXTRATO ALGAS",
+          "dose": 0.75
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "TALSTAR",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "ACETAMIPRID 200",
+          "dose": 0.25
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (20/05)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1.25
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.1
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "ZINCO LYNX",
+          "dose": 0.5
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "BORO LYNX",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "ZAAP QI",
+          "dose": 1.5
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "VESSARYA",
+          "dose": 0.6
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "DIFENO",
+          "dose": 0.2
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "TAKUMI",
+          "dose": 0.2
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "STARTER MN",
+          "dose": 1
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (25/05)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.05
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "FOX XPRO",
+          "dose": 0.33
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "TIOFANATO",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "BORO LYNX",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "STARTER MN",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "ULTRA SAFE",
+          "dose": 0.5
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "PREMIO",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "COMPAT COPPER",
+          "dose": 0.05
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "ZAAP QI",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (06/06)",
+          "produto": "ACETAMIPRID 200",
+          "dose": 0.25
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "BIOARTNERS ADJ",
+          "dose": 0.1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "MOLIBDÊNIO LYNX",
+          "dose": 0.1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "POTÁSSIO LYNX",
+          "dose": 1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "MOVER",
+          "dose": 1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "MITRION",
+          "dose": 0.45
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "ULTRA SAFE",
+          "dose": 1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "METOMIL",
+          "dose": 1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (18/06)",
+          "produto": "HOLD",
+          "dose": 0.5
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "BIOARTNERS ADJ",
+          "dose": 0.1
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "TRIVOR",
+          "dose": 0.25
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "SPERTO",
+          "dose": 0.25
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "CLORFENAPIR",
+          "dose": 0.8
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "MOVER",
+          "dose": 1
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.6
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "MOLIBDÊNIO LYNX",
+          "dose": 0.1
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "POTÁSSIO LYNX",
+          "dose": 0.5
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "CYPRESS",
+          "dose": 0.25
+        },
+        {
+          "etapa": "5ª APLICAÇÃO (03/07)",
+          "produto": "TIOFANATO",
+          "dose": 0.8
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
-        "aba": "SOJA R CUNHA"
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
+        "aba": "SOJA RICARDO CUNHA"
       },
       "adubacao": [
         "250 Kg SSP a lanço em pré-plantio.",
@@ -1801,9 +1028,9 @@ window.EXA_DATA = {
         "MATURAÇÃO",
         "PMG",
         "POPULAÇÃO",
-        "PÓS-EMERGENTE",
+        "PÓS-EMERGENTE (12/06)",
         "DOSE/HA",
-        "2ª FUNGICIDA",
+        "2ª FUNGICIDA (04/07)",
         "DOSE/HA"
       ],
       "tratamentos": [
@@ -1815,33 +1042,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 180,
           "id": "soja-vendruscolo-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLISOFATO WG 720",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "VIOVAN",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "1",
-            "IMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "180",
-            "",
-            "",
-            "GLISOFATO WG 720",
-            "1.5",
-            "VIOVAN",
-            "0.7"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -1851,33 +1052,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 260,
           "id": "soja-vendruscolo-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "TALSTAR",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "0.8"
-            }
-          ],
-          "raw": [
-            "2",
-            "IMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "260",
-            "",
-            "",
-            "TALSTAR",
-            "0.08",
-            "TIOFANATO 500",
-            "0.8"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -1887,33 +1062,7 @@ window.EXA_DATA = {
           "pmg": 210,
           "populacao": 260,
           "id": "soja-vendruscolo-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "PROVILAR",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "TRIVOR",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "3",
-            "LENDA",
-            "PAMPEANA",
-            "8.4",
-            "210",
-            "260",
-            "",
-            "",
-            "PROVILAR",
-            "0.3",
-            "TRIVOR",
-            "0.25"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -1923,33 +1072,7 @@ window.EXA_DATA = {
           "pmg": 210,
           "populacao": 180,
           "id": "soja-vendruscolo-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "4",
-            "LENDA",
-            "PAMPEANA",
-            "8.4",
-            "210",
-            "180",
-            "",
-            "",
-            "CO-MO-NI LYNX",
-            "0.1",
-            "BORO 10 PLUS",
-            "0.3"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -1959,33 +1082,7 @@ window.EXA_DATA = {
           "pmg": 160,
           "populacao": 180,
           "id": "soja-vendruscolo-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "5",
-            "84Ka92",
-            "STINE",
-            "8.4",
-            "160",
-            "180",
-            "",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "MULTIKEL COBRE",
-            "0.08"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -1995,33 +1092,7 @@ window.EXA_DATA = {
           "pmg": 160,
           "populacao": 260,
           "id": "soja-vendruscolo-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIKEL MN",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "6",
-            "84Ka92",
-            "STINE",
-            "8.4",
-            "160",
-            "260",
-            "",
-            "",
-            "MULTIKEL MN",
-            "0.5",
-            "CO-MO-NI LYNX",
-            "0.1"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -2031,33 +1102,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 220,
           "id": "soja-vendruscolo-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "7",
-            "80Ka72",
-            "STINE",
-            "8.0",
-            "170",
-            "220",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "SULF. MAGNÉSIO",
-            "1.5"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -2067,28 +1112,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 300,
           "id": "soja-vendruscolo-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "8",
-            "80Ka72",
-            "STINE",
-            "8.0",
-            "170",
-            "300",
-            "",
-            "",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -2098,22 +1122,7 @@ window.EXA_DATA = {
           "pmg": 201,
           "populacao": 300,
           "id": "soja-vendruscolo-9",
-          "linhaExcel": 14,
-          "manejos": [],
-          "raw": [
-            "9",
-            "80I85",
-            "DON MARIO",
-            "8.0",
-            "201",
-            "300",
-            "",
-            "",
-            "1ª FUNGICIDA",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -2123,33 +1132,7 @@ window.EXA_DATA = {
           "pmg": 201,
           "populacao": 220,
           "id": "soja-vendruscolo-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "FOX SUPRA",
-              "dose": "0.32"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "GLOVE",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "10",
-            "80I85",
-            "DON MARIO",
-            "8.0",
-            "201",
-            "220",
-            "",
-            "",
-            "FOX SUPRA",
-            "0.32",
-            "GLOVE",
-            "0.25"
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -2159,33 +1142,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 220,
           "id": "soja-vendruscolo-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MANCOZEB",
-              "dose": "0.85"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "GALIL - 260 ha",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "11",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "220",
-            "",
-            "",
-            "MANCOZEB",
-            "0.85",
-            "GALIL - 260 ha",
-            "0.3"
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -2195,33 +1152,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 300,
           "id": "soja-vendruscolo-12",
-          "linhaExcel": 17,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SANDAL (ACETA 200)",
-              "dose": "0.25"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "ENGEO PLENO - 220 ha",
-              "dose": "0.2"
-            }
-          ],
-          "raw": [
-            "12",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "300",
-            "",
-            "",
-            "SANDAL (ACETA 200)",
-            "0.25",
-            "ENGEO PLENO - 220 ha",
-            "0.2"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -2231,33 +1162,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 300,
           "id": "soja-vendruscolo-13",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "PIRIPROXIFEM 200",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "TALISMÃ - 600 ha",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "13",
-            "OLIMPO (CELEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "300",
-            "",
-            "",
-            "PIRIPROXIFEM 200",
-            "0.1",
-            "TALISMÃ - 600 ha",
-            "0.3"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -2267,33 +1172,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 220,
           "id": "soja-vendruscolo-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "PREMIO - 875 ha",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "14",
-            "OLIMPO (CELEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "220",
-            "",
-            "",
-            "PREMIO - 875 ha",
-            "0.08",
-            "SUGAR",
-            "2"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -2303,33 +1182,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 220,
           "id": "soja-vendruscolo-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BELT - 375 ha",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "15",
-            "OLIMPO (CAJUEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "220",
-            "",
-            "",
-            "BELT - 375 ha",
-            "0.08",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -2339,33 +1192,7 @@ window.EXA_DATA = {
           "pmg": 171,
           "populacao": 300,
           "id": "soja-vendruscolo-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "MULTIMOL",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "16",
-            "OLIMPO (CAJUEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "300",
-            "",
-            "",
-            "CO-MO-NI LYNX",
-            "0.1",
-            "MULTIMOL",
-            "0.08"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -2375,33 +1202,7 @@ window.EXA_DATA = {
           "pmg": 190,
           "populacao": 300,
           "id": "soja-vendruscolo-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "17",
-            "BÔNUS",
-            "BRASMAX",
-            "7.9",
-            "190",
-            "300",
-            "",
-            "",
-            "SULF. MAGNÉSIO",
-            "1.5",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -2411,28 +1212,7 @@ window.EXA_DATA = {
           "pmg": 190,
           "populacao": 220,
           "id": "soja-vendruscolo-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. ZINCO",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "18",
-            "BÔNUS",
-            "BRASMAX",
-            "7.9",
-            "190",
-            "220",
-            "",
-            "",
-            "SULF. ZINCO",
-            "0.3",
-            "",
-            ""
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -2442,28 +1222,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 220,
           "id": "soja-vendruscolo-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MULTKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "19",
-            "78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "220",
-            "",
-            "",
-            "MULTKEL COBRE",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -2473,28 +1232,7 @@ window.EXA_DATA = {
           "pmg": 150,
           "populacao": 300,
           "id": "soja-vendruscolo-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "20",
-            "78Ka72",
-            "STINE",
-            "7.8",
-            "150",
-            "300",
-            "",
-            "",
-            "BORO 10 PLUS",
-            "0.4",
-            "",
-            ""
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -2504,28 +1242,7 @@ window.EXA_DATA = {
           "pmg": 160,
           "populacao": 260,
           "id": "soja-vendruscolo-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "21",
-            "NEO 850",
-            "NEOGEN",
-            "8.5",
-            "160",
-            "260",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 26
         },
         {
           "numero": 22,
@@ -2535,22 +1252,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 260,
           "id": "soja-vendruscolo-22",
-          "linhaExcel": 27,
-          "manejos": [],
-          "raw": [
-            "22",
-            "GH 2581",
-            "GOLDEN HARVEST",
-            "8.1",
-            "180",
-            "260",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 27
         },
         {
           "numero": 23,
@@ -2560,22 +1262,7 @@ window.EXA_DATA = {
           "pmg": 178,
           "populacao": 260,
           "id": "soja-vendruscolo-23",
-          "linhaExcel": 28,
-          "manejos": [],
-          "raw": [
-            "23",
-            "NEO 802",
-            "NEOGEN",
-            "8.0",
-            "178",
-            "260",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 28
         },
         {
           "numero": 24,
@@ -2585,22 +1272,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 260,
           "id": "soja-vendruscolo-24",
-          "linhaExcel": 29,
-          "manejos": [],
-          "raw": [
-            "24",
-            "NEO 810",
-            "NEOGEN",
-            "8.1",
-            "162",
-            "260",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 29
         },
         {
           "numero": 25,
@@ -2610,22 +1282,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 260,
           "id": "soja-vendruscolo-25",
-          "linhaExcel": 30,
-          "manejos": [],
-          "raw": [
-            "25",
-            "NS8080",
-            "NIDERA",
-            "8.0",
-            "185",
-            "260",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 30
         },
         {
           "numero": 26,
@@ -2635,22 +1292,7 @@ window.EXA_DATA = {
           "pmg": 188,
           "populacao": 260,
           "id": "soja-vendruscolo-26",
-          "linhaExcel": 31,
-          "manejos": [],
-          "raw": [
-            "26",
-            "HERA",
-            "BRASMAX",
-            "8.0",
-            "188",
-            "260",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 31
         },
         {
           "numero": 27,
@@ -2660,22 +1302,7 @@ window.EXA_DATA = {
           "pmg": 159,
           "populacao": 280,
           "id": "soja-vendruscolo-27",
-          "linhaExcel": 32,
-          "manejos": [],
-          "raw": [
-            "27",
-            "79K80",
-            "DON MARIO",
-            "7.9",
-            "159",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 32
         },
         {
           "numero": 28,
@@ -2685,22 +1312,7 @@ window.EXA_DATA = {
           "pmg": 173,
           "populacao": 280,
           "id": "soja-vendruscolo-28",
-          "linhaExcel": 33,
-          "manejos": [],
-          "raw": [
-            "28",
-            "78IX80",
-            "DON MARIO",
-            "7.8",
-            "173",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 33
         },
         {
           "numero": 29,
@@ -2710,22 +1322,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 280,
           "id": "soja-vendruscolo-29",
-          "linhaExcel": 34,
-          "manejos": [],
-          "raw": [
-            "29",
-            "SERTANEJA",
-            "LATITUDE",
-            "7.9",
-            "170",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 34
         },
         {
           "numero": 30,
@@ -2735,22 +1332,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 280,
           "id": "soja-vendruscolo-30",
-          "linhaExcel": 35,
-          "manejos": [],
-          "raw": [
-            "30",
-            "EVOLUI",
-            "LATITUDE",
-            "7.9",
-            "180",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 35
         },
         {
           "numero": 31,
@@ -2760,22 +1342,7 @@ window.EXA_DATA = {
           "pmg": 184,
           "populacao": 280,
           "id": "soja-vendruscolo-31",
-          "linhaExcel": 36,
-          "manejos": [],
-          "raw": [
-            "31",
-            "C2795",
-            "CORDIUS",
-            "7.9",
-            "184",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 36
         },
         {
           "numero": 32,
@@ -2785,22 +1352,7 @@ window.EXA_DATA = {
           "pmg": 166,
           "populacao": 280,
           "id": "soja-vendruscolo-32",
-          "linhaExcel": 37,
-          "manejos": [],
-          "raw": [
-            "32",
-            "AVRA 2478",
-            "AVRA",
-            "7.8",
-            "166",
-            "280",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 37
         },
         {
           "numero": 33,
@@ -2810,22 +1362,7 @@ window.EXA_DATA = {
           "pmg": 163,
           "populacao": 300,
           "id": "soja-vendruscolo-33",
-          "linhaExcel": 38,
-          "manejos": [],
-          "raw": [
-            "33",
-            "MÍTICA",
-            "BRASMAX",
-            "7.7",
-            "163",
-            "300",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 38
         },
         {
           "numero": 34,
@@ -2835,22 +1372,7 @@ window.EXA_DATA = {
           "pmg": 155,
           "populacao": 300,
           "id": "soja-vendruscolo-34",
-          "linhaExcel": 39,
-          "manejos": [],
-          "raw": [
-            "34",
-            "AVRA 2576",
-            "AVRA",
-            "7.6",
-            "155",
-            "300",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 39
         },
         {
           "numero": 35,
@@ -2860,22 +1382,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 300,
           "id": "soja-vendruscolo-35",
-          "linhaExcel": 40,
-          "manejos": [],
-          "raw": [
-            "35",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "300",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 40
         },
         {
           "numero": 36,
@@ -2885,22 +1392,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 300,
           "id": "soja-vendruscolo-36",
-          "linhaExcel": 41,
-          "manejos": [],
-          "raw": [
-            "36",
-            "NS 7676",
-            "NIDERA",
-            "7.6",
-            "180",
-            "300",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 41
         },
         {
           "numero": 37,
@@ -2910,22 +1402,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 360,
           "id": "soja-vendruscolo-37",
-          "linhaExcel": 42,
-          "manejos": [],
-          "raw": [
-            "37",
-            "NS 7676",
-            "NIDERA",
-            "7.6",
-            "180",
-            "360",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 42
         },
         {
           "numero": 38,
@@ -2935,22 +1412,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 360,
           "id": "soja-vendruscolo-38",
-          "linhaExcel": 43,
-          "manejos": [],
-          "raw": [
-            "38",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "360",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 43
         },
         {
           "numero": 39,
@@ -2960,22 +1422,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 380,
           "id": "soja-vendruscolo-39",
-          "linhaExcel": 44,
-          "manejos": [],
-          "raw": [
-            "39",
-            "RAPTOR",
-            "BRASMAX",
-            "7.1",
-            "172",
-            "380",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 44
         },
         {
           "numero": 40,
@@ -2985,118 +1432,189 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 380,
           "id": "soja-vendruscolo-40",
-          "linhaExcel": 45,
-          "manejos": [],
-          "raw": [
-            "40",
-            "RAPTOR",
-            "BRASMAX",
-            "7.1",
-            "172",
-            "380",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 45
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 46,
-          "titulo": "ADUBO",
-          "valores": [
-            "ADUBO",
-            "",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "GLISOFATO WG 720",
+          "dose": 1.5
         },
         {
-          "linhaExcel": 47,
-          "titulo": "3 T Calcário.",
-          "valores": [
-            "3 T Calcário.",
-            "",
-            "",
-            "Rizokop 10 doses/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "TALSTAR",
+          "dose": 0.08
         },
         {
-          "linhaExcel": 48,
-          "titulo": "350 Kg SSP pré-plantio.",
-          "valores": [
-            "350 Kg SSP pré-plantio.",
-            "",
-            "",
-            "Azokop 1 dose/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "PROVILAR",
+          "dose": 0.3
         },
         {
-          "linhaExcel": 49,
-          "titulo": "220 Kg KCl.",
-          "valores": [
-            "220 Kg KCl.",
-            "",
-            "",
-            "Tricodermil 100 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 50,
-          "titulo": "20 Kg MIB algodão.",
-          "valores": [
-            "20 Kg MIB algodão.",
-            "",
-            "",
-            "Veraneio 100 g/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (12/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "FOX SUPRA",
+          "dose": 0.32
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "MANCOZEB",
+          "dose": 0.85
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "SANDAL (ACETA 200)",
+          "dose": 0.25
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "PIRIPROXIFEM 200",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "PREMIO - 875 ha",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "BELT - 375 ha",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1.5
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "MULTKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (17/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "VIOVAN",
+          "dose": 0.7
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "TIOFANATO 500",
+          "dose": 0.8
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "TRIVOR",
+          "dose": 0.25
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.1
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1.5
+        },
+        {
+          "etapa": "2ª FUNGICIDA (04/07)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "GLOVE",
+          "dose": 0.25
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "GALIL - 260 ha",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "ENGEO PLENO - 220 ha",
+          "dose": 0.2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "TALISMÃ - 600 ha",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "SUGAR",
+          "dose": 2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "MULTIMOL",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA (19/07)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "SOJA VENDRÚSCOLO"
       },
       "adubacao": [
@@ -3142,32 +1660,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 350000,
           "id": "soja-dors-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "CS MEGA",
-              "dose": "0.04"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "CS MEGA",
-              "dose": "0.04"
-            }
-          ],
-          "raw": [
-            "1",
-            "RAPTOR (15 linhas)",
-            "BRASMAX",
-            "7.1",
-            "172",
-            "350000",
-            "",
-            "CS MEGA",
-            "0.04",
-            "CS MEGA",
-            "0.04"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -3177,32 +1670,7 @@ window.EXA_DATA = {
           "pmg": 172,
           "populacao": 260000,
           "id": "soja-dors-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "EXTRAVON",
-              "dose": "0.04"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "EXTRAVON",
-              "dose": "0.04"
-            }
-          ],
-          "raw": [
-            "2",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "260000",
-            "",
-            "EXTRAVON",
-            "0.04",
-            "EXTRAVON",
-            "0.04"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -3212,32 +1680,7 @@ window.EXA_DATA = {
           "pmg": 163,
           "populacao": 260000,
           "id": "soja-dors-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "FIPRONIL 800 WG",
-              "dose": "0.04"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "MANCOZEB",
-              "dose": "1.25"
-            }
-          ],
-          "raw": [
-            "3",
-            "MÍTICA",
-            "BRASMAX",
-            "7.7",
-            "163",
-            "260000",
-            "",
-            "FIPRONIL 800 WG",
-            "0.04",
-            "MANCOZEB",
-            "1.25"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -3247,32 +1690,7 @@ window.EXA_DATA = {
           "pmg": 185,
           "populacao": 260000,
           "id": "soja-dors-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "CLETODIN 240",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "COMO",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "4",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "260000",
-            "",
-            "CLETODIN 240",
-            "0.3",
-            "COMO",
-            "0.08"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -3282,32 +1700,7 @@ window.EXA_DATA = {
           "pmg": 159,
           "populacao": 260000,
           "id": "soja-dors-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "DIFENO 250",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "ENGEO PLENO",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "5",
-            "79K80",
-            "DON MARIO",
-            "7.9",
-            "159",
-            "260000",
-            "",
-            "DIFENO 250",
-            "0.3",
-            "ENGEO PLENO",
-            "0.3"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -3317,42 +1710,7 @@ window.EXA_DATA = {
           "pmg": 170,
           "populacao": 260000,
           "id": "soja-dors-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "STARTER MN",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "BIOBREV",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "PÓS-EMERGENTE (17/06)",
-              "produto": "ZAAP QI",
-              "dose": "2"
-            },
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "AMPLIGO",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "6",
-            "80Ka72 ( 1 e 1/2)",
-            "STINE",
-            "8.0",
-            "170",
-            "260000",
-            "",
-            "STARTER MN",
-            "0.5",
-            "BIOBREV",
-            "0.5"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -3362,27 +1720,7 @@ window.EXA_DATA = {
           "pmg": 184,
           "populacao": 260000,
           "id": "soja-dors-7",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "DIFENO 250",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "7",
-            "C2795 (15 linhas)",
-            "CORDIUS",
-            "7.9",
-            "184",
-            "260000",
-            "",
-            "",
-            "",
-            "DIFENO 250",
-            "0.3"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 8,
@@ -3392,27 +1730,7 @@ window.EXA_DATA = {
           "pmg": 188,
           "populacao": 260000,
           "id": "soja-dors-8",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "2ª FUNGICIDA (17/07)",
-              "produto": "MITRION",
-              "dose": "0.45"
-            }
-          ],
-          "raw": [
-            "8",
-            "HERA",
-            "BRASMAX",
-            "8.0",
-            "188",
-            "260000",
-            "",
-            "",
-            "",
-            "MITRION",
-            "0.45"
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 9,
@@ -3422,21 +1740,7 @@ window.EXA_DATA = {
           "pmg": 162,
           "populacao": 260000,
           "id": "soja-dors-9",
-          "linhaExcel": 15,
-          "manejos": [],
-          "raw": [
-            "9",
-            "NEO 810",
-            "NEOGEN",
-            "8.1",
-            "162",
-            "260000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 10,
@@ -3446,21 +1750,7 @@ window.EXA_DATA = {
           "pmg": 180,
           "populacao": 260000,
           "id": "soja-dors-10",
-          "linhaExcel": 16,
-          "manejos": [],
-          "raw": [
-            "10",
-            "GH 2581",
-            "GOLDEN HARVEST",
-            "8.1",
-            "180",
-            "260000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 11,
@@ -3470,21 +1760,7 @@ window.EXA_DATA = {
           "pmg": 175,
           "populacao": 260000,
           "id": "soja-dors-11",
-          "linhaExcel": 17,
-          "manejos": [],
-          "raw": [
-            "11",
-            "CASTANHEIRA",
-            "TMG",
-            "8.3",
-            "175",
-            "260000",
-            "",
-            "1ª FUNGICIDA (02/07)",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 12,
@@ -3494,89 +1770,174 @@ window.EXA_DATA = {
           "pmg": 160,
           "populacao": 260000,
           "id": "soja-dors-12",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA (02/07)",
-              "produto": "CS MEGA",
-              "dose": "0.04"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "CS MEGA",
-              "dose": "0.04"
-            }
-          ],
-          "raw": [
-            "12",
-            "84Ka92",
-            "STINE",
-            "8.4",
-            "160",
-            "260000",
-            "",
-            "CS MEGA",
-            "0.04",
-            "CS MEGA",
-            "0.04"
-          ]
+          "linhaExcel": 18
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 19,
-          "titulo": "ADUBO",
-          "valores": [
-            "ADUBO",
-            "",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "EXTRAVON",
-            "0.04",
-            "EXTRAVON",
-            "0.04"
-          ]
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "CS MEGA",
+          "dose": 0.04
         },
         {
-          "linhaExcel": 20,
-          "titulo": "350 Kg 00-30-02 na linha.",
-          "valores": [
-            "350 Kg 00-30-02 na linha.",
-            "",
-            "",
-            "Bradyrhizobium japonicum 6 doses/ha.",
-            "",
-            "",
-            "",
-            "POLYTRIN",
-            "1.2",
-            "COMO",
-            "0.08"
-          ]
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "EXTRAVON",
+          "dose": 0.04
         },
         {
-          "linhaExcel": 21,
-          "titulo": "270 Kg KCl parcelado.",
-          "valores": [
-            "270 Kg KCl parcelado.",
-            "",
-            "",
-            "Bradyrhizobium elkanii 6 doses/ha.",
-            "",
-            "",
-            "",
-            "BOMBARDEIRO",
-            "0.3",
-            "ACETAMIPRID 200",
-            "0.25"
-          ]
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "FIPRONIL 800 WG",
+          "dose": 0.04
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "CLETODIN 240",
+          "dose": 0.3
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "DIFENO 250",
+          "dose": 0.3
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "STARTER MN",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/06)",
+          "produto": "ZAAP QI",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "CS MEGA",
+          "dose": 0.04
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "EXTRAVON",
+          "dose": 0.04
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "POLYTRIN",
+          "dose": 1.2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "BOMBARDEIRO",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "MANCOZEB",
+          "dose": 1.25
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "AMPLIGO",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (02/07)",
+          "produto": "ELATUS",
+          "dose": 0.2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "CS MEGA",
+          "dose": 0.04
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "EXTRAVON",
+          "dose": 0.04
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "MANCOZEB",
+          "dose": 1.25
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "COMO",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "ENGEO PLENO",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "BIOBREV",
+          "dose": 0.5
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "AMPLIGO",
+          "dose": 0.1
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "DIFENO 250",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (17/07)",
+          "produto": "MITRION",
+          "dose": 0.45
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "CS MEGA",
+          "dose": 0.04
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "EXTRAVON",
+          "dose": 0.04
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "COMO",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "ACETAMIPRID 200",
+          "dose": 0.25
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "BIFENTRINA 400",
+          "dose": 0.05
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "PIRIPROXIFEN 200",
+          "dose": 0.125
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "EXALT",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "BRAVONIL",
+          "dose": 1.4
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "VIOVAN",
+          "dose": 0.6
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "SOJA DORS"
       },
       "adubacao": [
@@ -3584,8 +1945,8 @@ window.EXA_DATA = {
         "270 Kg KCl parcelado."
       ],
       "jatoDirigido": [
-        "Bradyrhizobium japonicum  6 doses/ha.",
-        "Bradyrhizobium elkanii  6 doses/ha.",
+        "Bradyrhizobium japonicum 6 doses/ha.",
+        "Bradyrhizobium elkanii 6 doses/ha.",
         "Azotrop 150 ml/ha.",
         "Trichotrop 20 g/ha.",
         "Biomagno 200 ml/ha.",
@@ -3609,9 +1970,9 @@ window.EXA_DATA = {
         "POPULAÇÃO",
         "MOTORA",
         "MOVIDA",
-        "PÓS-EMERGENTE",
+        "1ª APLICAÇÃO (27/05)",
         "DOSE/HA",
-        "2ª FUNGICIDA",
+        "4ª APLICAÇÃO (29/06)",
         "DOSE/HA"
       ],
       "tratamentos": [
@@ -3625,34 +1986,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 19,
           "id": "soja-jung-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "VESSARYA",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "VIOVAN",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "1",
-            "IMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "180",
-            "18",
-            "19",
-            "",
-            "VESSARYA",
-            "0.4",
-            "VIOVAN",
-            "0.7"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -3664,34 +1998,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "TEBUCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "2",
-            "IMPETO",
-            "BRASMAX",
-            "9.0",
-            "162",
-            "260",
-            "26",
-            "19",
-            "",
-            "TEBUCO",
-            "0.4",
-            "TIOFANATO 500",
-            "1"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -3703,34 +2010,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 19,
           "id": "soja-jung-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CLOROTALONIL",
-              "dose": "0.6"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "ACETAMIPRIDO",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "3",
-            "LENDA",
-            "PAMPEANA",
-            "8.4",
-            "210",
-            "180",
-            "18",
-            "19",
-            "",
-            "CLOROTALONIL",
-            "0.6",
-            "ACETAMIPRIDO",
-            "0.25"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -3742,34 +2022,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLIFOSATO 720",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "PIRIPROXIFEM",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "4",
-            "LENDA",
-            "PAMPEANA",
-            "8.4",
-            "210",
-            "260",
-            "26",
-            "19",
-            "",
-            "GLIFOSATO 720",
-            "1.5",
-            "PIRIPROXIFEM",
-            "0.25"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -3781,34 +2034,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 19,
           "id": "soja-jung-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "PREMIO",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "LANNATE",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "5",
-            "84Ka92",
-            "STINE",
-            "8.4",
-            "160",
-            "180",
-            "18",
-            "19",
-            "",
-            "PREMIO",
-            "0.08",
-            "LANNATE",
-            "1.5"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -3820,34 +2046,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "ACETAMIPRIDO",
-              "dose": "0.25"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "6",
-            "84Ka92",
-            "STINE",
-            "8.4",
-            "160",
-            "260",
-            "26",
-            "19",
-            "",
-            "ACETAMIPRIDO",
-            "0.25",
-            "CO-MO-NI LYNX",
-            "0.08"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -3859,34 +2058,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "7",
-            "80Ka72",
-            "STINE",
-            "8.0",
-            "170",
-            "220",
-            "18",
-            "15",
-            "",
-            "CO-MO-NI LYNX",
-            "0.08",
-            "MULTIKEL COBRE",
-            "0.08"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -3898,34 +2070,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIKEL MN",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "8",
-            "80Ka72",
-            "STINE",
-            "8.0",
-            "170",
-            "300",
-            "30",
-            "19",
-            "",
-            "MULTIKEL MN",
-            "0.5",
-            "BORO 10 PLUS",
-            "0.3"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -3937,34 +2082,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "9",
-            "80I85",
-            "DON MARIO",
-            "8.0",
-            "201",
-            "220",
-            "18",
-            "15",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -3976,34 +2094,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "10",
-            "80I85",
-            "DON MARIO",
-            "8.0",
-            "201",
-            "300",
-            "30",
-            "19",
-            "",
-            "SULF. MAGNÉSIO",
-            "1.5",
-            "SUGAR",
-            "1.5"
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -4015,34 +2106,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "EXACT",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "POTENZA K",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "11",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "220",
-            "18",
-            "15",
-            "",
-            "EXACT",
-            "0.08",
-            "POTENZA K",
-            "1.5"
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -4054,29 +2118,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-12",
-          "linhaExcel": 17,
-          "manejos": [
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "12",
-            "ITAÚBA",
-            "TMG",
-            "7.9",
-            "185",
-            "300",
-            "30",
-            "19",
-            "",
-            "",
-            "",
-            "EXACT",
-            "0.08"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -4088,23 +2130,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-13",
-          "linhaExcel": 18,
-          "manejos": [],
-          "raw": [
-            "13",
-            "OLIMPO (CELEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "220",
-            "18",
-            "15",
-            "",
-            "1ª FUNGICIDA",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -4116,34 +2142,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "FOX SUPRA",
-              "dose": "0.35"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "GLOVE",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "14",
-            "OLIMPO (CELEIRO)",
-            "BRASMAX",
-            "8.0",
-            "171",
-            "300",
-            "30",
-            "19",
-            "",
-            "FOX SUPRA",
-            "0.35",
-            "GLOVE",
-            "0.25"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -4155,34 +2154,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "GALIL",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "15",
-            "GH 2581",
-            "GOLDEN HARVEST",
-            "8.1",
-            "180",
-            "220",
-            "26",
-            "19",
-            "",
-            "TIOFANATO 500",
-            "1",
-            "GALIL",
-            "0.3"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -4194,34 +2166,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "ACETAMIPRIDO",
-              "dose": "0.25"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "TRIVOR",
-              "dose": "0.25"
-            }
-          ],
-          "raw": [
-            "16",
-            "GH 2581",
-            "GOLDEN HARVEST",
-            "8.1",
-            "180",
-            "300",
-            "26",
-            "19",
-            "",
-            "ACETAMIPRIDO",
-            "0.25",
-            "TRIVOR",
-            "0.25"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -4233,34 +2178,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "PIRIPROXIFEM",
-              "dose": "0.25"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "MULTIMOL",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "17",
-            "BÔNUS",
-            "BRASMAX",
-            "7.9",
-            "190",
-            "220",
-            "18",
-            "15",
-            "",
-            "PIRIPROXIFEM",
-            "0.25",
-            "MULTIMOL",
-            "0.08"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -4272,34 +2190,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "PREMIO",
-              "dose": "0.075"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "18",
-            "BÔNUS",
-            "BRASMAX",
-            "7.9",
-            "190",
-            "300",
-            "30",
-            "19",
-            "",
-            "PREMIO",
-            "0.075",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -4311,34 +2202,7 @@ window.EXA_DATA = {
           "motora": 18,
           "movida": 15,
           "id": "soja-jung-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "LANNATE",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "19",
-            "78Ka42",
-            "STINE",
-            "7.8",
-            "150",
-            "220",
-            "18",
-            "15",
-            "",
-            "LANNATE",
-            "1.5",
-            "SUGAR",
-            "1.5"
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -4350,34 +2214,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "POTENZA K",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "20",
-            "78Ka72",
-            "STINE",
-            "7.8",
-            "150",
-            "300",
-            "30",
-            "19",
-            "",
-            "CO-MO-NI LYNX",
-            "0.08",
-            "POTENZA K",
-            "1.5"
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -4389,34 +2226,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "21",
-            "NEO 850",
-            "NEOGEN",
-            "8.5",
-            "160",
-            "260",
-            "26",
-            "19",
-            "",
-            "BORO 10 PLUS",
-            "0.4",
-            "EXACT",
-            "0.08"
-          ]
+          "linhaExcel": 26
         },
         {
           "numero": 22,
@@ -4428,29 +2238,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-22",
-          "linhaExcel": 27,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "22",
-            "NEO 810",
-            "NEOGEN",
-            "8.1",
-            "162",
-            "260",
-            "26",
-            "19",
-            "",
-            "SULF. MAGNÉSIO",
-            "2",
-            "",
-            ""
-          ]
+          "linhaExcel": 27
         },
         {
           "numero": 23,
@@ -4462,29 +2250,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-23",
-          "linhaExcel": 28,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. ZINCO",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "23",
-            "NEO 802",
-            "NEOGEN",
-            "8.0",
-            "178",
-            "260",
-            "26",
-            "19",
-            "",
-            "SULF. ZINCO",
-            "0.3",
-            "",
-            ""
-          ]
+          "linhaExcel": 28
         },
         {
           "numero": 24,
@@ -4496,29 +2262,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-24",
-          "linhaExcel": 29,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MULTIKEL COBRE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "24",
-            "NS8080",
-            "NIDERA",
-            "8.0",
-            "185",
-            "260",
-            "26",
-            "19",
-            "",
-            "MULTIKEL COBRE",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 29
         },
         {
           "numero": 25,
@@ -4530,29 +2274,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 19,
           "id": "soja-jung-25",
-          "linhaExcel": 30,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "25",
-            "HERA",
-            "BRASMAX",
-            "8.0",
-            "188",
-            "260",
-            "26",
-            "19",
-            "",
-            "EXACT",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 30
         },
         {
           "numero": 26,
@@ -4564,23 +2286,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-26",
-          "linhaExcel": 31,
-          "manejos": [],
-          "raw": [
-            "26",
-            "79K80",
-            "DON MARIO",
-            "7.9",
-            "159",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 31
         },
         {
           "numero": 27,
@@ -4592,23 +2298,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-27",
-          "linhaExcel": 32,
-          "manejos": [],
-          "raw": [
-            "27",
-            "78IX80",
-            "DON MARIO",
-            "7.8",
-            "173",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 32
         },
         {
           "numero": 28,
@@ -4620,23 +2310,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-28",
-          "linhaExcel": 33,
-          "manejos": [],
-          "raw": [
-            "28",
-            "SERTANEJA",
-            "LATITUDE",
-            "7.9",
-            "170",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 33
         },
         {
           "numero": 29,
@@ -4648,23 +2322,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-29",
-          "linhaExcel": 34,
-          "manejos": [],
-          "raw": [
-            "29",
-            "EVOLUI",
-            "LATITUDE",
-            "7.9",
-            "180",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 34
         },
         {
           "numero": 30,
@@ -4676,23 +2334,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-30",
-          "linhaExcel": 35,
-          "manejos": [],
-          "raw": [
-            "30",
-            "C2795",
-            "CORDIUS",
-            "7.9",
-            "184",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 35
         },
         {
           "numero": 31,
@@ -4704,23 +2346,7 @@ window.EXA_DATA = {
           "motora": 26,
           "movida": 17,
           "id": "soja-jung-31",
-          "linhaExcel": 36,
-          "manejos": [],
-          "raw": [
-            "31",
-            "AVRA 2478",
-            "AVRA",
-            "7.8",
-            "166",
-            "280",
-            "26",
-            "17",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 36
         },
         {
           "numero": 32,
@@ -4732,23 +2358,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-32",
-          "linhaExcel": 37,
-          "manejos": [],
-          "raw": [
-            "32",
-            "MÍTICA",
-            "BRASMAX",
-            "7.7",
-            "163",
-            "300",
-            "30",
-            "19",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 37
         },
         {
           "numero": 33,
@@ -4760,23 +2370,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-33",
-          "linhaExcel": 38,
-          "manejos": [],
-          "raw": [
-            "33",
-            "AVRA 2576",
-            "AVRA",
-            "7.6",
-            "155",
-            "300",
-            "30",
-            "19",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 38
         },
         {
           "numero": 34,
@@ -4788,23 +2382,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-34",
-          "linhaExcel": 39,
-          "manejos": [],
-          "raw": [
-            "34",
-            "TORMENTA",
-            "BRASMAX",
-            "7.6",
-            "172",
-            "300",
-            "30",
-            "19",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 39
         },
         {
           "numero": 35,
@@ -4816,23 +2394,7 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 19,
           "id": "soja-jung-35",
-          "linhaExcel": 40,
-          "manejos": [],
-          "raw": [
-            "35",
-            "NS 7676",
-            "NIDERA",
-            "7.6",
-            "180",
-            "300",
-            "30",
-            "19",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 40
         },
         {
           "numero": 36,
@@ -4844,105 +2406,224 @@ window.EXA_DATA = {
           "motora": 30,
           "movida": 15,
           "id": "soja-jung-36",
-          "linhaExcel": 41,
-          "manejos": [],
-          "raw": [
-            "36",
-            "RAPTOR",
-            "BRASMAX",
-            "7.1",
-            "172",
-            "380",
-            "30",
-            "15",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 41
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 42,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "GLIFOSATO WG",
+          "dose": 1.6
         },
         {
-          "linhaExcel": 43,
-          "titulo": "380 Kg SSP pré-plantio.",
-          "valores": [
-            "380 Kg SSP pré-plantio.",
-            "",
-            "",
-            "",
-            "Rizokop 20 doses/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "PREMIO",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 44,
-          "titulo": "135 Kg KCl pré-plantio.",
-          "valores": [
-            "135 Kg KCl pré-plantio.",
-            "",
-            "",
-            "",
-            "Azokop 1 dose/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "TALSTAR",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 45,
-          "titulo": "80 Kg KCl Pós-plantio.",
-          "valores": [
-            "80 Kg KCl Pós-plantio.",
-            "",
-            "",
-            "",
-            "Tricodermil 80 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.35
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª APLICAÇÃO (27/05)",
+          "produto": "EXACT",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "GLIFOSATO WG",
+          "dose": 1.6
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "CLORFENAPIR",
+          "dose": 1
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "TEBUCO",
+          "dose": 0.35
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "VESSARYA",
+          "dose": 0.4
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1.2
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.1
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª APLICAÇÃO (02/06)",
+          "produto": "EXACT",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "FOX SUPRA",
+          "dose": 0.35
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "TRIVOR",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "LANNATE",
+          "dose": 1.6
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.06
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.35
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2.5
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.1
+        },
+        {
+          "etapa": "3ª APLICAÇÃO (16/06)",
+          "produto": "EXACT",
+          "dose": 0.1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "VIOVAN",
+          "dose": 0.7
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "ACETAMIPRID 725",
+          "dose": 0.1
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "PIRIPROXIFEN",
+          "dose": 0.17
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "CLORFENAPIR",
+          "dose": 0.7
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.35
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "POTENZA K",
+          "dose": 1.4
+        },
+        {
+          "etapa": "4ª APLICAÇÃO (29/06)",
+          "produto": "EXACT",
+          "dose": 0.1
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "AZIMUT",
+          "dose": 0.5
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "PIRIPROXIFEN",
+          "dose": 0.15
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "ACETAMIPRID 725",
+          "dose": 0.1
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "MULTIMOL",
+          "dose": 0.08
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "POTENZA K",
+          "dose": 1.6
+        },
+        {
+          "etapa": "6ª APLICAÇÃO (14/07)",
+          "produto": "EXACT",
+          "dose": 0.1
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "SOJA JUNG"
       },
       "adubacao": [
@@ -4972,9 +2653,9 @@ window.EXA_DATA = {
         "CULTIVAR",
         "EMPRESA",
         "POPULAÇÃO",
-        "PÓS-EMERGENTE",
+        "PÓS-EMERGENTE (30/05)",
         "DOSE/HA",
-        "2ª FUNGICIDA",
+        "2ª FUNGICIDA (19/06)",
         "DOSE/HA"
       ],
       "tratamentos": [
@@ -4984,30 +2665,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-jung-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "AZOKOP",
-              "dose": "5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "VIOVAN",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "1",
-            "P 3845",
-            "PIONEER",
-            "70000",
-            "",
-            "AZOKOP",
-            "5",
-            "VIOVAN",
-            "0.7"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -5015,30 +2673,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-jung-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLIFOSATO 720",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "2",
-            "P 3701",
-            "PIONEER",
-            "70000",
-            "",
-            "GLIFOSATO 720",
-            "1.5",
-            "TIOFANATO 500",
-            "1"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -5046,30 +2681,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-jung-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLUFOSINATO 880",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "EXALT",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "3",
-            "P F784-48 (codificado)",
-            "PIONEER",
-            "70000",
-            "",
-            "GLUFOSINATO 880",
-            "0.4",
-            "EXALT",
-            "0.1"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -5077,30 +2689,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-jung-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "IMIDACLOPRID 480",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "IMIDACLOPRID 480",
-              "dose": "0.5"
-            }
-          ],
-          "raw": [
-            "4",
-            "P F3261-48 (codificado)",
-            "PIONEER",
-            "70000",
-            "",
-            "IMIDACLOPRID 480",
-            "0.5",
-            "IMIDACLOPRID 480",
-            "0.5"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -5108,30 +2697,7 @@ window.EXA_DATA = {
           "empresa": "AGROCERES",
           "populacao": 70000,
           "id": "milho-jung-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "LANNATE",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "5",
-            "AG 8480",
-            "AGROCERES",
-            "70000",
-            "",
-            "LANNATE",
-            "1.5",
-            "BORO 10 PLUS",
-            "0.3"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -5139,30 +2705,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 70000,
           "id": "milho-jung-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "EXALT",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "6",
-            "FS 560",
-            "FORSEED",
-            "70000",
-            "",
-            "EXALT",
-            "0.1",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -5170,30 +2713,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 70000,
           "id": "milho-jung-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.8"
-            }
-          ],
-          "raw": [
-            "7",
-            "FS 650",
-            "FORSEED",
-            "70000",
-            "",
-            "CO-MO-NI LYNX",
-            "0.08",
-            "EXACT",
-            "0.8"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -5201,25 +2721,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 70000,
           "id": "milho-jung-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "8",
-            "FS 695",
-            "FORSEED",
-            "70000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "",
-            ""
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -5227,25 +2729,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-jung-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIKEL MN",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "9",
-            "NS 66",
-            "NIDERA",
-            "70000",
-            "",
-            "MULTIKEL MN",
-            "0.4",
-            "",
-            ""
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -5253,25 +2737,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-jung-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. ZINCO",
-              "dose": "0.6"
-            }
-          ],
-          "raw": [
-            "10",
-            "NS 89",
-            "NIDERA",
-            "70000",
-            "",
-            "SULF. ZINCO",
-            "0.6",
-            "",
-            ""
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -5279,25 +2745,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-jung-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "11",
-            "NS 99",
-            "NIDERA",
-            "70000",
-            "",
-            "EXACT",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -5305,19 +2753,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 70000,
           "id": "milho-jung-12",
-          "linhaExcel": 17,
-          "manejos": [],
-          "raw": [
-            "12",
-            "Nk FEROZ",
-            "NK",
-            "70000",
-            "",
-            "1ª FUNGICIDA",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -5325,30 +2761,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 70000,
           "id": "milho-jung-13",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "AZIMUT",
-              "dose": "0.7"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "AZIMUT",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "13",
-            "NK 509",
-            "NK",
-            "70000",
-            "",
-            "AZIMUT",
-            "0.7",
-            "AZIMUT",
-            "0.7"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -5356,30 +2769,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 70000,
           "id": "milho-jung-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "TIOFANATO 500",
-              "dose": "1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "CLORFENAPIR",
-              "dose": "1.2"
-            }
-          ],
-          "raw": [
-            "14",
-            "NK 507",
-            "NK",
-            "70000",
-            "",
-            "TIOFANATO 500",
-            "1",
-            "CLORFENAPIR",
-            "1.2"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -5387,30 +2777,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 70000,
           "id": "milho-jung-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "CLORFENAPIR",
-              "dose": "1.2"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "15",
-            "NK 501",
-            "NK",
-            "70000",
-            "",
-            "CLORFENAPIR",
-            "1.2",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -5418,30 +2785,7 @@ window.EXA_DATA = {
           "empresa": "SEEDCORP",
           "populacao": 70000,
           "id": "milho-jung-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "PREMIO",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "16",
-            "GALO",
-            "SEEDCORP",
-            "70000",
-            "",
-            "PREMIO",
-            "0.1",
-            "BORO 10 PLUS",
-            "0.4"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -5449,30 +2793,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-jung-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "GALIL",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "17",
-            "ST 9505",
-            "STINE",
-            "70000",
-            "",
-            "GALIL",
-            "0.4",
-            "EXACT",
-            "0.08"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -5480,25 +2801,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-jung-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MULTIMOL",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "18",
-            "ST 9801",
-            "STINE",
-            "70000",
-            "",
-            "MULTIMOL",
-            "0.1",
-            "",
-            ""
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -5506,25 +2809,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-jung-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "19",
-            "ST 9808",
-            "STINE",
-            "70000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "",
-            ""
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -5532,25 +2817,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-jung-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "20",
-            "ST 9717",
-            "STINE",
-            "70000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "",
-            ""
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -5558,25 +2825,7 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 70000,
           "id": "milho-jung-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "21",
-            "K 7510",
-            "SUPRA",
-            "70000",
-            "",
-            "SULF. MAGNÉSIO",
-            "2",
-            "",
-            ""
-          ]
+          "linhaExcel": 26
         },
         {
           "numero": 22,
@@ -5584,25 +2833,7 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 70000,
           "id": "milho-jung-22",
-          "linhaExcel": 27,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "EXACT",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "22",
-            "K 9606",
-            "SUPRA",
-            "70000",
-            "",
-            "EXACT",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 27
         },
         {
           "numero": 23,
@@ -5610,19 +2841,7 @@ window.EXA_DATA = {
           "empresa": "BREVANTE",
           "populacao": 70000,
           "id": "milho-jung-23",
-          "linhaExcel": 28,
-          "manejos": [],
-          "raw": [
-            "23",
-            "B 2701",
-            "BREVANTE",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 28
         },
         {
           "numero": 24,
@@ -5630,19 +2849,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-jung-24",
-          "linhaExcel": 29,
-          "manejos": [],
-          "raw": [
-            "24",
-            "BS 3319",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 29
         },
         {
           "numero": 25,
@@ -5650,19 +2857,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-jung-25",
-          "linhaExcel": 30,
-          "manejos": [],
-          "raw": [
-            "25",
-            "BS 364",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 30
         },
         {
           "numero": 26,
@@ -5670,19 +2865,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-jung-26",
-          "linhaExcel": 31,
-          "manejos": [],
-          "raw": [
-            "26",
-            "BS 376",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 31
         },
         {
           "numero": 27,
@@ -5690,19 +2873,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-jung-27",
-          "linhaExcel": 32,
-          "manejos": [],
-          "raw": [
-            "27",
-            "NS 66",
-            "NIDERA",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 32
         },
         {
           "numero": 28,
@@ -5710,100 +2881,214 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-jung-28",
-          "linhaExcel": 33,
-          "manejos": [],
-          "raw": [
-            "28",
-            "NS 89",
-            "NIDERA",
-            "70000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 33
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 34,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "EXACT",
+          "dose": 0.08
         },
         {
-          "linhaExcel": 35,
-          "titulo": "600 Kg SSP na linha.",
-          "valores": [
-            "600 Kg SSP na linha.",
-            "",
-            "Azokop 2 doses/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "ZAAP",
+          "dose": 1.8
         },
         {
-          "linhaExcel": 36,
-          "titulo": "300 Kg Sulfato de amônio parcelado.",
-          "valores": [
-            "300 Kg Sulfato de amônio parcelado.",
-            "",
-            "Tricodermil 100 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "ADVER",
+          "dose": 1.5
         },
         {
-          "linhaExcel": 37,
-          "titulo": "250 Kg KCl parcelado.",
-          "valores": [
-            "250 Kg KCl parcelado.",
-            "",
-            "Nem Out 500 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "EFICAX",
+          "dose": 1.5
         },
         {
-          "linhaExcel": 38,
-          "titulo": "200 Kg Ureia parcelado.",
-          "valores": [
-            "200 Kg Ureia parcelado.",
-            "",
-            "Stingray 300 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 1.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.08
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.4
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.2
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (30/05)",
+          "produto": "AZOKOP",
+          "dose": 5
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "VIOVAN",
+          "dose": 0.7
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "TIOFANATO 500",
+          "dose": 1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "CLORFENAPIR",
+          "dose": 1.5
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "FORTIVANCE",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "IMIDA",
+          "dose": 0.25
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "MULTIMOL",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (10/06)",
+          "produto": "EXACT",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "AZIMUT",
+          "dose": 0.6
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "CLORFENAPIR",
+          "dose": 1.8
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "FORTIVANCE",
+          "dose": 2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "EXALT",
+          "dose": 0.2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "IMIDACLOPRID 480",
+          "dose": 0.25
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "MULTIKEL COBRE",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (19/06)",
+          "produto": "EXACT",
+          "dose": 0.8
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "AZIMUT",
+          "dose": 0.6
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "ABSOLUTO FIX",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "CLORFENAPIR",
+          "dose": 1
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "GALIL",
+          "dose": 0.25
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "EXALT",
+          "dose": 0.2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.4
+        },
+        {
+          "etapa": "3ª FUNGICIDA (29/06)",
+          "produto": "EXACT",
+          "dose": 0.08
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "MILHO JUNG"
       },
       "adubacao": [
@@ -5832,9 +3117,9 @@ window.EXA_DATA = {
         "CULTIVAR",
         "EMPRESA",
         "POPULAÇÃO",
-        "PÓS-EMERGENTE",
+        "PÓS-EMERGENTE (17/05)",
         "DOSE/HA",
-        "2ª FUNGICIDA",
+        "2ª FUNGICIDA (13/06)",
         "DOSE/HA"
       ],
       "tratamentos": [
@@ -5844,30 +3129,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 68000,
           "id": "milho-pazinato-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "WG",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "VIOVAM",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "1",
-            "P 3707",
-            "PIONEER",
-            "68000",
-            "",
-            "WG",
-            "1.5",
-            "VIOVAM",
-            "0.7"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -5875,30 +3137,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 68000,
           "id": "milho-pazinato-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "AZOKOP",
-              "dose": "5 doses"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "CLOFENAPIR",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "2",
-            "P 3845",
-            "PIONEER",
-            "68000",
-            "",
-            "AZOKOP",
-            "5 doses",
-            "CLOFENAPIR",
-            "1.5"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -5906,30 +3145,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 68000,
           "id": "milho-pazinato-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CARAVAN",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "PREMIO",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "3",
-            "P F784-48 (codificado)",
-            "PIONEER",
-            "68000",
-            "",
-            "CARAVAN",
-            "0.3",
-            "PREMIO",
-            "0.08"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -5937,30 +3153,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 68000,
           "id": "milho-pazinato-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLUFOSINATO",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "4",
-            "P F3261-48 (codificado)",
-            "PIONEER",
-            "68000",
-            "",
-            "GLUFOSINATO",
-            "0.3",
-            "BORO 10 PLUS",
-            "0.3"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -5968,30 +3161,7 @@ window.EXA_DATA = {
           "empresa": "AGROCERES",
           "populacao": 68000,
           "id": "milho-pazinato-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "EXALT",
-              "dose": "0.15"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SULF. MG",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "5",
-            "AG 8480",
-            "AGROCERES",
-            "68000",
-            "",
-            "EXALT",
-            "0.15",
-            "SULF. MG",
-            "2"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -5999,30 +3169,7 @@ window.EXA_DATA = {
           "empresa": "BREVANTE",
           "populacao": 68000,
           "id": "milho-pazinato-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "IMIDA 480",
-              "dose": "0.35"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "1.2"
-            }
-          ],
-          "raw": [
-            "6",
-            "B 2701",
-            "BREVANTE",
-            "68000",
-            "",
-            "IMIDA 480",
-            "0.35",
-            "SUGAR",
-            "1.2"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -6030,30 +3177,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 68000,
           "id": "milho-pazinato-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "CO-MO-NI LYNX",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "MULTIMOL",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "7",
-            "BS 3319",
-            "BOA SAFRA",
-            "68000",
-            "",
-            "CO-MO-NI LYNX",
-            "0.1",
-            "MULTIMOL",
-            "0.1"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -6061,30 +3185,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 68000,
           "id": "milho-pazinato-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "8",
-            "BS 364",
-            "BOA SAFRA",
-            "68000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -6092,25 +3193,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 68000,
           "id": "milho-pazinato-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIKEL MN",
-              "dose": "0.5"
-            }
-          ],
-          "raw": [
-            "9",
-            "BS 376",
-            "BOA SAFRA",
-            "68000",
-            "",
-            "MULTIKEL MN",
-            "0.5",
-            "",
-            ""
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -6118,25 +3201,7 @@ window.EXA_DATA = {
           "empresa": "SEEDCORP",
           "populacao": 68000,
           "id": "milho-pazinato-10",
-          "linhaExcel": 15,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "10",
-            "GALO",
-            "SEEDCORP",
-            "68000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "",
-            ""
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -6144,25 +3209,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 68000,
           "id": "milho-pazinato-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. MG",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "11",
-            "NS 89",
-            "NIDERA",
-            "68000",
-            "",
-            "SULF. MG",
-            "1.5",
-            "",
-            ""
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -6170,25 +3217,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 68000,
           "id": "milho-pazinato-12",
-          "linhaExcel": 17,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "12",
-            "FS 560",
-            "FORSEED",
-            "68000",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -6196,19 +3225,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 68000,
           "id": "milho-pazinato-13",
-          "linhaExcel": 18,
-          "manejos": [],
-          "raw": [
-            "13",
-            "FS 650",
-            "FORSEED",
-            "68000",
-            "",
-            "1ª FUNGICIDA",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -6216,30 +3233,7 @@ window.EXA_DATA = {
           "empresa": "FORSEED",
           "populacao": 68000,
           "id": "milho-pazinato-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "APROACH POWER",
-              "dose": "0.6"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "AZIMUT",
-              "dose": "0.8"
-            }
-          ],
-          "raw": [
-            "14",
-            "FS 695",
-            "FORSEED",
-            "68000",
-            "",
-            "APROACH POWER",
-            "0.6",
-            "AZIMUT",
-            "0.8"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -6247,30 +3241,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 68000,
           "id": "milho-pazinato-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "CLOFENAPIR",
-              "dose": "1.2"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "ACETAMIPRIDO",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "15",
-            "ST 9505",
-            "STINE",
-            "68000",
-            "",
-            "CLOFENAPIR",
-            "1.2",
-            "ACETAMIPRIDO",
-            "0.3"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -6278,30 +3249,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 68000,
           "id": "milho-pazinato-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "INTREPIDI",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "EXALT",
-              "dose": "0.2"
-            }
-          ],
-          "raw": [
-            "16",
-            "ST 9801",
-            "STINE",
-            "68000",
-            "",
-            "INTREPIDI",
-            "0.4",
-            "EXALT",
-            "0.2"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -6309,30 +3257,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 68000,
           "id": "milho-pazinato-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MULTIMOL",
-              "dose": "0.1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "PREMIO",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "17",
-            "ST 9808",
-            "STINE",
-            "68000",
-            "",
-            "MULTIMOL",
-            "0.1",
-            "PREMIO",
-            "0.08"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -6340,30 +3265,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 68000,
           "id": "milho-pazinato-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF.MG",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "18",
-            "ST 9717",
-            "STINE",
-            "68000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "SULF.MG",
-            "1.5"
-          ]
+          "linhaExcel": 23
         },
         {
           "numero": 19,
@@ -6371,30 +3273,7 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 68000,
           "id": "milho-pazinato-19",
-          "linhaExcel": 24,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. MG",
-              "dose": "2"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SUGAR",
-              "dose": "1.2"
-            }
-          ],
-          "raw": [
-            "19",
-            "K 7510",
-            "SUPRA",
-            "68000",
-            "",
-            "SULF. MG",
-            "2",
-            "SUGAR",
-            "1.2"
-          ]
+          "linhaExcel": 24
         },
         {
           "numero": 20,
@@ -6402,30 +3281,7 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 68000,
           "id": "milho-pazinato-20",
-          "linhaExcel": 25,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "20",
-            "K 9606",
-            "SUPRA",
-            "68000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "BORO 10 PLUS",
-            "0.4"
-          ]
+          "linhaExcel": 25
         },
         {
           "numero": 21,
@@ -6433,30 +3289,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 68000,
           "id": "milho-pazinato-21",
-          "linhaExcel": 26,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "21",
-            "NK FEROZ",
-            "NK",
-            "68000",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "BIOPARTNERS ADJ",
-            "0.08"
-          ]
+          "linhaExcel": 26
         },
         {
           "numero": 22,
@@ -6464,19 +3297,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 68000,
           "id": "milho-pazinato-22",
-          "linhaExcel": 27,
-          "manejos": [],
-          "raw": [
-            "22",
-            "NK 509",
-            "NK",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 27
         },
         {
           "numero": 23,
@@ -6484,19 +3305,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 68000,
           "id": "milho-pazinato-23",
-          "linhaExcel": 28,
-          "manejos": [],
-          "raw": [
-            "23",
-            "NK 507",
-            "NK",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 28
         },
         {
           "numero": 24,
@@ -6504,19 +3313,7 @@ window.EXA_DATA = {
           "empresa": "NK",
           "populacao": 68000,
           "id": "milho-pazinato-24",
-          "linhaExcel": 29,
-          "manejos": [],
-          "raw": [
-            "24",
-            "NK 501",
-            "NK",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 29
         },
         {
           "numero": 25,
@@ -6524,19 +3321,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 68000,
           "id": "milho-pazinato-25",
-          "linhaExcel": 30,
-          "manejos": [],
-          "raw": [
-            "25",
-            "NS 66",
-            "NIDERA",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 30
         },
         {
           "numero": 26,
@@ -6544,19 +3329,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 68000,
           "id": "milho-pazinato-26",
-          "linhaExcel": 31,
-          "manejos": [],
-          "raw": [
-            "26",
-            "NS 99",
-            "NIDERA",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 31
         },
         {
           "numero": 27,
@@ -6564,19 +3337,7 @@ window.EXA_DATA = {
           "empresa": "AGROESTE",
           "populacao": 68000,
           "id": "milho-pazinato-27",
-          "linhaExcel": 32,
-          "manejos": [],
-          "raw": [
-            "27",
-            "AS 1868 (meia plantadeira)",
-            "AGROESTE",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 32
         },
         {
           "numero": 28,
@@ -6584,19 +3345,7 @@ window.EXA_DATA = {
           "empresa": "DEKALB",
           "populacao": 68000,
           "id": "milho-pazinato-28",
-          "linhaExcel": 33,
-          "manejos": [],
-          "raw": [
-            "28",
-            "DKB 356 (meia plantadeira)",
-            "DEKALB",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 33
         },
         {
           "numero": 29,
@@ -6604,19 +3353,7 @@ window.EXA_DATA = {
           "empresa": "LG",
           "populacao": 68000,
           "id": "milho-pazinato-29",
-          "linhaExcel": 34,
-          "manejos": [],
-          "raw": [
-            "29",
-            "LG 36790 (meia plantadeira)",
-            "LG",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 34
         },
         {
           "numero": 30,
@@ -6624,19 +3361,7 @@ window.EXA_DATA = {
           "empresa": "DON MARIO",
           "populacao": 68000,
           "id": "milho-pazinato-30",
-          "linhaExcel": 35,
-          "manejos": [],
-          "raw": [
-            "30",
-            "DM 2890 (meia plantadeira)",
-            "DON MARIO",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 35
         },
         {
           "numero": 31,
@@ -6644,19 +3369,7 @@ window.EXA_DATA = {
           "empresa": "DON MARIO",
           "populacao": 68000,
           "id": "milho-pazinato-31",
-          "linhaExcel": 36,
-          "manejos": [],
-          "raw": [
-            "31",
-            "DM 2877 (meia plantadeira)",
-            "DON MARIO",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 36
         },
         {
           "numero": 32,
@@ -6664,100 +3377,179 @@ window.EXA_DATA = {
           "empresa": "DEKALB",
           "populacao": 68000,
           "id": "milho-pazinato-32",
-          "linhaExcel": 37,
-          "manejos": [],
-          "raw": [
-            "32",
-            "DKB 360 (meia plantadeira)",
-            "DEKALB",
-            "68000",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "linhaExcel": 37
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 38,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "WG",
+          "dose": 1.5
         },
         {
-          "linhaExcel": 39,
-          "titulo": "250 Kg 12-40-00 + 10 S em pré-plantio.",
-          "valores": [
-            "250 Kg 12-40-00 + 10 S em pré-plantio.",
-            "",
-            "Azokop 2 doses/ha",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "EXALT",
+          "dose": 0.15
         },
         {
-          "linhaExcel": 40,
-          "titulo": "200 Kg Sulfato de amônio em v2-v3.",
-          "valores": [
-            "200 Kg Sulfato de amônio em v2-v3.",
-            "",
-            "Tricodermil 100 ml/ha",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "IMIDA 480",
+          "dose": 0.35
         },
         {
-          "linhaExcel": 41,
-          "titulo": "220 Kg KCl parcelado.",
-          "valores": [
-            "220 Kg KCl parcelado.",
-            "",
-            "Veraneio 100 ml/ha",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "CO-MO-NI LYNX",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 42,
-          "titulo": "230 Kg Ureia parcelado.",
-          "valores": [
-            "230 Kg Ureia parcelado.",
-            "",
-            "Stingray 300 ml/ha",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (17/05)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "APROACH POWER",
+          "dose": 0.6
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "CLORFENAPIR",
+          "dose": 1.5
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "FORTIVANCE",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "INTREPIDI",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "MULTIMOL",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "SULF. MG",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (31/05)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "VIOVAM",
+          "dose": 0.7
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "CLOFENAPIR",
+          "dose": 1.5
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "FORTIVANCE",
+          "dose": 2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "SULF. MG",
+          "dose": 2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "SUGAR",
+          "dose": 1.2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "MULTIMOL",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (13/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "AZIMUT",
+          "dose": 0.8
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "ACETAMIPRIDO",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "EXALT",
+          "dose": 0.2
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "PREMIO",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "SULF.MG",
+          "dose": 1.5
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "SUGAR",
+          "dose": 1.2
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.4
+        },
+        {
+          "etapa": "3ª FUNGICIDA",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "MILHO PAZINATO"
       },
       "adubacao": [
@@ -6786,9 +3578,9 @@ window.EXA_DATA = {
         "CULTIVAR",
         "EMPRESA",
         "POPULAÇÃO",
-        "PÓS-EMERGENTE",
+        "PÓS-EMERGENTE (16/05)",
         "DOSE/HA",
-        "2ª FUNGICIDA",
+        "2ª FUNGICIDA (06/06)",
         "DOSE/HA"
       ],
       "tratamentos": [
@@ -6798,30 +3590,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-ivo-1",
-          "linhaExcel": 6,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "GLIFOSATO WG",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "ADJUVANTE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "1",
-            "P 3707",
-            "PIONEER",
-            "70000",
-            "",
-            "GLIFOSATO WG",
-            "1.5",
-            "ADJUVANTE",
-            "0.08"
-          ]
+          "linhaExcel": 6
         },
         {
           "numero": 2,
@@ -6829,30 +3598,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-ivo-2",
-          "linhaExcel": 7,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "LANNATE",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "2",
-            "NS 89 (2 passadas)",
-            "NIDERA",
-            "70000",
-            "",
-            "LANNATE",
-            "1.5",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 7
         },
         {
           "numero": 3,
@@ -6860,30 +3606,7 @@ window.EXA_DATA = {
           "empresa": "AGROCERES",
           "populacao": 70000,
           "id": "milho-ivo-3",
-          "linhaExcel": 8,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "IMIDA 480",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "3",
-            "AG 8480",
-            "AGROCERES",
-            "70000",
-            "",
-            "IMIDA 480",
-            "0.3",
-            "BORO 10 PLUS",
-            "0.3"
-          ]
+          "linhaExcel": 8
         },
         {
           "numero": 4,
@@ -6891,30 +3614,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-ivo-4",
-          "linhaExcel": 9,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "EXALT",
-              "dose": "0.2"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "VIOVAM",
-              "dose": "0.7"
-            }
-          ],
-          "raw": [
-            "4",
-            "BS 3319",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "EXALT",
-            "0.2",
-            "VIOVAM",
-            "0.7"
-          ]
+          "linhaExcel": 9
         },
         {
           "numero": 5,
@@ -6922,30 +3622,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-ivo-5",
-          "linhaExcel": 10,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIMOL",
-              "dose": "0.2"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "CLOROTALONIL",
-              "dose": "1"
-            }
-          ],
-          "raw": [
-            "5",
-            "BS 364",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "MULTIMOL",
-            "0.2",
-            "CLOROTALONIL",
-            "1"
-          ]
+          "linhaExcel": 10
         },
         {
           "numero": 6,
@@ -6953,30 +3630,7 @@ window.EXA_DATA = {
           "empresa": "BOA SAFRA",
           "populacao": 70000,
           "id": "milho-ivo-6",
-          "linhaExcel": 11,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "CERTERO",
-              "dose": "0.35"
-            }
-          ],
-          "raw": [
-            "6",
-            "BS 376",
-            "BOA SAFRA",
-            "70000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "CERTERO",
-            "0.35"
-          ]
+          "linhaExcel": 11
         },
         {
           "numero": 7,
@@ -6984,30 +3638,7 @@ window.EXA_DATA = {
           "empresa": "SEEDCORP",
           "populacao": 70000,
           "id": "milho-ivo-7",
-          "linhaExcel": 12,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "MULTIKEL MN",
-              "dose": "0.5"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "TALSTAR",
-              "dose": "0.1"
-            }
-          ],
-          "raw": [
-            "7",
-            "GALO",
-            "SEEDCORP",
-            "70000",
-            "",
-            "MULTIKEL MN",
-            "0.5",
-            "TALSTAR",
-            "0.1"
-          ]
+          "linhaExcel": 12
         },
         {
           "numero": 8,
@@ -7015,30 +3646,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-ivo-8",
-          "linhaExcel": 13,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "2ª FUNGICIDA",
-              "produto": "BACULOVÍRUS",
-              "dose": "0.05"
-            }
-          ],
-          "raw": [
-            "8",
-            "NS 66",
-            "NIDERA",
-            "70000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "BACULOVÍRUS",
-            "0.05"
-          ]
+          "linhaExcel": 13
         },
         {
           "numero": 9,
@@ -7046,25 +3654,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-ivo-9",
-          "linhaExcel": 14,
-          "manejos": [
-            {
-              "etapa": "PÓS-EMERGENTE",
-              "produto": "BIOPARTNERS ADJ",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "9",
-            "NS 89",
-            "NIDERA",
-            "70000",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "",
-            ""
-          ]
+          "linhaExcel": 14
         },
         {
           "numero": 10,
@@ -7072,19 +3662,7 @@ window.EXA_DATA = {
           "empresa": "NIDERA",
           "populacao": 70000,
           "id": "milho-ivo-10",
-          "linhaExcel": 15,
-          "manejos": [],
-          "raw": [
-            "10",
-            "NS 99",
-            "NIDERA",
-            "70000",
-            "",
-            "1ª FUNGICIDA",
-            "DOSE/HA",
-            "3ª FUNGICIDA",
-            "DOSE/HA"
-          ]
+          "linhaExcel": 15
         },
         {
           "numero": 11,
@@ -7092,30 +3670,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-ivo-11",
-          "linhaExcel": 16,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "TEBUCO 480",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "ADJUVANTE",
-              "dose": "0.08"
-            }
-          ],
-          "raw": [
-            "11",
-            "F784-48",
-            "PIONEER",
-            "70000",
-            "",
-            "TEBUCO 480",
-            "0.3",
-            "ADJUVANTE",
-            "0.08"
-          ]
+          "linhaExcel": 16
         },
         {
           "numero": 12,
@@ -7123,30 +3678,7 @@ window.EXA_DATA = {
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-ivo-12",
-          "linhaExcel": 17,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "VESSARYA",
-              "dose": "0.6"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "12",
-            "F3261-48",
-            "PIONEER",
-            "70000",
-            "",
-            "VESSARYA",
-            "0.6",
-            "SULF. MAGNÉSIO",
-            "2"
-          ]
+          "linhaExcel": 17
         },
         {
           "numero": 13,
@@ -7154,30 +3686,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-ivo-13",
-          "linhaExcel": 18,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "MANCOZEB",
-              "dose": "1"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "SANDAL 200",
-              "dose": "0.3"
-            }
-          ],
-          "raw": [
-            "13",
-            "ST 9505",
-            "STINE",
-            "70000",
-            "",
-            "MANCOZEB",
-            "1",
-            "SANDAL 200",
-            "0.3"
-          ]
+          "linhaExcel": 18
         },
         {
           "numero": 14,
@@ -7185,30 +3694,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-ivo-14",
-          "linhaExcel": 19,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "CLOFENAPIR",
-              "dose": "1.5"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "EXALT",
-              "dose": "0.15"
-            }
-          ],
-          "raw": [
-            "14",
-            "ST 9801",
-            "STINE",
-            "70000",
-            "",
-            "CLOFENAPIR",
-            "1.5",
-            "EXALT",
-            "0.15"
-          ]
+          "linhaExcel": 19
         },
         {
           "numero": 15,
@@ -7216,30 +3702,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-ivo-15",
-          "linhaExcel": 20,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "INTREPIDI",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "FORTIVANCE",
-              "dose": "2"
-            }
-          ],
-          "raw": [
-            "15",
-            "ST 9808",
-            "STINE",
-            "70000",
-            "",
-            "INTREPIDI",
-            "0.4",
-            "FORTIVANCE",
-            "2"
-          ]
+          "linhaExcel": 20
         },
         {
           "numero": 16,
@@ -7247,30 +3710,7 @@ window.EXA_DATA = {
           "empresa": "STINE",
           "populacao": 70000,
           "id": "milho-ivo-16",
-          "linhaExcel": 21,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.3"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "CLOFENAPIR",
-              "dose": "1.5"
-            }
-          ],
-          "raw": [
-            "16",
-            "ST 9817",
-            "STINE",
-            "70000",
-            "",
-            "BORO 10 PLUS",
-            "0.3",
-            "CLOFENAPIR",
-            "1.5"
-          ]
+          "linhaExcel": 21
         },
         {
           "numero": 17,
@@ -7278,30 +3718,7 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 70000,
           "id": "milho-ivo-17",
-          "linhaExcel": 22,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. MAGNÉSIO",
-              "dose": "2"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "AZIMUT",
-              "dose": "0.8"
-            }
-          ],
-          "raw": [
-            "17",
-            "K 7510",
-            "SUPRA",
-            "70000",
-            "",
-            "SULF. MAGNÉSIO",
-            "2",
-            "AZIMUT",
-            "0.8"
-          ]
+          "linhaExcel": 22
         },
         {
           "numero": 18,
@@ -7309,126 +3726,184 @@ window.EXA_DATA = {
           "empresa": "SUPRA",
           "populacao": 70000,
           "id": "milho-ivo-18",
-          "linhaExcel": 23,
-          "manejos": [
-            {
-              "etapa": "1ª FUNGICIDA",
-              "produto": "SULF. ZINCO",
-              "dose": "0.4"
-            },
-            {
-              "etapa": "3ª FUNGICIDA",
-              "produto": "BORO 10 PLUS",
-              "dose": "0.4"
-            }
-          ],
-          "raw": [
-            "18",
-            "K 9606",
-            "SUPRA",
-            "70000",
-            "",
-            "SULF. ZINCO",
-            "0.4",
-            "BORO 10 PLUS",
-            "0.4"
-          ]
+          "linhaExcel": 23
         }
       ],
-      "observacoes": [
+      "manejo": [
         {
-          "linhaExcel": 24,
-          "titulo": "ADUBAÇÃO",
-          "valores": [
-            "ADUBAÇÃO",
-            "",
-            "JATO DIRIGIDO",
-            "",
-            "",
-            "BIOPARTNERS ADJ",
-            "0.08",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "GLIFOSATO WG",
+          "dose": 1.6
         },
         {
-          "linhaExcel": 25,
-          "titulo": "250 Kg Superfosfato Simples a lanço.",
-          "valores": [
-            "250 Kg Superfosfato Simples a lanço.",
-            "",
-            "Azokop 2 doses/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "LANNATE",
+          "dose": 1.5
         },
         {
-          "linhaExcel": 26,
-          "titulo": "240 Kg 04-28-08 na linha.",
-          "valores": [
-            "240 Kg 04-28-08 na linha.",
-            "",
-            "Tricodermil 150 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "IMIDA 480",
+          "dose": 0.35
         },
         {
-          "linhaExcel": 27,
-          "titulo": "100 Kg KCl pré-plantio + 100 kg em pós.",
-          "valores": [
-            "100 Kg KCl pré-plantio + 100 kg em pós.",
-            "",
-            "Veraneio 100 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "EXALT",
+          "dose": 0.2
         },
         {
-          "linhaExcel": 28,
-          "titulo": "180 Kg Ureia Vera em V1.",
-          "valores": [
-            "180 Kg Ureia Vera em V1.",
-            "",
-            "Stingray 300 ml/ha.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "MULTIMOL",
+          "dose": 0.1
         },
         {
-          "linhaExcel": 29,
-          "titulo": "120 Kg + 80 Kg Ureia.",
-          "valores": [
-            "120 Kg + 80 Kg Ureia.",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "FOLICARE P",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "MULTIKEL MN",
+          "dose": 0.5
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "PÓS-EMERGENTE (16/05)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "TEBUCO 480",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "VESSARYA",
+          "dose": 0.6
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "MANCOZEB",
+          "dose": 1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "CLOFENAPIR",
+          "dose": 1.5
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "PREMIO",
+          "dose": 0.1
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "SULF. ZINCO",
+          "dose": 0.4
+        },
+        {
+          "etapa": "1ª FUNGICIDA (22/05)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.3
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "VIOVAM",
+          "dose": 0.7
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "CLOROTALONIL",
+          "dose": 1
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "CERTERO",
+          "dose": 0.35
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "TALSTAR",
+          "dose": 0.1
+        },
+        {
+          "etapa": "2ª FUNGICIDA (06/06)",
+          "produto": "BACULOVÍRUS SF",
+          "dose": 0.05
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "BIOPARTNERS ADJ",
+          "dose": 0.08
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "SULF. MAGNÉSIO",
+          "dose": 2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "SANDAL 200",
+          "dose": 0.3
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "EXALT",
+          "dose": 0.15
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "FORTIVANCE",
+          "dose": 2
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "CLORFENAPIR",
+          "dose": 1.5
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "AZIMUT",
+          "dose": 0.8
+        },
+        {
+          "etapa": "3ª FUNGICIDA (01/07)",
+          "produto": "BORO 10 PLUS",
+          "dose": 0.4
         }
       ],
+      "observacoes": [],
       "fonte": {
-        "arquivo": "Teste de Cultivares 2026.xlsx",
+        "arquivo": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
         "aba": "MILHO IVO"
       },
       "adubacao": [
@@ -7452,9 +3927,9 @@ window.EXA_DATA = {
       "empresa": "AGROCERES",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7475,23 +3950,13 @@ window.EXA_DATA = {
       ]
     },
     {
-      "cultivar": "BS 3319",
-      "empresa": "BOA SAFRA",
-      "cultura": "MILHO",
-      "ensaios": [
-        "milho-ivo",
-        "milho-jung",
-        "milho-pazinato"
-      ]
-    },
-    {
       "cultivar": "BS 364",
       "empresa": "BOA SAFRA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7499,9 +3964,19 @@ window.EXA_DATA = {
       "empresa": "BOA SAFRA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
+      ]
+    },
+    {
+      "cultivar": "BS 3319",
+      "empresa": "BOA SAFRA",
+      "cultura": "MILHO",
+      "ensaios": [
+        "milho-jung",
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7537,7 +4012,7 @@ window.EXA_DATA = {
       ]
     },
     {
-      "cultivar": "F3261-48",
+      "cultivar": "F784-48",
       "empresa": "PIONEER",
       "cultura": "MILHO",
       "ensaios": [
@@ -7545,7 +4020,7 @@ window.EXA_DATA = {
       ]
     },
     {
-      "cultivar": "F784-48",
+      "cultivar": "F3261-48",
       "empresa": "PIONEER",
       "cultura": "MILHO",
       "ensaios": [
@@ -7584,9 +4059,9 @@ window.EXA_DATA = {
       "empresa": "SEEDCORP",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7594,9 +4069,9 @@ window.EXA_DATA = {
       "empresa": "SUPRA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7604,9 +4079,9 @@ window.EXA_DATA = {
       "empresa": "SUPRA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7645,13 +4120,22 @@ window.EXA_DATA = {
       ]
     },
     {
+      "cultivar": "Nk FEROZ",
+      "empresa": "NK",
+      "cultura": "MILHO",
+      "ensaios": [
+        "milho-jung",
+        "milho-pazinato"
+      ]
+    },
+    {
       "cultivar": "NS 66",
       "empresa": "NIDERA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7659,9 +4143,9 @@ window.EXA_DATA = {
       "empresa": "NIDERA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7677,18 +4161,9 @@ window.EXA_DATA = {
       "empresa": "NIDERA",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
-      ]
-    },
-    {
-      "cultivar": "Nk FEROZ",
-      "empresa": "NK",
-      "cultura": "MILHO",
-      "ensaios": [
-        "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7704,21 +4179,12 @@ window.EXA_DATA = {
       "empresa": "PIONEER",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
       "cultivar": "P 3845",
-      "empresa": "PIONEER",
-      "cultura": "MILHO",
-      "ensaios": [
-        "milho-jung",
-        "milho-pazinato"
-      ]
-    },
-    {
-      "cultivar": "P F3261-48 (codificado)",
       "empresa": "PIONEER",
       "cultura": "MILHO",
       "ensaios": [
@@ -7736,13 +4202,22 @@ window.EXA_DATA = {
       ]
     },
     {
+      "cultivar": "P F3261-48 (codificado)",
+      "empresa": "PIONEER",
+      "cultura": "MILHO",
+      "ensaios": [
+        "milho-jung",
+        "milho-pazinato"
+      ]
+    },
+    {
       "cultivar": "ST 9505",
       "empresa": "STINE",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7759,9 +4234,9 @@ window.EXA_DATA = {
       "empresa": "STINE",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7769,9 +4244,9 @@ window.EXA_DATA = {
       "empresa": "STINE",
       "cultura": "MILHO",
       "ensaios": [
-        "milho-ivo",
         "milho-jung",
-        "milho-pazinato"
+        "milho-pazinato",
+        "milho-ivo"
       ]
     },
     {
@@ -7787,8 +4262,8 @@ window.EXA_DATA = {
       "empresa": "DON MARIO",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7796,8 +4271,8 @@ window.EXA_DATA = {
       "empresa": "STINE",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7805,8 +4280,8 @@ window.EXA_DATA = {
       "empresa": "STINE",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7814,18 +4289,20 @@ window.EXA_DATA = {
       "empresa": "DON MARIO",
       "cultura": "SOJA",
       "ensaios": [
+        "soja-vendruscolo",
         "soja-dors",
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-jung"
       ]
     },
     {
-      "cultivar": "80I85",
-      "empresa": "DON MARIO",
+      "cultivar": "80i85",
+      "empresa": "DONMARIO",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-agostinho",
+        "soja-r-cunha",
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7833,8 +4310,8 @@ window.EXA_DATA = {
       "empresa": "STINE",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7846,22 +4323,13 @@ window.EXA_DATA = {
       ]
     },
     {
-      "cultivar": "80i85",
-      "empresa": "DONMARIO",
-      "cultura": "SOJA",
-      "ensaios": [
-        "soja-agostinho",
-        "soja-r-cunha"
-      ]
-    },
-    {
       "cultivar": "84Ka92",
       "empresa": "STINE",
       "cultura": "SOJA",
       "ensaios": [
+        "soja-vendruscolo",
         "soja-dors",
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-jung"
       ]
     },
     {
@@ -7870,9 +4338,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7881,9 +4349,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7892,16 +4360,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-r-cunha"
-      ]
-    },
-    {
-      "cultivar": "BÔNUS",
-      "empresa": "BRASMAX",
-      "cultura": "SOJA",
-      "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-r-cunha",
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7918,8 +4379,8 @@ window.EXA_DATA = {
       "empresa": "CORDIUS",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7944,9 +4405,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7954,9 +4415,9 @@ window.EXA_DATA = {
       "empresa": "GOLDEN HARVEST",
       "cultura": "SOJA",
       "ensaios": [
+        "soja-vendruscolo",
         "soja-dors",
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-jung"
       ]
     },
     {
@@ -7965,19 +4426,21 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-dors",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-dors",
+        "soja-jung"
       ]
     },
     {
-      "cultivar": "IMPETO",
+      "cultivar": "ÍMPETO",
       "empresa": "BRASMAX",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-agostinho",
+        "soja-r-cunha",
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -7986,10 +4449,10 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-dors",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-dors",
+        "soja-jung"
       ]
     },
     {
@@ -7997,8 +4460,8 @@ window.EXA_DATA = {
       "empresa": "PAMPEANA",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8007,10 +4470,10 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-dors",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-dors",
+        "soja-jung"
       ]
     },
     {
@@ -8019,9 +4482,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8030,10 +4493,10 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-dors",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-dors",
+        "soja-jung"
       ]
     },
     {
@@ -8041,8 +4504,8 @@ window.EXA_DATA = {
       "empresa": "NEOGEN",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8051,9 +4514,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8070,8 +4533,8 @@ window.EXA_DATA = {
       "empresa": "NIDERA",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8080,14 +4543,6 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-r-cunha"
-      ]
-    },
-    {
-      "cultivar": "OLIMPO",
-      "empresa": "BRASMAX",
-      "cultura": "SOJA",
-      "ensaios": [
         "soja-r-cunha"
       ]
     },
@@ -8104,8 +4559,8 @@ window.EXA_DATA = {
       "empresa": "BRASMAX",
       "cultura": "SOJA",
       "ensaios": [
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8114,8 +4569,8 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8132,9 +4587,9 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
+        "soja-vendruscolo",
+        "soja-jung"
       ]
     },
     {
@@ -8168,19 +4623,10 @@ window.EXA_DATA = {
       "cultura": "SOJA",
       "ensaios": [
         "soja-agostinho",
-        "soja-dors",
-        "soja-jung",
         "soja-r-cunha",
-        "soja-vendruscolo"
-      ]
-    },
-    {
-      "cultivar": "ÍMPETO",
-      "empresa": "BRASMAX",
-      "cultura": "SOJA",
-      "ensaios": [
-        "soja-agostinho",
-        "soja-r-cunha"
+        "soja-vendruscolo",
+        "soja-dors",
+        "soja-jung"
       ]
     }
   ]

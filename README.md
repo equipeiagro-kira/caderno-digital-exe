@@ -25,6 +25,7 @@ O projeto nao precisa de build. Pode ser publicado em GitHub Pages, Netlify ou V
 - `src/protocols-data.js`: protocolos, tratamentos, croquis e registros de campo em variavel local.
 - `src/compaction-data.js`: perfis de resistencia, camadas, pontos GPS e alertas de qualidade.
 - `public/vendor/leaflet/`: biblioteca local usada no mapa interativo, com sua licenca.
+- `scripts/build-cultivar-data.mjs`: gerador dos cultivares e das listas completas de manejo a partir da planilha consolidada.
 - `scripts/build-protocol-data.py`: gerador reproduzivel dos dados de pesquisa a partir do XLSX e DOCX recebidos.
 - `scripts/build-compaction-data.py`: gerador reproduzivel da compactacao a partir dos PDFs Falker.
 - `service-worker.js`: cache offline dos arquivos do app.
@@ -35,4 +36,4 @@ O mapa geografico usa Leaflet, imagem de satelite Esri no modo Vegetacao e OpenS
 
 ## Fonte dos dados
 
-A fonte principal usada foi `Teste de Cultivares 2026.xlsx`, que consolida 8 ensaios. Os avisos de divergencia encontrados nas planilhas estao exibidos no proprio app.
+A fonte principal usada foi `Teste de Cultivares 2026 - ATUALIZADO.xlsx`, que consolida 8 ensaios e 210 tratamentos. O manejo e lido por etapa do experimento, de forma que todas as cultivares do produtor exibam a lista completa de produtos, adubacao e jato dirigido.

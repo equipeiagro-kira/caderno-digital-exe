@@ -155,16 +155,9 @@ function managementGroup(title, items) {
   `;
 }
 
-function stageKey(label) {
-  const value = normalize(label);
-  if (value.includes("pos-emergente") || value.includes("pos emergente")) return "pos";
-  if (value.includes("1") && value.includes("fungicida")) return "fung1";
-  if (value.includes("2") && value.includes("fungicida")) return "fung2";
-  if (value.includes("3") && value.includes("fungicida")) return "fung3";
-  return "";
-}
-
 function trialManagementItems(trial) {
+  if (trial.manejo?.length) return trial.manejo;
+
   const seen = new Set();
 
   return trial.tratamentos
@@ -205,30 +198,15 @@ function stageGroup(title, items) {
 }
 
 function treatmentManagement(trial) {
-  const stageGroups = {
-    pos: [],
-    fung1: [],
-    fung2: [],
-    fung3: []
-  };
-  const extras = new Map();
+  const stages = new Map();
 
   trialManagementItems(trial).forEach((manejo) => {
-    const key = stageKey(manejo.etapa);
-    if (key) {
-      stageGroups[key].push(manejo);
-      return;
-    }
     const title = manejo.etapa || "Aplicação";
-    extras.set(title, [...(extras.get(title) || []), manejo]);
+    stages.set(title, [...(stages.get(title) || []), manejo]);
   });
 
   return [
-    stageGroup("Pós-emergência", stageGroups.pos),
-    stageGroup("1ª fungicida", stageGroups.fung1),
-    stageGroup("2ª fungicida", stageGroups.fung2),
-    stageGroup("3ª fungicida", stageGroups.fung3),
-    ...[...extras.entries()].map(([title, items]) => stageGroup(title, items)),
+    ...[...stages.entries()].map(([title, items]) => stageGroup(title, items)),
     managementGroup("Adubação", trial.adubacao || []),
     managementGroup("Jato dirigido", trial.jatoDirigido || [])
   ].join("");
