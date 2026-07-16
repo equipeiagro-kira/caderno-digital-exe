@@ -73,9 +73,7 @@ function searchableTreatment(item) {
     item.empresa,
     item.maturacao,
     item.pmg,
-    item.populacao,
-    item.motora,
-    item.movida
+    item.populacao
   ].join(" "));
 }
 
@@ -89,7 +87,8 @@ function filteredTrials() {
 function renderMetrics() {
   $("#metric-ensaios").textContent = formatNumber(data.resumo.totalEnsaios);
   $("#metric-tratamentos").textContent = formatNumber(data.resumo.totalTratamentos);
-  $("#metric-cultivares").textContent = formatNumber(data.resumo.totalCultivaresUnicas);
+  $("#metric-cultivares-soja").textContent = formatNumber(data.resumo.totalCultivaresSoja);
+  $("#metric-cultivares-milho").textContent = formatNumber(data.resumo.totalCultivaresMilho);
 }
 
 function renderWarnings() {
@@ -231,9 +230,7 @@ function treatmentRows(treatments, trial) {
       const specs = [
         item.maturacao ? `Mat. ${item.maturacao}` : "",
         item.pmg ? `PMG/PMS ${item.pmg}` : "",
-        item.populacao ? `Pop. ${formatNumber(item.populacao)}` : "",
-        item.motora ? `Motora ${item.motora}` : "",
-        item.movida ? `Movida ${item.movida}` : ""
+        item.populacao ? `Pop. ${formatNumber(item.populacao)}` : ""
       ]
         .filter(Boolean)
         .join(" · ");
@@ -278,9 +275,7 @@ function showTreatmentDetail(trial, item) {
   const specs = [
     item.maturacao ? `Maturação ${item.maturacao}` : "",
     item.pmg ? `PMG/PMS ${item.pmg}` : "",
-    item.populacao ? `População ${formatNumber(item.populacao)}` : "",
-    item.motora ? `Motora ${item.motora}` : "",
-    item.movida ? `Movida ${item.movida}` : ""
+    item.populacao ? `População ${formatNumber(item.populacao)}` : ""
   ].filter(Boolean);
 
   modal.innerHTML = `
@@ -1044,7 +1039,6 @@ function initCompactionMap(area) {
 
 function pointStatus(point) {
   const statuses = [point.completa ? `<span class="chip green">Completa</span>` : `<span class="chip warning">Incompleta</span>`];
-  if (point.excessosVelocidade) statuses.push(`<span class="chip warning">Velocidade: ${point.excessosVelocidade}</span>`);
   if (!point.metadadosValidos) statuses.push(`<span class="chip warning">Metadados a revisar</span>`);
   return statuses.join("");
 }
@@ -1106,7 +1100,6 @@ function renderCompactionDetail() {
         <span class="chip green">${area.resumo.totalMedicoes} medicoes</span>
         <span class="chip">${area.resumo.medicoesCompletas} completas</span>
         <span class="chip">${area.resumo.pontosGps} pontos GPS</span>
-        ${area.resumo.alertasVelocidade ? `<span class="chip warning">${area.resumo.alertasVelocidade} alertas de velocidade</span>` : ""}
       </div>
       <button class="secondary-button open-trial-button" type="button" data-open-compaction-trial="${escapeHtml(area.trialId)}">Abrir cultivares</button>
     </div>
@@ -1139,7 +1132,6 @@ function showCompactionPoint(area, point) {
   const individual = { mean: point.perfilKpa, min: point.perfilKpa, max: point.perfilKpa };
   const warnings = [
     !point.completa ? "Medicao incompleta: mantida para consulta, mas excluida das medias consolidadas." : "",
-    point.excessosVelocidade ? `Ocorreram ${point.excessosVelocidade} alertas de velocidade excessiva.` : "",
     !point.metadadosValidos ? "GPS, data ou hora de origem precisam de revisao." : ""
   ].filter(Boolean);
 

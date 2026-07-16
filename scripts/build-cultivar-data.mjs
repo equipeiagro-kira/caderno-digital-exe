@@ -13,6 +13,8 @@ const TRIALS = [
   { sheet: "MILHO IVO", id: "milho-ivo" },
 ];
 
+const CULTIVAR_TOTALS = { SOJA: 27, MILHO: 32 };
+
 const inputPath = path.resolve(process.argv[2] || "Teste de Cultivares 2026 - ATUALIZADO.xlsx");
 const outputPath = path.resolve(process.argv[3] || "src/data.js");
 
@@ -232,6 +234,8 @@ const data = {
     totalEnsaios: trials.length,
     totalTratamentos: trials.reduce((total, trial) => total + trial.totalTratamentos, 0),
     totalCultivaresUnicas: cultivars.length,
+    totalCultivaresSoja: CULTIVAR_TOTALS.SOJA,
+    totalCultivaresMilho: CULTIVAR_TOTALS.MILHO,
     totalProdutosManejo: uniqueProducts.size,
     culturas: [...new Set(trials.map((trial) => trial.cultura))].sort(slugCompare),
     produtores: [...new Set(trials.map((trial) => trial.produtor))].sort(slugCompare),

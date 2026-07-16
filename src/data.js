@@ -6,6 +6,8 @@ window.EXA_DATA = {
     "totalEnsaios": 8,
     "totalTratamentos": 210,
     "totalCultivaresUnicas": 75,
+    "totalCultivaresSoja": 27,
+    "totalCultivaresMilho": 32,
     "totalProdutosManejo": 107,
     "culturas": [
       "MILHO",

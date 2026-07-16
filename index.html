@@ -18,8 +18,8 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=20" />
-    <link rel="stylesheet" href="./src/styles.css?v=20" />
+    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=21" />
+    <link rel="stylesheet" href="./src/styles.css?v=21" />
   </head>
   <body>
     <div id="app" class="app-shell">
@@ -70,7 +70,7 @@
         <nav class="workspace-tabs" aria-label="Modulos do caderno">
           <button class="active" type="button" data-workspace="cultivares">Cultivares</button>
           <button type="button" data-workspace="pesquisa">Pesquisa</button>
-          <button type="button" data-workspace="compactacao">Compactacao</button>
+          <button type="button" data-workspace="compactacao">Compactação</button>
         </nav>
 
         <section id="cultivar-module" class="workspace-module">
@@ -92,8 +92,12 @@
               <strong id="metric-tratamentos">0</strong>
             </article>
             <article>
-              <span>Cultivares</span>
-              <strong id="metric-cultivares">0</strong>
+              <span>Cultivares de soja</span>
+              <strong id="metric-cultivares-soja">0</strong>
+            </article>
+            <article>
+              <span>Cultivares de milho</span>
+              <strong id="metric-cultivares-milho">0</strong>
             </article>
           </div>
         </section>
@@ -195,7 +199,7 @@
           <section class="hero-panel compaction-hero">
             <div>
               <p class="eyebrow">DIAGNOSTICO FISICO</p>
-              <h2>Compactacao do solo por profundidade</h2>
+              <h2>Compactação do solo por profundidade</h2>
               <p>Perfis de resistencia a penetracao, pontos GPS e controle de qualidade das medicoes de campo.</p>
             </div>
             <div class="hero-metrics" aria-label="Resumo da compactacao">
@@ -260,10 +264,10 @@
         } catch {}
       }
     </script>
-    <script src="./public/vendor/leaflet/leaflet.js?v=20"></script>
-    <script src="./src/data.js?v=20"></script>
-    <script src="./src/protocols-data.js?v=20"></script>
-    <script src="./src/compaction-data.js?v=20"></script>
-    <script src="./src/app.js?v=20"></script>
+    <script src="./public/vendor/leaflet/leaflet.js?v=21"></script>
+    <script src="./src/data.js?v=21"></script>
+    <script src="./src/protocols-data.js?v=21"></script>
+    <script src="./src/compaction-data.js?v=21"></script>
+    <script src="./src/app.js?v=21"></script>
   </body>
 </html>
