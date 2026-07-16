@@ -62,6 +62,35 @@ function formatNumber(value) {
   return new Intl.NumberFormat("pt-BR").format(number);
 }
 
+function calculateDae(plantio) {
+  const match = String(plantio || "").match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!match) return null;
+
+  const [, day, month, year] = match.map(Number);
+  const emergenceDate = new Date(year, month - 1, day + 4);
+  const now = new Date();
+  const todayUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const emergenceUtc = Date.UTC(
+    emergenceDate.getFullYear(),
+    emergenceDate.getMonth(),
+    emergenceDate.getDate()
+  );
+
+  return {
+    days: Math.max(0, Math.floor((todayUtc - emergenceUtc) / 86400000)),
+    emergenceDate
+  };
+}
+
+function daeBadge(trial, modifier = "") {
+  const dae = calculateDae(trial.plantio);
+  if (!dae) return "";
+
+  const emergence = dae.emergenceDate.toLocaleDateString("pt-BR");
+  const classes = ["dae-badge", modifier].filter(Boolean).join(" ");
+  return `<span class="${classes}" title="Emergência estimada: ${emergence}" aria-label="DAE: ${dae.days}. Emergência estimada em ${emergence}">DAE: ${dae.days}</span>`;
+}
+
 function searchableTrial(trial) {
   return normalize(`${trial.nome} ${trial.cultura} ${trial.produtor} ${trial.plantio}`);
 }
@@ -224,6 +253,7 @@ function findTreatment(trialId, treatmentId) {
 
 function treatmentRows(treatments, trial) {
   const totalManagementItems = countManagementItems(trial);
+  const dae = daeBadge(trial);
 
   return treatments
     .map((item) => {
@@ -243,7 +273,12 @@ function treatmentRows(treatments, trial) {
         <tr>
           <td data-label="No.">${item.numero}</td>
           <td data-label="Cultivar"><strong>${item.cultivar || "-"}</strong><span>${item.empresa || "-"}</span></td>
-          <td data-label="Dados">${specs || "-"}</td>
+          <td data-label="Dados">
+            <div class="cultivar-data">
+              ${dae}
+              <span class="treatment-specs">${specs || "-"}</span>
+            </div>
+          </td>
           <td data-label="Manejo">
             <div class="manejo-action">
               <span>${actionLabel}</span>
@@ -287,6 +322,7 @@ function showTreatmentDetail(trial, item) {
       <div class="chip-row">
         <span class="chip green">Tratamento ${item.numero}</span>
         <span class="chip">${item.empresa || "Empresa não informada"}</span>
+        ${daeBadge(trial, "dae-badge-modal")}
         ${specs.map((spec) => `<span class="chip">${spec}</span>`).join("")}
       </div>
       <p class="management-scope">Receita completa usada neste experimento para a cultivar selecionada.</p>
