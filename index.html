@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#07111d" />
     <meta
       name="description"
-      content="Caderno Digital da Excelencia Consultoria para consulta offline de testes de cultivares."
+      content="Caderno Digital da Excelencia Consultoria para consulta offline de cultivares e protocolos de pesquisa."
     />
     <title>EXA | Caderno Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/styles.css?v=16" />
   </head>
   <body>
     <div id="app" class="app-shell">
@@ -66,6 +66,12 @@
           </div>
         </header>
 
+        <nav class="workspace-tabs" aria-label="Modulos do caderno">
+          <button class="active" type="button" data-workspace="cultivares">Cultivares</button>
+          <button type="button" data-workspace="pesquisa">Pesquisa</button>
+        </nav>
+
+        <section id="cultivar-module" class="workspace-module">
         <section class="hero-panel">
           <div>
             <p class="eyebrow">SAFRA 2026</p>
@@ -118,6 +124,70 @@
             <div id="trial-detail" class="trial-detail"></div>
           </section>
         </section>
+        </section>
+
+        <section id="research-module" class="workspace-module" hidden>
+          <section class="hero-panel research-hero">
+            <div>
+              <p class="eyebrow">SAFRA 2026</p>
+              <h2>Protocolos de pesquisa em campo</h2>
+              <p>Planejamento experimental, tratamentos, avaliacoes e registros organizados por empresa.</p>
+            </div>
+            <div class="hero-metrics" aria-label="Resumo dos protocolos">
+              <article>
+                <span>Protocolos</span>
+                <strong id="metric-protocolos">0</strong>
+              </article>
+              <article>
+                <span>Tratamentos</span>
+                <strong id="metric-protocol-treatments">0</strong>
+              </article>
+              <article>
+                <span>Repeticoes</span>
+                <strong id="metric-repeticoes">0</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="control-band research-control" aria-label="Navegacao da pesquisa">
+            <div class="segmented research-view-tabs" role="group" aria-label="Visualizacao da pesquisa">
+              <button class="active" type="button" data-research-view="mapa">Croqui geral</button>
+              <button type="button" data-research-view="protocolos">Protocolos</button>
+            </div>
+            <div id="protocol-search-field" class="search-field" hidden>
+              <span aria-hidden="true">&#8981;</span>
+              <input id="protocol-search" type="search" placeholder="Buscar protocolo, produto ou dose" />
+            </div>
+          </section>
+
+          <section id="research-map-view" class="panel research-map-panel">
+            <div class="panel-heading research-heading">
+              <div>
+                <p class="eyebrow">IMPLANTACAO</p>
+                <h3>Croqui geral da area experimental</h3>
+              </div>
+              <span class="source-badge">Fonte de campo</span>
+            </div>
+            <div id="general-field-map"></div>
+          </section>
+
+          <section id="research-protocols-view" class="content-grid research-content" hidden>
+            <aside class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">PROTOCOLOS</p>
+                  <h3>Empresas e linhas</h3>
+                </div>
+                <span id="protocol-result-count">0</span>
+              </div>
+              <div id="protocol-list" class="trial-list protocol-list"></div>
+            </aside>
+
+            <section class="panel detail-panel research-detail-panel">
+              <div id="protocol-detail" class="trial-detail protocol-detail"></div>
+            </section>
+          </section>
+        </section>
 
         <footer class="rubisck-credit dashboard-credit" aria-label="Creditos RUBISCK">
           <img src="./public/assets/rubisck-symbol.png" alt="RUBISCK" />
@@ -135,7 +205,8 @@
         } catch {}
       }
     </script>
-    <script src="./src/data.js"></script>
-    <script src="./src/app.js"></script>
+    <script src="./src/data.js?v=16"></script>
+    <script src="./src/protocols-data.js?v=16"></script>
+    <script src="./src/app.js?v=16"></script>
   </body>
 </html>

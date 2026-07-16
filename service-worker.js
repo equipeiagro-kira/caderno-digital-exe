@@ -1,12 +1,13 @@
-const CACHE_NAME = "exa-caderno-v13";
+const CACHE_NAME = "exa-caderno-v16";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./src/styles.css",
-  "./src/data.js",
-  "./src/app.js",
+  "./src/styles.css?v=16",
+  "./src/data.js?v=16",
+  "./src/protocols-data.js?v=16",
+  "./src/app.js?v=16",
   "./public/assets/excelencia-logo.jpg",
   "./public/assets/rubisck-symbol.png",
   "./public/assets/icon-192.png",
@@ -31,6 +32,18 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", copy));
+          return response;
+        })
+        .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;

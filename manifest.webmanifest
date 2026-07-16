@@ -1,7 +1,7 @@
 {
   "name": "EXA Caderno Digital",
   "short_name": "EXA Caderno",
-  "description": "Caderno Digital da Excelencia Consultoria para consulta offline de cultivares.",
+  "description": "Caderno Digital da Excelencia Consultoria para consulta offline de cultivares e protocolos de pesquisa.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
