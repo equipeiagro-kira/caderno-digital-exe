@@ -1,14 +1,21 @@
-const CACHE_NAME = "exa-caderno-v17";
+const CACHE_NAME = "exa-caderno-v18";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./src/styles.css?v=17",
-  "./src/data.js?v=17",
-  "./src/protocols-data.js?v=17",
-  "./src/compaction-data.js?v=17",
-  "./src/app.js?v=17",
+  "./public/vendor/leaflet/leaflet.css?v=18",
+  "./public/vendor/leaflet/leaflet.js?v=18",
+  "./public/vendor/leaflet/images/layers.png",
+  "./public/vendor/leaflet/images/layers-2x.png",
+  "./public/vendor/leaflet/images/marker-icon.png",
+  "./public/vendor/leaflet/images/marker-icon-2x.png",
+  "./public/vendor/leaflet/images/marker-shadow.png",
+  "./src/styles.css?v=18",
+  "./src/data.js?v=18",
+  "./src/protocols-data.js?v=18",
+  "./src/compaction-data.js?v=18",
+  "./src/app.js?v=18",
   "./public/assets/excelencia-logo.jpg",
   "./public/assets/rubisck-symbol.png",
   "./public/assets/icon-192.png",
@@ -33,6 +40,7 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  if (new URL(event.request.url).origin !== self.location.origin) return;
   if (event.request.mode === "navigate") {
     event.respondWith(
       fetch(event.request)
@@ -54,7 +62,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
           return response;
         })
-        .catch(() => caches.match("./index.html"));
+        .catch(() => Response.error());
     })
   );
 });

@@ -24,11 +24,14 @@ O projeto nao precisa de build. Pode ser publicado em GitHub Pages, Netlify ou V
 - `src/data.js`: dados extraidos das planilhas em variavel local.
 - `src/protocols-data.js`: protocolos, tratamentos, croquis e registros de campo em variavel local.
 - `src/compaction-data.js`: perfis de resistencia, camadas, pontos GPS e alertas de qualidade.
+- `public/vendor/leaflet/`: biblioteca local usada no mapa interativo, com sua licenca.
 - `scripts/build-protocol-data.py`: gerador reproduzivel dos dados de pesquisa a partir do XLSX e DOCX recebidos.
 - `scripts/build-compaction-data.py`: gerador reproduzivel da compactacao a partir dos PDFs Falker.
 - `service-worker.js`: cache offline dos arquivos do app.
 - `manifest.webmanifest`: metadados de instalacao PWA.
 - `public/assets/`: logo e icones.
+
+O mapa geografico usa Leaflet com tiles do OpenStreetMap enquanto houver internet. No modo offline, o app preserva os dados e exibe a distribuicao relativa dos pontos sem baixar mapas antecipadamente.
 
 ## Fonte dos dados
 

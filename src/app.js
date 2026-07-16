@@ -18,6 +18,9 @@ const state = {
   deferredPrompt: null
 };
 
+let activeCompactionMap = null;
+let activeCompactionMapFallbackTimer = null;
+
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
@@ -874,9 +877,18 @@ function compactionProfileView(area) {
   `;
 }
 
-function gpsMap(area) {
-  const points = area.pontos.filter((point) => point.coordenadas);
-  if (!points.length) return `<div class="research-empty"><strong>Sem coordenadas GPS</strong><p>Nenhuma medicao desta area possui localizacao valida.</p></div>`;
+function destroyCompactionMap() {
+  if (activeCompactionMapFallbackTimer) {
+    window.clearTimeout(activeCompactionMapFallbackTimer);
+    activeCompactionMapFallbackTimer = null;
+  }
+  if (!activeCompactionMap) return;
+  const map = activeCompactionMap;
+  activeCompactionMap = null;
+  map.remove();
+}
+
+function gpsFallbackMap(area, points) {
   const width = 720;
   const height = 320;
   const margin = 38;
@@ -893,8 +905,8 @@ function gpsMap(area) {
   const campaigns = [...new Set(points.map((point) => point.campanhaId))];
 
   return `
-    <div class="gps-map-shell">
-      <svg class="gps-map" viewBox="0 0 ${width} ${height}" role="img" aria-label="Distribuicao relativa dos pontos GPS de ${escapeHtml(area.nome)}">
+    <div class="gps-fallback-shell">
+      <svg class="gps-fallback-map" viewBox="0 0 ${width} ${height}" role="img" aria-label="Distribuicao relativa dos pontos GPS de ${escapeHtml(area.nome)}">
         <rect x="1" y="1" width="${width - 2}" height="${height - 2}" class="gps-map-bg" />
         ${[1, 2, 3, 4].map((step) => `<line x1="${margin}" y1="${(height / 5) * step}" x2="${width - margin}" y2="${(height / 5) * step}" class="map-grid" />`).join("")}
         ${[1, 2, 3, 4].map((step) => `<line x1="${(width / 5) * step}" y1="${margin}" x2="${(width / 5) * step}" y2="${height - margin}" class="map-grid" />`).join("")}
@@ -909,6 +921,28 @@ function gpsMap(area) {
         }).join("")}
       </svg>
     </div>
+  `;
+}
+
+function gpsMap(area) {
+  const points = area.pontos.filter((point) => point.coordenadas);
+  if (!points.length) return `<div class="research-empty"><strong>Sem coordenadas GPS</strong><p>Nenhuma medicao desta area possui localizacao valida.</p></div>`;
+  const campaigns = [...new Set(points.map((point) => point.campanhaId))];
+
+  return `
+    <div class="compaction-map-stack">
+      <div id="compaction-map-frame" class="compaction-map-frame">
+        <div id="compaction-gps-map" class="compaction-leaflet-map" role="region" aria-label="Mapa interativo dos pontos GPS de ${escapeHtml(area.nome)}"></div>
+        <div id="compaction-map-loading" class="compaction-map-loading">Carregando mapa geografico...</div>
+      </div>
+      <div id="compaction-map-fallback" class="gps-map-fallback" hidden>
+        <div class="map-fallback-notice">
+          <strong>Mapa-base indisponivel</strong>
+          <p>Exibindo a posicao relativa dos pontos. O mapa geografico precisa de internet.</p>
+        </div>
+        ${gpsFallbackMap(area, points)}
+      </div>
+    </div>
     <div class="map-campaign-legend">
       ${campaigns.map((campaignId, index) => {
         const point = points.find((item) => item.campanhaId === campaignId);
@@ -916,7 +950,99 @@ function gpsMap(area) {
       }).join("")}
       ${points.some((point) => !point.completa) ? `<span class="incomplete">Circulo vazado: medicao incompleta</span>` : ""}
     </div>
+    <p class="method-note">Mapa interativo com OpenStreetMap. Toque em um ponto para ver os dados da medicao.</p>
   `;
+}
+
+function activateCompactionMapFallback() {
+  const frame = $("#compaction-map-frame");
+  const fallback = $("#compaction-map-fallback");
+  destroyCompactionMap();
+  if (frame) frame.hidden = true;
+  if (fallback) fallback.hidden = false;
+}
+
+function initCompactionMap(area) {
+  const container = $("#compaction-gps-map");
+  const points = area.pontos.filter((point) => point.coordenadas);
+  if (!container || !points.length) return;
+  if (!window.L || window.navigator?.onLine === false) {
+    activateCompactionMapFallback();
+    return;
+  }
+
+  destroyCompactionMap();
+  const campaigns = [...new Set(points.map((point) => point.campanhaId))];
+  const map = window.L.map(container, {
+    scrollWheelZoom: false,
+    zoomControl: true,
+    attributionControl: true
+  });
+  activeCompactionMap = map;
+
+  let successfulTiles = 0;
+  let failedTiles = 0;
+  const loading = $("#compaction-map-loading");
+  const tileLayer = window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  });
+
+  tileLayer.on("tileload", () => {
+    successfulTiles += 1;
+    if (loading) loading.hidden = true;
+    if (activeCompactionMapFallbackTimer) {
+      window.clearTimeout(activeCompactionMapFallbackTimer);
+      activeCompactionMapFallbackTimer = null;
+    }
+  });
+  tileLayer.on("tileerror", () => {
+    failedTiles += 1;
+    if (!successfulTiles && failedTiles >= 4 && activeCompactionMap === map) activateCompactionMapFallback();
+  });
+  tileLayer.addTo(map);
+
+  const bounds = [];
+  points.forEach((point) => {
+    const campaignIndex = campaigns.indexOf(point.campanhaId);
+    const markerClass = `campaign-${campaignIndex}${point.completa ? "" : " incomplete"}`;
+    const icon = window.L.divIcon({
+      className: "compaction-map-div-icon",
+      html: `<span class="compaction-map-marker ${markerClass}">${point.numeroOrigem}</span>`,
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -14]
+    });
+    const coordinates = [point.coordenadas.latitude, point.coordenadas.longitude];
+    bounds.push(coordinates);
+    window.L.marker(coordinates, { icon, title: `Medicao ${point.numeroOrigem}` })
+      .addTo(map)
+      .bindPopup(`
+        <div class="compaction-map-popup-content">
+          <strong>Medicao ${point.numeroOrigem}</strong>
+          <span>${escapeHtml(point.dataMedicao || point.dataCampanha)} - ${escapeHtml(point.campanha)}</span>
+          <dl>
+            <div><dt>Maximo</dt><dd>${formatKpa(point.maximo.kpa)} kPa</dd></div>
+            <div><dt>Profundidade</dt><dd>${point.maximo.profundidadeCm} cm</dd></div>
+          </dl>
+          <button type="button" data-compaction-point="${escapeHtml(point.id)}">Abrir perfil</button>
+        </div>
+      `, { className: "compaction-map-popup" });
+  });
+
+  if (bounds.length === 1) {
+    map.setView(bounds[0], 17);
+  } else {
+    map.fitBounds(bounds, { padding: [34, 34], maxZoom: 17, animate: false });
+  }
+  window.L.control.scale({ imperial: false, maxWidth: 110 }).addTo(map);
+
+  window.requestAnimationFrame(() => {
+    if (activeCompactionMap === map) map.invalidateSize({ pan: false });
+  });
+  activeCompactionMapFallbackTimer = window.setTimeout(() => {
+    if (!successfulTiles && activeCompactionMap === map) activateCompactionMapFallback();
+  }, 10000);
 }
 
 function pointStatus(point) {
@@ -962,6 +1088,7 @@ function compactionPointsView(area) {
 }
 
 function renderCompactionDetail() {
+  destroyCompactionMap();
   const area = compactionData.areas.find((item) => item.id === state.selectedCompactionAreaId) || filteredCompactionAreas()[0];
   if (!area) return;
   const warnings = area.avisos.length
@@ -994,6 +1121,9 @@ function renderCompactionDetail() {
     </nav>
     <div class="compaction-view">${views[state.compactionTab]}</div>
   `;
+  if (state.compactionTab === "pontos") {
+    window.requestAnimationFrame(() => initCompactionMap(area));
+  }
 }
 
 function showCompactionPoint(area, point) {
