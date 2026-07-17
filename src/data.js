@@ -1957,7 +1957,7 @@ window.EXA_DATA = {
     },
     {
       "id": "soja-jung",
-      "nome": "SOJA JUNG",
+      "nome": "SOJA ARISON JUNG",
       "titulo": "TESTE DE VARIEDADES",
       "cultura": "SOJA",
       "produtor": "Arison Jung",
@@ -2644,7 +2644,7 @@ window.EXA_DATA = {
     },
     {
       "id": "milho-jung",
-      "nome": "MILHO JUNG",
+      "nome": "MILHO ARISON JUNG",
       "titulo": "TESTE DE CULTIVARES",
       "cultura": "MILHO",
       "produtor": "Arison Jung",

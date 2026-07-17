@@ -36,14 +36,14 @@ AREAS = {
         ],
     },
     "soja-jung": {
-        "nome": "Soja Jung",
+        "nome": "Soja Arison Jung",
         "produtor": "Arison Jung",
         "cultura": "SOJA",
         "trialId": "soja-jung",
         "avisos": [],
     },
     "milho-jung": {
-        "nome": "Milho Jung",
+        "nome": "Milho Arison Jung",
         "produtor": "Arison Jung",
         "cultura": "MILHO",
         "trialId": "milho-jung",
