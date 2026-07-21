@@ -1,6 +1,7 @@
 const data = window.EXA_DATA || { resumo: {}, ensaios: [], cultivares: [] };
 const protocolData = window.EXA_PROTOCOL_DATA || { meta: {}, croquiGeral: [], protocolos: [] };
 const compactionData = window.EXA_COMPACTION_DATA || { meta: {}, areas: [] };
+const diaportheData = window.EXA_DIAPORTHE_DATA || { meta: {}, avaliacoes: [] };
 
 const SESSION_KEY = "exa_session";
 const PRODUCER_ACCESS_END = new Date("2026-07-23T00:00:00-04:00").getTime();
@@ -23,6 +24,8 @@ const state = {
   selectedCompactionAreaId: compactionData.areas[0]?.id || null,
   compactionTab: "resumo",
   compactionMapLayer: "vegetacao",
+  diaportheQuery: "",
+  diaportheCoverage: "TODAS",
   sessionRole: null,
   deferredPrompt: null
 };
@@ -128,10 +131,15 @@ function setAccessMessage(message = "") {
 
 function applyAccessPolicy() {
   const producerRestricted = state.sessionRole === "producer";
-  const researchButton = $("[data-workspace='pesquisa']");
-  if (researchButton) researchButton.hidden = producerRestricted;
+  const workspaceTabs = $(".workspace-tabs");
+  if (workspaceTabs) workspaceTabs.classList.toggle("producer-tabs", producerRestricted);
 
-  if (producerRestricted && state.workspace === "pesquisa") {
+  ["pesquisa", "diaporthe"].forEach((workspace) => {
+    const button = $(`[data-workspace='${workspace}']`);
+    if (button) button.hidden = producerRestricted;
+  });
+
+  if (producerRestricted && ["pesquisa", "diaporthe"].includes(state.workspace)) {
     state.workspace = "cultivares";
   }
 
@@ -541,10 +549,257 @@ function renderWorkspace() {
   applyAccessPolicy();
   $("#cultivar-module").hidden = state.workspace !== "cultivares";
   $("#research-module").hidden = state.workspace !== "pesquisa";
+  $("#diaporthe-module").hidden = state.workspace !== "diaporthe";
   $("#compaction-module").hidden = state.workspace !== "compactacao";
   $$("[data-workspace]").forEach((button) => {
     button.classList.toggle("active", button.dataset.workspace === state.workspace);
   });
+}
+
+const DIAPORTHE_COLORS = [
+  "#08dc79", "#9d4dff", "#75d7ff", "#ffb84d", "#ff6b8a", "#6ee7b7", "#f4d35e",
+  "#c79cff", "#4dd4ac", "#ff8c42", "#7aa2ff", "#e879f9", "#2dd4bf", "#fb7185",
+  "#a3e635", "#38bdf8", "#f97316", "#818cf8", "#facc15", "#34d399", "#f472b6",
+  "#a78bfa", "#22d3ee", "#fb923c", "#60a5fa", "#d946ef", "#84cc16"
+];
+
+function formatDecimal(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "-";
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: Number.isInteger(number) ? 0 : 1,
+    maximumFractionDigits: 1
+  }).format(number);
+}
+
+function diaportheGroups() {
+  const groups = new Map();
+  diaportheData.avaliacoes.forEach((evaluation) => {
+    const key = normalize(evaluation.cultivar.trim());
+    if (!groups.has(key)) {
+      groups.set(key, {
+        key,
+        cultivar: evaluation.cultivar.trim(),
+        empresa: evaluation.empresa.trim(),
+        maturacao: evaluation.maturacao,
+        pmg: evaluation.pmg,
+        evaluations: []
+      });
+    }
+    groups.get(key).evaluations.push(evaluation);
+  });
+
+  return [...groups.values()].map((group, index) => {
+    const evaluations = [...group.evaluations].sort((a, b) => a.populacao - b.populacao);
+    const values = evaluations.map((evaluation) => evaluation.quebramento);
+    const mean = values.reduce((total, value) => total + value, 0) / values.length;
+    return {
+      ...group,
+      evaluations,
+      color: DIAPORTHE_COLORS[index % DIAPORTHE_COLORS.length],
+      mean: Math.round(mean * 10) / 10,
+      min: Math.min(...values),
+      max: Math.max(...values),
+      tolerance: Math.round((100 - mean) * 10) / 10
+    };
+  });
+}
+
+function filteredDiaportheGroups() {
+  const query = normalize(state.diaportheQuery);
+  return diaportheGroups().filter((group) => {
+    const matchesCoverage = state.diaportheCoverage !== "DUPLAS" || group.evaluations.length > 1;
+    const matchesQuery = !query || normalize(`${group.cultivar} ${group.empresa}`).includes(query);
+    return matchesCoverage && matchesQuery;
+  });
+}
+
+function breakageReading(value) {
+  if (value <= 5) return { label: "Muito baixa", tone: "very-low" };
+  if (value <= 15) return { label: "Baixa", tone: "low" };
+  if (value <= 30) return { label: "Moderada", tone: "moderate" };
+  if (value <= 50) return { label: "Alta", tone: "high" };
+  return { label: "Muito alta", tone: "very-high" };
+}
+
+function renderDiaportheMetrics() {
+  const values = diaportheData.avaliacoes.map((evaluation) => evaluation.quebramento);
+  $("#metric-diaporthe-evaluations").textContent = formatNumber(diaportheData.meta.totalAvaliacoes || values.length);
+  $("#metric-diaporthe-cultivars").textContent = formatNumber(diaportheData.meta.totalCultivares || diaportheGroups().length);
+  $("#metric-diaporthe-paired").textContent = formatNumber(diaportheData.meta.cultivaresDuasPopulacoes || 0);
+  $("#metric-diaporthe-lowest").textContent = `${formatDecimal(Math.min(...values))}%`;
+}
+
+function diaportheScatterSvg(groups) {
+  if (!groups.length) return '<div class="empty-state"><strong>Nenhuma cultivar encontrada.</strong><span>Ajuste a busca ou o filtro de cobertura.</span></div>';
+
+  const width = 920;
+  const height = 470;
+  const plot = { left: 70, top: 28, right: 28, bottom: 68 };
+  const plotWidth = width - plot.left - plot.right;
+  const plotHeight = height - plot.top - plot.bottom;
+  const minPopulation = 140;
+  const maxPopulation = 320;
+  const x = (value) => plot.left + ((value - minPopulation) / (maxPopulation - minPopulation)) * plotWidth;
+  const y = (value) => plot.top + (1 - value / 100) * plotHeight;
+  const populationTicks = [150, 180, 210, 240, 270, 300];
+  const breakageTicks = [0, 20, 40, 60, 80, 100];
+  const bands = [
+    { from: 0, to: 15, className: "band-very-low" },
+    { from: 15, to: 30, className: "band-low" },
+    { from: 30, to: 50, className: "band-moderate" },
+    { from: 50, to: 100, className: "band-high" }
+  ]
+    .map((band) => `<rect class="diaporthe-band ${band.className}" x="${plot.left}" y="${y(band.to)}" width="${plotWidth}" height="${y(band.from) - y(band.to)}" />`)
+    .join("");
+  const horizontalGrid = breakageTicks
+    .map((tick) => `
+      <line class="diaporthe-grid-line" x1="${plot.left}" x2="${width - plot.right}" y1="${y(tick)}" y2="${y(tick)}" />
+      <text class="diaporthe-axis-label" x="${plot.left - 14}" y="${y(tick) + 4}" text-anchor="end">${tick}%</text>
+    `)
+    .join("");
+  const verticalGrid = populationTicks
+    .map((tick) => `
+      <line class="diaporthe-grid-line" x1="${x(tick)}" x2="${x(tick)}" y1="${plot.top}" y2="${height - plot.bottom}" />
+      <text class="diaporthe-axis-label" x="${x(tick)}" y="${height - plot.bottom + 25}" text-anchor="middle">${tick}</text>
+    `)
+    .join("");
+  const series = groups
+    .map((group) => {
+      const points = group.evaluations.map((evaluation) => `${x(evaluation.populacao)},${y(evaluation.quebramento)}`).join(" ");
+      const line = group.evaluations.length > 1
+        ? `<polyline class="diaporthe-series-line" points="${points}" style="--series-color:${group.color}" />`
+        : "";
+      const markers = group.evaluations
+        .map((evaluation) => `
+          <circle class="diaporthe-point-halo" cx="${x(evaluation.populacao)}" cy="${y(evaluation.quebramento)}" r="9" />
+          <circle class="diaporthe-point" cx="${x(evaluation.populacao)}" cy="${y(evaluation.quebramento)}" r="6" style="--series-color:${group.color}">
+            <title>${escapeHtml(group.cultivar)} · população ${formatDecimal(evaluation.populacao)} · ${formatDecimal(evaluation.quebramento)}% de quebramento</title>
+          </circle>
+        `)
+        .join("");
+      return `${line}${markers}`;
+    })
+    .join("");
+
+  return `
+    <svg class="diaporthe-scatter" viewBox="0 0 ${width} ${height}" role="img" aria-label="Gráfico de população por percentual de quebramento de hastes">
+      ${bands}
+      ${horizontalGrid}
+      ${verticalGrid}
+      <line class="diaporthe-axis" x1="${plot.left}" x2="${width - plot.right}" y1="${height - plot.bottom}" y2="${height - plot.bottom}" />
+      <line class="diaporthe-axis" x1="${plot.left}" x2="${plot.left}" y1="${plot.top}" y2="${height - plot.bottom}" />
+      ${series}
+      <text class="diaporthe-axis-title" x="${plot.left + plotWidth / 2}" y="${height - 17}" text-anchor="middle">População informada na planilha</text>
+      <text class="diaporthe-axis-title" x="18" y="${plot.top + plotHeight / 2}" text-anchor="middle" transform="rotate(-90 18 ${plot.top + plotHeight / 2})">Quebramento de hastes (%)</text>
+    </svg>
+  `;
+}
+
+function renderDiaportheLegend(groups) {
+  $("#diaporthe-legend").innerHTML = groups
+    .map((group) => `
+      <span class="diaporthe-legend-item" style="--series-color:${group.color}">
+        <i></i>${escapeHtml(group.cultivar)}
+      </span>
+    `)
+    .join("");
+}
+
+function renderDiaportheRanking(groups) {
+  const ranked = [...groups].sort((a, b) => b.tolerance - a.tolerance || a.cultivar.localeCompare(b.cultivar, "pt-BR"));
+  $("#diaporthe-ranking").innerHTML = ranked.length
+    ? ranked.map((group, index) => `
+      <article class="diaporthe-rank-card" style="--series-color:${group.color}">
+        <header>
+          <span class="diaporthe-rank-position">${index + 1}</span>
+          <div>
+            <strong>${escapeHtml(group.cultivar)}</strong>
+            <small>${escapeHtml(group.empresa)} · ${group.evaluations.length} ${group.evaluations.length > 1 ? "avaliações" : "avaliação"}</small>
+          </div>
+          <b>${formatDecimal(group.tolerance)}</b>
+        </header>
+        <div class="diaporthe-tolerance-track" aria-label="Índice visual de tolerância observada: ${formatDecimal(group.tolerance)} de 100">
+          <span style="width:${Math.max(2, group.tolerance)}%"></span>
+        </div>
+        <footer>
+          <span>Quebra média <strong>${formatDecimal(group.mean)}%</strong></span>
+          <span>Pop. ${group.evaluations.map((evaluation) => formatDecimal(evaluation.populacao)).join(" / ")}</span>
+        </footer>
+      </article>
+    `).join("")
+    : '<div class="empty-state"><strong>Sem dados para o filtro.</strong></div>';
+}
+
+function renderDiaporthePaired(groups) {
+  const paired = groups.filter((group) => group.evaluations.length > 1);
+  $("#diaporthe-paired").innerHTML = paired.length
+    ? paired.map((group) => {
+      const first = group.evaluations[0];
+      const last = group.evaluations[group.evaluations.length - 1];
+      const delta = Math.round((last.quebramento - first.quebramento) * 10) / 10;
+      const direction = delta < 0 ? "improved" : delta > 0 ? "worsened" : "stable";
+      const signal = delta > 0 ? "+" : "";
+      return `
+        <article class="diaporthe-pair-card ${direction}" style="--series-color:${group.color}">
+          <header><i></i><strong>${escapeHtml(group.cultivar)}</strong><span>${escapeHtml(group.empresa)}</span></header>
+          <div class="diaporthe-pair-values">
+            <span><small>Pop. ${formatDecimal(first.populacao)}</small><b>${formatDecimal(first.quebramento)}%</b></span>
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-4-4 4 4-4 4"/></svg>
+            <span><small>Pop. ${formatDecimal(last.populacao)}</small><b>${formatDecimal(last.quebramento)}%</b></span>
+          </div>
+          <footer><span>Variação observada</span><strong>${signal}${formatDecimal(delta)} p.p.</strong></footer>
+        </article>
+      `;
+    }).join("")
+    : '<div class="empty-state"><strong>Nenhuma comparação direta encontrada.</strong><span>Use o filtro “Duas populações” ou ajuste a busca.</span></div>';
+}
+
+function renderDiaportheTable(groups) {
+  const groupMap = new Map(groups.map((group) => [group.key, group]));
+  const evaluations = diaportheData.avaliacoes
+    .filter((evaluation) => groupMap.has(normalize(evaluation.cultivar.trim())))
+    .sort((a, b) => a.quebramento - b.quebramento || a.numero - b.numero);
+  const rows = evaluations.map((evaluation) => {
+    const group = groupMap.get(normalize(evaluation.cultivar.trim()));
+    const reading = breakageReading(evaluation.quebramento);
+    return `
+      <tr>
+        <td><span class="diaporthe-cultivar-cell" style="--series-color:${group.color}"><i></i><strong>${escapeHtml(evaluation.cultivar.trim())}</strong></span></td>
+        <td>${escapeHtml(evaluation.empresa)}</td>
+        <td>${formatDecimal(evaluation.populacao)}</td>
+        <td><strong>${formatDecimal(evaluation.quebramento)}%</strong></td>
+        <td>${escapeHtml(evaluation.maturacao)}</td>
+        <td>${formatDecimal(evaluation.pmg)}</td>
+        <td><span class="breakage-reading ${reading.tone}">${reading.label}</span></td>
+      </tr>
+    `;
+  }).join("");
+
+  $("#diaporthe-table").innerHTML = evaluations.length
+    ? `
+      <table class="diaporthe-data-table">
+        <thead><tr><th>Cultivar</th><th>Empresa</th><th>População</th><th>Quebramento</th><th>Maturação</th><th>PMG</th><th>Ocorrência</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `
+    : '<div class="empty-state"><strong>Nenhuma avaliação encontrada.</strong></div>';
+}
+
+function renderDiaporthe() {
+  const groups = filteredDiaportheGroups();
+  const totalEvaluations = groups.reduce((total, group) => total + group.evaluations.length, 0);
+  $("#diaporthe-result-count").textContent = `${groups.length} cultivares · ${totalEvaluations} avaliações`;
+  $("#diaporthe-scatter").innerHTML = diaportheScatterSvg(groups);
+  renderDiaportheLegend(groups);
+  renderDiaportheRanking(groups);
+  renderDiaporthePaired(groups);
+  renderDiaportheTable(groups);
+  $("#diaporthe-method").innerHTML = `
+    <strong>Critério de leitura</strong>
+    <p>${escapeHtml(diaportheData.meta.criterio)}</p>
+    <span>Fonte: ${escapeHtml(diaportheData.meta.fonte)} · Produtor: ${escapeHtml(diaportheData.meta.produtor)} · Plantio: ${escapeHtml(diaportheData.meta.plantio)}</span>
+  `;
 }
 
 function renderResearchView() {
@@ -1438,7 +1693,7 @@ function bindEvents() {
   $(".workspace-tabs").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-workspace]");
     if (!button) return;
-    if (button.dataset.workspace === "pesquisa" && !canAccessResearch()) return;
+    if (["pesquisa", "diaporthe"].includes(button.dataset.workspace) && !canAccessResearch()) return;
     state.workspace = button.dataset.workspace;
     renderWorkspace();
   });
@@ -1454,6 +1709,19 @@ function bindEvents() {
     state.protocolQuery = event.target.value;
     renderProtocolList();
     renderProtocolDetail();
+  });
+
+  $("#diaporthe-search").addEventListener("input", (event) => {
+    state.diaportheQuery = event.target.value;
+    renderDiaporthe();
+  });
+
+  $(".diaporthe-coverage-tabs").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-diaporthe-coverage]");
+    if (!button) return;
+    state.diaportheCoverage = button.dataset.diaportheCoverage;
+    $$("[data-diaporthe-coverage]").forEach((item) => item.classList.toggle("active", item === button));
+    renderDiaporthe();
   });
 
   $("#protocol-list").addEventListener("click", (event) => {
@@ -1569,6 +1837,7 @@ function init() {
   const params = new URLSearchParams(window.location.search);
   const savedTheme = safeGet("exa_theme") || "dark";
   if (params.get("module") === "pesquisa") state.workspace = "pesquisa";
+  if (params.get("module") === "diaporthe") state.workspace = "diaporthe";
   if (params.get("module") === "compactacao") state.workspace = "compactacao";
   normalizeUiLabels();
   setTheme(savedTheme);
@@ -1583,6 +1852,8 @@ function init() {
   renderGeneralMap();
   renderProtocolList();
   renderProtocolDetail();
+  renderDiaportheMetrics();
+  renderDiaporthe();
   renderCompactionMetrics();
   renderCompactionAreaList();
   renderCompactionDetail();
