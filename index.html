@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#07111d" />
+    <meta name="theme-color" content="#05020d" />
     <meta
       name="description"
       content="Caderno Digital da Excelencia Consultoria para consulta offline de cultivares, protocolos e compactacao do solo."
@@ -18,19 +18,26 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=24" />
-    <link rel="stylesheet" href="./src/styles.css?v=24" />
+    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=26" />
+    <link rel="stylesheet" href="./src/styles.css?v=26" />
   </head>
   <body>
     <div id="app" class="app-shell">
       <section id="access-screen" class="access-screen" aria-label="Acesso ao caderno">
         <div class="theme-actions" aria-label="Controles">
-          <button class="icon-button" type="button" data-theme-toggle title="Alternar tema">◐</button>
-          <button class="icon-button" type="button" data-install title="Instalar PWA">↯</button>
+          <button class="icon-button" type="button" data-theme-toggle title="Alternar tema" aria-label="Alternar tema">
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 1 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+          <button class="icon-button" type="button" data-install title="Instalar PWA" aria-label="Instalar PWA">
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
+          </button>
         </div>
 
         <div class="brand-lockup">
-          <img src="./public/assets/excelencia-logo.jpg" alt="Excelencia Consultoria" class="brand-logo" />
+          <div class="brand-orbit">
+            <img src="./public/assets/excelencia-logo.jpg" alt="Excelencia Consultoria" class="brand-logo" />
+          </div>
+          <div class="access-signal"><span></span>CADERNO DIGITAL · SAFRA 2026</div>
           <div class="brand-word">E X A</div>
           <div class="brand-subtitle">EXCELENCIA AGRO</div>
         </div>
@@ -45,7 +52,12 @@
             </label>
             <label>
               <span>SENHA</span>
-              <input id="user-password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+              <span class="password-field">
+                <input id="user-password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+                <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false" title="Mostrar senha">
+                  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.75"/></svg>
+                </button>
+              </span>
             </label>
           </div>
           <p class="access-expiry">Acesso de produtor disponivel ate 22/07/2026, as 23:59 (Manaus).</p>
@@ -70,17 +82,35 @@
           </div>
           <div class="topbar-actions">
             <span id="session-role" class="session-pill"></span>
-            <button class="ghost-button logout-button" type="button" data-logout>Sair</button>
+            <button class="ghost-button logout-button" type="button" data-logout>
+              <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 4H5v16h5m5-4 4-4-4-4m4 4H9"/></svg>
+              <span>Sair</span>
+            </button>
             <span id="offline-status" class="status-pill">Online</span>
-            <button class="ghost-button" type="button" data-theme-toggle>◐ Tema</button>
-            <button class="ghost-button" type="button" data-install>↯ Instalar</button>
+            <button class="ghost-button" type="button" data-theme-toggle aria-label="Alternar tema">
+              <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a6.5 6.5 0 1 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              <span data-theme-label>Tema</span>
+            </button>
+            <button class="ghost-button" type="button" data-install aria-label="Instalar PWA">
+              <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
+              <span data-install-label>Instalar</span>
+            </button>
           </div>
         </header>
 
         <nav class="workspace-tabs" aria-label="Modulos do caderno">
-          <button class="active" type="button" data-workspace="cultivares">Cultivares</button>
-          <button type="button" data-workspace="pesquisa">Pesquisa</button>
-          <button type="button" data-workspace="compactacao">Compactação</button>
+          <button class="active" type="button" data-workspace="cultivares">
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21v-9m0 0c0-4 3-7 7-7 0 4-3 7-7 7Zm0 4c0-3-2.5-5.5-6-5.5 0 3.5 2.5 5.5 6 5.5Z"/></svg>
+            <span>Cultivares</span>
+          </button>
+          <button type="button" data-workspace="pesquisa">
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 3h6m-1 0v5l5 9a2 2 0 0 1-1.75 3H6.75A2 2 0 0 1 5 17l5-9V3m-2.5 11h9"/></svg>
+            <span>Pesquisa</span>
+          </button>
+          <button type="button" data-workspace="compactacao">
+            <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Zm-7.5 9L12 16l7.5-4M4.5 16.5 12 21l7.5-4.5"/></svg>
+            <span>Compactação</span>
+          </button>
         </nav>
 
         <section id="cultivar-module" class="workspace-module">
@@ -114,7 +144,7 @@
 
         <section class="control-band" aria-label="Filtros do caderno">
           <div class="search-field">
-            <span>⌕</span>
+            <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
             <input id="search-input" type="search" placeholder="Buscar produtor, cultivar, empresa ou produto" />
           </div>
           <div class="segmented" role="group" aria-label="Filtro de cultura">
@@ -171,7 +201,7 @@
               <button type="button" data-research-view="protocolos">Protocolos</button>
             </div>
             <div id="protocol-search-field" class="search-field" hidden>
-              <span aria-hidden="true">&#8981;</span>
+              <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
               <input id="protocol-search" type="search" placeholder="Buscar protocolo, produto ou dose" />
             </div>
           </section>
@@ -230,7 +260,7 @@
 
           <section class="control-band compaction-control" aria-label="Filtros da compactacao">
             <div class="search-field">
-              <span aria-hidden="true">&#8981;</span>
+              <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
               <input id="compaction-search" type="search" placeholder="Buscar produtor ou area" />
             </div>
             <div class="segmented compaction-crop-tabs" role="group" aria-label="Filtro de cultura da compactacao">
@@ -265,10 +295,10 @@
       </main>
     </div>
 
-    <script src="./public/vendor/leaflet/leaflet.js?v=24"></script>
-    <script src="./src/data.js?v=24"></script>
-    <script src="./src/protocols-data.js?v=24"></script>
-    <script src="./src/compaction-data.js?v=24"></script>
-    <script src="./src/app.js?v=24"></script>
+    <script src="./public/vendor/leaflet/leaflet.js?v=26"></script>
+    <script src="./src/data.js?v=26"></script>
+    <script src="./src/protocols-data.js?v=26"></script>
+    <script src="./src/compaction-data.js?v=26"></script>
+    <script src="./src/app.js?v=26"></script>
   </body>
 </html>

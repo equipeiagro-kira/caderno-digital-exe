@@ -144,7 +144,20 @@ function showAccess(message = "") {
   $("#dashboard").hidden = true;
   $("#access-screen").hidden = false;
   $("#user-password").value = "";
+  setPasswordVisibility(false);
   setAccessMessage(message);
+}
+
+function setPasswordVisibility(visible) {
+  const input = $("#user-password");
+  const button = $("[data-password-toggle]");
+  if (!input || !button) return;
+
+  input.type = visible ? "text" : "password";
+  button.classList.toggle("is-visible", visible);
+  button.setAttribute("aria-pressed", String(visible));
+  button.setAttribute("aria-label", visible ? "Ocultar senha" : "Mostrar senha");
+  button.title = visible ? "Ocultar senha" : "Mostrar senha";
 }
 
 function handleLogin() {
@@ -1331,11 +1344,11 @@ function setTheme(theme) {
   document.documentElement.classList.toggle("theme-light", theme === "light");
   document.documentElement.classList.toggle("theme-neon", theme === "neon");
   $$("[data-theme-toggle]").forEach((button) => {
-    button.textContent = button.classList.contains("icon-button")
-      ? "T"
-      : theme === "light"
-        ? "Tema escuro"
-        : "Tema claro";
+    const label = button.querySelector("[data-theme-label]");
+    const text = theme === "light" ? "Tema escuro" : "Tema claro";
+    if (label) label.textContent = text;
+    button.setAttribute("aria-label", text);
+    button.title = text;
   });
   safeSet("exa_theme", theme);
 }
@@ -1356,7 +1369,10 @@ function normalizeUiLabels() {
   const search = $("#search-input");
   if (search) search.placeholder = "Buscar variedade neste produtor";
   $$("[data-install]").forEach((button) => {
-    button.textContent = button.classList.contains("icon-button") ? "PWA" : "Instalar";
+    const label = button.querySelector("[data-install-label]");
+    if (label) label.textContent = "Instalar";
+    button.setAttribute("aria-label", "Instalar PWA");
+    button.title = "Instalar PWA";
   });
 }
 
@@ -1393,6 +1409,10 @@ function bindEvents() {
   $("#access-form").addEventListener("submit", (event) => {
     event.preventDefault();
     handleLogin();
+  });
+
+  $("[data-password-toggle]").addEventListener("click", () => {
+    setPasswordVisibility($("#user-password").type === "password");
   });
 
   $("[data-logout]").addEventListener("click", () => {
