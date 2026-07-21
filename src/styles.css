@@ -3619,8 +3619,8 @@ input:focus {
 }
 
 .workspace-tabs.producer-tabs {
-  width: min(100%, 420px);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 600px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .diaporthe-hero {
@@ -4160,5 +4160,280 @@ input:focus {
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
+  }
+}
+
+/* Diaporthe v29: lista simples com detalhes sob demanda. */
+.diaporthe-simple-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  align-items: end;
+  gap: 28px;
+  padding: 26px;
+  border-color: rgba(117, 215, 255, 0.22);
+  background:
+    linear-gradient(110deg, rgba(117, 215, 255, 0.07), transparent 44%),
+    var(--glass);
+}
+
+.diaporthe-simple-head h2 {
+  margin: 7px 0 6px;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+}
+
+.diaporthe-simple-head p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.diaporthe-simple-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.diaporthe-simple-tools #diaporthe-result-count {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  border-color: rgba(117, 215, 255, 0.22);
+  color: var(--cyan);
+  background: rgba(117, 215, 255, 0.055);
+  white-space: nowrap;
+}
+
+.diaporthe-list-panel {
+  margin-top: 14px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.diaporthe-list-heading,
+.diaporthe-evaluation > summary {
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) 110px minmax(240px, 0.9fr) 24px;
+  align-items: center;
+  gap: 18px;
+}
+
+.diaporthe-list-heading {
+  min-height: 44px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(157, 77, 255, 0.16);
+  color: var(--muted-2);
+  font-size: 0.64rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.diaporthe-simple-list {
+  display: grid;
+}
+
+.diaporthe-evaluation {
+  border-bottom: 1px solid rgba(157, 77, 255, 0.12);
+  background: rgba(255, 255, 255, 0.012);
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.diaporthe-evaluation:last-child {
+  border-bottom: 0;
+}
+
+.diaporthe-evaluation[open] {
+  border-color: color-mix(in srgb, var(--breakage-color) 28%, transparent);
+  background: color-mix(in srgb, var(--breakage-color) 4%, transparent);
+}
+
+.diaporthe-evaluation > summary {
+  min-height: 78px;
+  padding: 13px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.diaporthe-evaluation > summary::-webkit-details-marker {
+  display: none;
+}
+
+.diaporthe-evaluation > summary:hover {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.diaporthe-evaluation-name {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 9px minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 9px;
+}
+
+.diaporthe-evaluation-name i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--breakage-color);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--breakage-color) 52%, transparent);
+}
+
+.diaporthe-evaluation-name strong {
+  min-width: 0;
+  color: var(--fg);
+  font-size: 0.86rem;
+  overflow-wrap: anywhere;
+}
+
+.diaporthe-evaluation-name small {
+  grid-column: 2;
+  color: var(--muted-2);
+  font-size: 0.64rem;
+}
+
+.diaporthe-evaluation-population,
+.diaporthe-evaluation-breakage > span:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.diaporthe-evaluation-population small,
+.diaporthe-evaluation-breakage small {
+  color: var(--muted-2);
+  font-size: 0.61rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.diaporthe-evaluation-population strong {
+  color: var(--fg);
+  font-size: 0.9rem;
+}
+
+.diaporthe-evaluation-breakage {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 92px minmax(100px, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.diaporthe-evaluation-breakage strong {
+  color: var(--breakage-color);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+}
+
+.diaporthe-breakage-track {
+  display: block;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.theme-light .diaporthe-breakage-track {
+  border-color: rgba(34, 22, 53, 0.08);
+  background: rgba(34, 22, 53, 0.075);
+}
+
+.diaporthe-breakage-track i {
+  display: block;
+  width: var(--breakage-size);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--breakage-color);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--breakage-color) 54%, transparent);
+  transition: width 260ms ease;
+}
+
+.diaporthe-chevron {
+  width: 19px;
+  color: var(--muted-2);
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.diaporthe-evaluation[open] .diaporthe-chevron {
+  color: var(--breakage-color);
+  transform: rotate(180deg);
+}
+
+.diaporthe-evaluation-details {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 20px 18px 48px;
+}
+
+.diaporthe-evaluation-details article {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  border: 1px solid rgba(157, 77, 255, 0.14);
+  border-radius: 7px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.022);
+}
+
+.diaporthe-evaluation-details span {
+  color: var(--muted-2);
+  font-size: 0.59rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.diaporthe-evaluation-details strong {
+  color: var(--fg);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 820px) {
+  .diaporthe-simple-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .diaporthe-evaluation-details {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .diaporthe-simple-head {
+    padding: 18px;
+  }
+
+  .diaporthe-simple-tools {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .diaporthe-simple-tools #diaporthe-result-count {
+    min-height: 0;
+    justify-self: start;
+  }
+
+  .diaporthe-list-heading {
+    display: none;
+  }
+
+  .diaporthe-evaluation > summary {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) auto 20px;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .diaporthe-evaluation-breakage {
+    grid-column: 1 / -1;
+    grid-template-columns: 94px minmax(0, 1fr);
+  }
+
+  .diaporthe-evaluation-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 15px 15px;
   }
 }

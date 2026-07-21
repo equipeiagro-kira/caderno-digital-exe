@@ -18,8 +18,8 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=28" />
-    <link rel="stylesheet" href="./src/styles.css?v=28" />
+    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=29" />
+    <link rel="stylesheet" href="./src/styles.css?v=29" />
   </head>
   <body>
     <div id="app" class="app-shell">
@@ -240,89 +240,28 @@
         </section>
 
         <section id="diaporthe-module" class="workspace-module" hidden>
-          <section class="hero-panel diaporthe-hero">
+          <section class="panel diaporthe-simple-head">
             <div>
-              <p class="eyebrow">FITOPATOLOGIA · ARISON JUNG</p>
-              <h2>Resposta de cultivares ao quebramento de hastes</h2>
-              <p>Leitura comparativa por população para apoiar a triagem visual de tolerância observada à Diaporthe.</p>
+              <p class="eyebrow">DIAPORTHE · ARISON JUNG</p>
+              <h2>Quebramento de hastes</h2>
+              <p>Toque em uma cultivar para consultar os demais dados da avaliação.</p>
             </div>
-            <div class="hero-metrics" aria-label="Resumo das avaliações de Diaporthe">
-              <article>
-                <span>Avaliações</span>
-                <strong id="metric-diaporthe-evaluations">0</strong>
-              </article>
-              <article>
-                <span>Cultivares</span>
-                <strong id="metric-diaporthe-cultivars">0</strong>
-              </article>
-              <article>
-                <span>Duas populações</span>
-                <strong id="metric-diaporthe-paired">0</strong>
-              </article>
-              <article>
-                <span>Menor quebramento</span>
-                <strong id="metric-diaporthe-lowest">0%</strong>
-              </article>
+            <div class="diaporthe-simple-tools">
+              <div class="search-field">
+                <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+                <input id="diaporthe-search" type="search" placeholder="Buscar cultivar ou empresa" />
+              </div>
+              <span id="diaporthe-result-count" class="source-badge">0 avaliações</span>
             </div>
           </section>
 
-          <section class="control-band diaporthe-control" aria-label="Filtros das avaliações de Diaporthe">
-            <div class="search-field">
-              <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
-              <input id="diaporthe-search" type="search" placeholder="Buscar cultivar ou empresa" />
+          <section class="panel diaporthe-list-panel" aria-label="Avaliações de quebramento de hastes">
+            <div class="diaporthe-list-heading" aria-hidden="true">
+              <span>Cultivar</span>
+              <span>População</span>
+              <span>Quebramento de hastes</span>
             </div>
-            <div class="segmented diaporthe-coverage-tabs" role="group" aria-label="Cobertura das avaliações">
-              <button class="active" type="button" data-diaporthe-coverage="TODAS">Todas</button>
-              <button type="button" data-diaporthe-coverage="DUPLAS">Duas populações</button>
-            </div>
-          </section>
-
-          <section class="panel diaporthe-chart-panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">POPULAÇÃO × QUEBRAMENTO</p>
-                <h3>Resposta observada em campo</h3>
-              </div>
-              <span id="diaporthe-result-count">0</span>
-            </div>
-            <div id="diaporthe-scatter" class="diaporthe-chart-shell"></div>
-            <div id="diaporthe-legend" class="diaporthe-legend" aria-label="Cores das cultivares"></div>
-          </section>
-
-          <section class="diaporthe-insight-grid">
-            <section class="panel diaporthe-ranking-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">TRIAGEM VISUAL</p>
-                  <h3>Tolerância observada</h3>
-                </div>
-                <span class="source-badge">Menor quebra = maior índice</span>
-              </div>
-              <div id="diaporthe-ranking" class="diaporthe-ranking"></div>
-            </section>
-
-            <section class="panel diaporthe-paired-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">COMPARAÇÃO DIRETA</p>
-                  <h3>Resposta entre populações</h3>
-                </div>
-                <span class="source-badge">9 cultivares</span>
-              </div>
-              <div id="diaporthe-paired" class="diaporthe-paired-grid"></div>
-            </section>
-          </section>
-
-          <section class="panel diaporthe-table-panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">DADOS DE CAMPO</p>
-                <h3>Avaliações individuais</h3>
-              </div>
-              <span class="source-badge">Plantio 10/05/2026</span>
-            </div>
-            <div id="diaporthe-table" class="diaporthe-table-shell"></div>
-            <div id="diaporthe-method" class="diaporthe-method"></div>
+            <div id="diaporthe-list" class="diaporthe-simple-list"></div>
           </section>
         </section>
 
@@ -386,11 +325,11 @@
       </main>
     </div>
 
-    <script src="./public/vendor/leaflet/leaflet.js?v=28"></script>
-    <script src="./src/data.js?v=28"></script>
-    <script src="./src/protocols-data.js?v=28"></script>
-    <script src="./src/compaction-data.js?v=28"></script>
-    <script src="./src/diaporthe-data.js?v=28"></script>
-    <script src="./src/app.js?v=28"></script>
+    <script src="./public/vendor/leaflet/leaflet.js?v=29"></script>
+    <script src="./src/data.js?v=29"></script>
+    <script src="./src/protocols-data.js?v=29"></script>
+    <script src="./src/compaction-data.js?v=29"></script>
+    <script src="./src/diaporthe-data.js?v=29"></script>
+    <script src="./src/app.js?v=29"></script>
   </body>
 </html>

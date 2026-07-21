@@ -25,7 +25,6 @@ const state = {
   compactionTab: "resumo",
   compactionMapLayer: "vegetacao",
   diaportheQuery: "",
-  diaportheCoverage: "TODAS",
   sessionRole: null,
   deferredPrompt: null
 };
@@ -134,12 +133,10 @@ function applyAccessPolicy() {
   const workspaceTabs = $(".workspace-tabs");
   if (workspaceTabs) workspaceTabs.classList.toggle("producer-tabs", producerRestricted);
 
-  ["pesquisa", "diaporthe"].forEach((workspace) => {
-    const button = $(`[data-workspace='${workspace}']`);
-    if (button) button.hidden = producerRestricted;
-  });
+  const researchButton = $("[data-workspace='pesquisa']");
+  if (researchButton) researchButton.hidden = producerRestricted;
 
-  if (producerRestricted && ["pesquisa", "diaporthe"].includes(state.workspace)) {
+  if (producerRestricted && state.workspace === "pesquisa") {
     state.workspace = "cultivares";
   }
 
@@ -800,6 +797,56 @@ function renderDiaporthe() {
     <p>${escapeHtml(diaportheData.meta.criterio)}</p>
     <span>Fonte: ${escapeHtml(diaportheData.meta.fonte)} · Produtor: ${escapeHtml(diaportheData.meta.produtor)} · Plantio: ${escapeHtml(diaportheData.meta.plantio)}</span>
   `;
+}
+
+function diaportheBarColor(value) {
+  if (value <= 10) return "#08dc79";
+  if (value <= 30) return "#75d7ff";
+  if (value <= 50) return "#f4d35e";
+  return "#ff6b8a";
+}
+
+function renderDiaportheSimple() {
+  const query = normalize(state.diaportheQuery);
+  const evaluations = diaportheData.avaliacoes
+    .filter((evaluation) => !query || normalize(`${evaluation.cultivar} ${evaluation.empresa} ${evaluation.populacao}`).includes(query))
+    .sort((a, b) => a.numero - b.numero);
+
+  $("#diaporthe-result-count").textContent = `${evaluations.length} ${evaluations.length === 1 ? "avaliação" : "avaliações"}`;
+  $("#diaporthe-list").innerHTML = evaluations.length
+    ? evaluations.map((evaluation) => {
+      const breakage = Math.max(0, Math.min(100, Number(evaluation.quebramento) || 0));
+      const color = diaportheBarColor(breakage);
+      return `
+        <details class="diaporthe-evaluation" style="--breakage-color:${color};--breakage-size:${breakage}%">
+          <summary>
+            <span class="diaporthe-evaluation-name">
+              <i aria-hidden="true"></i>
+              <strong>${escapeHtml(evaluation.cultivar.trim())}</strong>
+              <small>Ver dados</small>
+            </span>
+            <span class="diaporthe-evaluation-population">
+              <small>População</small>
+              <strong>${formatDecimal(evaluation.populacao)}</strong>
+            </span>
+            <span class="diaporthe-evaluation-breakage">
+              <span><small>Quebramento</small><strong>${formatDecimal(breakage)}%</strong></span>
+              <span class="diaporthe-breakage-track" role="progressbar" aria-label="${formatDecimal(breakage)}% de quebramento de hastes" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${breakage}"><i></i></span>
+            </span>
+            <svg class="ui-icon diaporthe-chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+          </summary>
+          <div class="diaporthe-evaluation-details">
+            <article><span>Empresa</span><strong>${escapeHtml(evaluation.empresa)}</strong></article>
+            <article><span>PMG</span><strong>${formatDecimal(evaluation.pmg)}</strong></article>
+            <article><span>Maturação</span><strong>${escapeHtml(evaluation.maturacao)}</strong></article>
+            <article><span>População</span><strong>${formatDecimal(evaluation.populacao)}</strong></article>
+            <article><span>Plantio</span><strong>${escapeHtml(diaportheData.meta.plantio)}</strong></article>
+            <article><span>Produtor</span><strong>${escapeHtml(diaportheData.meta.produtor)}</strong></article>
+          </div>
+        </details>
+      `;
+    }).join("")
+    : '<div class="empty-state"><strong>Nenhuma avaliação encontrada.</strong><span>Confira o nome informado na busca.</span></div>';
 }
 
 function renderResearchView() {
@@ -1693,7 +1740,7 @@ function bindEvents() {
   $(".workspace-tabs").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-workspace]");
     if (!button) return;
-    if (["pesquisa", "diaporthe"].includes(button.dataset.workspace) && !canAccessResearch()) return;
+    if (button.dataset.workspace === "pesquisa" && !canAccessResearch()) return;
     state.workspace = button.dataset.workspace;
     renderWorkspace();
   });
@@ -1713,15 +1760,7 @@ function bindEvents() {
 
   $("#diaporthe-search").addEventListener("input", (event) => {
     state.diaportheQuery = event.target.value;
-    renderDiaporthe();
-  });
-
-  $(".diaporthe-coverage-tabs").addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-diaporthe-coverage]");
-    if (!button) return;
-    state.diaportheCoverage = button.dataset.diaportheCoverage;
-    $$("[data-diaporthe-coverage]").forEach((item) => item.classList.toggle("active", item === button));
-    renderDiaporthe();
+    renderDiaportheSimple();
   });
 
   $("#protocol-list").addEventListener("click", (event) => {
@@ -1852,8 +1891,7 @@ function init() {
   renderGeneralMap();
   renderProtocolList();
   renderProtocolDetail();
-  renderDiaportheMetrics();
-  renderDiaporthe();
+  renderDiaportheSimple();
   renderCompactionMetrics();
   renderCompactionAreaList();
   renderCompactionDetail();
