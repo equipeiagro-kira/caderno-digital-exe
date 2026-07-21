@@ -225,7 +225,7 @@ label span {
 
 .access-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   min-width: 0;
   padding: 28px 22px;
   border-radius: 20px;
@@ -245,10 +245,31 @@ label span {
   font-size: 1.45rem;
 }
 
-.access-card p {
+.access-card .access-intro {
   margin: 12px 0 26px;
   color: #b4d6e7;
   line-height: 1.45;
+}
+
+.access-fields {
+  display: grid;
+  gap: 18px;
+}
+
+.access-expiry {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.access-error {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: #ff9b9b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 label {
@@ -286,7 +307,7 @@ input:focus {
 .primary-button {
   width: 100%;
   min-height: 58px;
-  margin-top: 34px;
+  margin-top: 14px;
   border: 0;
   border-radius: 12px;
   color: #06131c;
@@ -420,6 +441,24 @@ input:focus {
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 2px;
+}
+
+.session-pill {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  padding: 0 11px;
+  color: var(--green);
+  background: var(--green-soft);
+  font-size: 0.74rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.logout-button {
+  color: var(--muted);
 }
 
 .ghost-button,

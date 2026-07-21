@@ -14,6 +14,9 @@ const TRIALS = [
 ];
 
 const CULTIVAR_TOTALS = { SOJA: 27, MILHO: 32 };
+const CULTIVAR_CORRECTIONS = {
+  "milho-jung": { "p 3701": "P 3707" },
+};
 
 const inputPath = path.resolve(process.argv[2] || "Teste de Cultivares 2026 - ATUALIZADO.xlsx");
 const outputPath = path.resolve(process.argv[3] || "src/data.js");
@@ -147,9 +150,10 @@ function parseTrial(values, config, sourceName) {
     .map((row, rowIndex) => ({ row, rowIndex }))
     .filter(({ row, rowIndex }) => rowIndex > headerRowIndex && Number.isFinite(Number(row[0])) && Number(row[0]) > 0)
     .map(({ row, rowIndex }) => {
+      const sourceCultivar = cleanText(row[cultivarColumn]);
       const treatment = {
         numero: Number(row[0]),
-        cultivar: cleanText(row[cultivarColumn]),
+        cultivar: CULTIVAR_CORRECTIONS[config.id]?.[normalize(sourceCultivar)] || sourceCultivar,
         empresa: cleanText(row[companyColumn]),
       };
 

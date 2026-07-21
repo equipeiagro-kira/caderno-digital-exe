@@ -18,8 +18,8 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./public/assets/icon-192.png" />
     <link rel="icon" href="./public/assets/icon-192.png" />
-    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=23" />
-    <link rel="stylesheet" href="./src/styles.css?v=23" />
+    <link rel="stylesheet" href="./public/vendor/leaflet/leaflet.css?v=24" />
+    <link rel="stylesheet" href="./src/styles.css?v=24" />
   </head>
   <body>
     <div id="app" class="app-shell">
@@ -37,11 +37,19 @@
 
         <form class="access-card" id="access-form">
           <h1>Acessar caderno</h1>
-          <p>Use seu nome para salvar preferencia local neste dispositivo.</p>
-          <label>
-            <span>USUARIO</span>
-            <input id="user-name" name="userName" autocomplete="name" placeholder="tecnico@empresa.com" />
-          </label>
+          <p class="access-intro">Entre com as credenciais fornecidas pela Excelencia.</p>
+          <div class="access-fields">
+            <label>
+              <span>USUARIO</span>
+              <input id="user-name" name="userName" autocomplete="username" placeholder="Digite seu usuario" required />
+            </label>
+            <label>
+              <span>SENHA</span>
+              <input id="user-password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+            </label>
+          </div>
+          <p class="access-expiry">Acesso de produtor disponivel ate 22/07/2026, as 23:59 (Manaus).</p>
+          <p id="access-error" class="access-error" role="alert" aria-live="polite"></p>
           <button class="primary-button" type="submit">ENTRAR NA PLATAFORMA</button>
         </form>
 
@@ -61,6 +69,8 @@
             </div>
           </div>
           <div class="topbar-actions">
+            <span id="session-role" class="session-pill"></span>
+            <button class="ghost-button logout-button" type="button" data-logout>Sair</button>
             <span id="offline-status" class="status-pill">Online</span>
             <button class="ghost-button" type="button" data-theme-toggle>◐ Tema</button>
             <button class="ghost-button" type="button" data-install>↯ Instalar</button>
@@ -255,19 +265,10 @@
       </main>
     </div>
 
-    <script>
-      if (new URLSearchParams(location.search).get("view") === "dashboard") {
-        document.getElementById("access-screen").hidden = true;
-        document.getElementById("dashboard").hidden = false;
-        try {
-          localStorage.setItem("exa_accessed", "true");
-        } catch {}
-      }
-    </script>
-    <script src="./public/vendor/leaflet/leaflet.js?v=23"></script>
-    <script src="./src/data.js?v=23"></script>
-    <script src="./src/protocols-data.js?v=23"></script>
-    <script src="./src/compaction-data.js?v=23"></script>
-    <script src="./src/app.js?v=23"></script>
+    <script src="./public/vendor/leaflet/leaflet.js?v=24"></script>
+    <script src="./src/data.js?v=24"></script>
+    <script src="./src/protocols-data.js?v=24"></script>
+    <script src="./src/compaction-data.js?v=24"></script>
+    <script src="./src/app.js?v=24"></script>
   </body>
 </html>

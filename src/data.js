@@ -5,7 +5,7 @@ window.EXA_DATA = {
     "fontePrincipal": "Teste de Cultivares 2026 - ATUALIZADO.xlsx",
     "totalEnsaios": 8,
     "totalTratamentos": 210,
-    "totalCultivaresUnicas": 75,
+    "totalCultivaresUnicas": 74,
     "totalCultivaresSoja": 27,
     "totalCultivaresMilho": 32,
     "totalProdutosManejo": 107,
@@ -2671,7 +2671,7 @@ window.EXA_DATA = {
         },
         {
           "numero": 2,
-          "cultivar": "P 3701",
+          "cultivar": "P 3707",
           "empresa": "PIONEER",
           "populacao": 70000,
           "id": "milho-jung-2",
@@ -4169,18 +4169,11 @@ window.EXA_DATA = {
       ]
     },
     {
-      "cultivar": "P 3701",
-      "empresa": "PIONEER",
-      "cultura": "MILHO",
-      "ensaios": [
-        "milho-jung"
-      ]
-    },
-    {
       "cultivar": "P 3707",
       "empresa": "PIONEER",
       "cultura": "MILHO",
       "ensaios": [
+        "milho-jung",
         "milho-pazinato",
         "milho-ivo"
       ]

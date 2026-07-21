@@ -2,6 +2,13 @@ const data = window.EXA_DATA || { resumo: {}, ensaios: [], cultivares: [] };
 const protocolData = window.EXA_PROTOCOL_DATA || { meta: {}, croquiGeral: [], protocolos: [] };
 const compactionData = window.EXA_COMPACTION_DATA || { meta: {}, areas: [] };
 
+const SESSION_KEY = "exa_session";
+const PRODUCER_ACCESS_END = new Date("2026-07-23T00:00:00-04:00").getTime();
+const ACCESS_PROFILES = [
+  { username: "produtor", password: "exe2026", role: "producer", label: "Produtor" },
+  { username: "adm", password: "exeadm@2026", role: "technician", label: "Tecnico" }
+];
+
 const state = {
   selectedCrop: "TODAS",
   query: "",
@@ -16,6 +23,7 @@ const state = {
   selectedCompactionAreaId: compactionData.areas[0]?.id || null,
   compactionTab: "resumo",
   compactionMapLayer: "vegetacao",
+  sessionRole: null,
   deferredPrompt: null
 };
 
@@ -54,6 +62,115 @@ function safeSet(key, value) {
     return false;
   }
   return true;
+}
+
+function safeRemove(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch {}
+}
+
+function isProducerAccessOpen(now = new Date()) {
+  return now.getTime() < PRODUCER_ACCESS_END;
+}
+
+function profileForCredentials(username, password) {
+  const normalizedUsername = normalize(username);
+  return ACCESS_PROFILES.find(
+    (profile) => profile.username === normalizedUsername && profile.password === password
+  ) || null;
+}
+
+function profileForSession(session) {
+  return ACCESS_PROFILES.find(
+    (profile) => profile.role === session?.role && profile.username === session?.username
+  ) || null;
+}
+
+function readSession() {
+  const rawSession = safeGet(SESSION_KEY);
+  if (!rawSession) return null;
+
+  try {
+    const profile = profileForSession(JSON.parse(rawSession));
+    if (!profile || (profile.role === "producer" && !isProducerAccessOpen())) {
+      safeRemove(SESSION_KEY);
+      return null;
+    }
+    return profile;
+  } catch {
+    safeRemove(SESSION_KEY);
+    return null;
+  }
+}
+
+function saveSession(profile) {
+  safeSet(SESSION_KEY, JSON.stringify({
+    username: profile.username,
+    role: profile.role,
+    authenticatedAt: new Date().toISOString()
+  }));
+}
+
+function clearSession() {
+  safeRemove(SESSION_KEY);
+  state.sessionRole = null;
+}
+
+function canAccessResearch() {
+  return state.sessionRole === "technician";
+}
+
+function setAccessMessage(message = "") {
+  const error = $("#access-error");
+  if (error) error.textContent = message;
+}
+
+function applyAccessPolicy() {
+  const producerRestricted = state.sessionRole === "producer";
+  const researchButton = $("[data-workspace='pesquisa']");
+  if (researchButton) researchButton.hidden = producerRestricted;
+
+  if (producerRestricted && state.workspace === "pesquisa") {
+    state.workspace = "cultivares";
+  }
+
+  const profile = ACCESS_PROFILES.find((item) => item.role === state.sessionRole);
+  const rolePill = $("#session-role");
+  if (rolePill) rolePill.textContent = profile?.label || "";
+}
+
+function showAccess(message = "") {
+  $("#dashboard").hidden = true;
+  $("#access-screen").hidden = false;
+  $("#user-password").value = "";
+  setAccessMessage(message);
+}
+
+function handleLogin() {
+  const username = $("#user-name").value.trim();
+  const password = $("#user-password").value;
+  const profile = profileForCredentials(username, password);
+
+  if (!profile) {
+    setAccessMessage("Usuario ou senha incorretos.");
+    return;
+  }
+
+  if (profile.role === "producer" && !isProducerAccessOpen()) {
+    clearSession();
+    setAccessMessage("O acesso temporario de produtor encerrou em 22/07/2026, as 23:59.");
+    return;
+  }
+
+  saveSession(profile);
+  showDashboard(profile);
+}
+
+function enforceSessionAccess() {
+  if (state.sessionRole !== "producer" || isProducerAccessOpen()) return;
+  clearSession();
+  showAccess("O acesso temporario de produtor expirou.");
 }
 
 function formatNumber(value) {
@@ -408,6 +525,7 @@ function renderResearchMetrics() {
 }
 
 function renderWorkspace() {
+  applyAccessPolicy();
   $("#cultivar-module").hidden = state.workspace !== "cultivares";
   $("#research-module").hidden = state.workspace !== "pesquisa";
   $("#compaction-module").hidden = state.workspace !== "compactacao";
@@ -1193,12 +1311,13 @@ function showCompactionPoint(area, point) {
   modal.classList.add("show");
 }
 
-function showDashboard() {
+function showDashboard(profile) {
+  state.sessionRole = profile.role;
+  applyAccessPolicy();
+  renderWorkspace();
   $("#access-screen").hidden = true;
   $("#dashboard").hidden = false;
-  safeSet("exa_accessed", "true");
-  const name = $("#user-name").value.trim();
-  if (name) safeSet("exa_user", name);
+  setAccessMessage();
 }
 
 function updateConnectivity() {
@@ -1273,7 +1392,13 @@ function showInstallHelp() {
 function bindEvents() {
   $("#access-form").addEventListener("submit", (event) => {
     event.preventDefault();
-    showDashboard();
+    handleLogin();
+  });
+
+  $("[data-logout]").addEventListener("click", () => {
+    clearSession();
+    state.workspace = "cultivares";
+    showAccess();
   });
 
   $("#search-input").addEventListener("input", (event) => {
@@ -1293,6 +1418,7 @@ function bindEvents() {
   $(".workspace-tabs").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-workspace]");
     if (!button) return;
+    if (button.dataset.workspace === "pesquisa" && !canAccessResearch()) return;
     state.workspace = button.dataset.workspace;
     renderWorkspace();
   });
@@ -1410,6 +1536,9 @@ function bindEvents() {
 
   window.addEventListener("online", updateConnectivity);
   window.addEventListener("offline", updateConnectivity);
+  window.addEventListener("focus", enforceSessionAccess);
+  document.addEventListener("visibilitychange", enforceSessionAccess);
+  window.setInterval(enforceSessionAccess, 60000);
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     state.deferredPrompt = event;
@@ -1423,7 +1552,8 @@ function init() {
   if (params.get("module") === "compactacao") state.workspace = "compactacao";
   normalizeUiLabels();
   setTheme(savedTheme);
-  $("#user-name").value = safeGet("exa_user") || "";
+  safeRemove("exa_accessed");
+  safeRemove("exa_user");
   bindEvents();
   renderMetrics();
   renderWarnings();
@@ -1441,13 +1571,9 @@ function init() {
   updateConnectivity();
   registerServiceWorker();
 
-  if (params.get("view") === "dashboard") {
-    safeSet("exa_accessed", "true");
-  }
-
-  if (safeGet("exa_accessed") === "true" || params.get("view") === "dashboard") {
-    showDashboard();
-  }
+  const session = readSession();
+  if (session) showDashboard(session);
+  else showAccess();
 }
 
 init();
